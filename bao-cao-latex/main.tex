@@ -1,0 +1,573 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+% =========================
+% Encoding, Language, Fonts
+% =========================
+\usepackage{fontspec}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\usepackage[vietnamese]{babel}
+
+% =========================
+% Page Layout and Styling
+% =========================
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3.0cm,right=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parindent}{1.2cm}
+\setlength{\parskip}{0.2em}
+
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{../cs106/outputs/}{../documents/}}
+
+\definecolor{uitblue}{RGB}{0,65,120}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{darkgray}{RGB}{60,60,60}
+
+\newcommand{\coverborder}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=0.8pt]
+      ([xshift=1.2cm,yshift=-1.2cm]current page.north west)
+      rectangle
+      ([xshift=-1.2cm,yshift=1.2cm]current page.south east);
+    \draw[line width=0.3pt]
+      ([xshift=1.35cm,yshift=-1.35cm]current page.north west)
+      rectangle
+      ([xshift=-1.35cm,yshift=1.35cm]current page.south east);
+  \end{tikzpicture}
+}
+
+\newcommand{\universitylogo}{%
+  \IfFileExists{uit.png}{%
+    \includegraphics[height=2.7cm]{uit.png}%
+  }{%
+    \begin{tikzpicture}
+      \draw[line width=0.6pt, color=uitblue] (0,0) rectangle (3.2,2.6);
+      \node[align=center, color=uitblue, font=\bfseries\small] at (1.6,1.3)
+      {LOGO\\UIT};
+    \end{tikzpicture}%
+  }%
+}
+
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  justification=centering
+}
+
+\lstdefinestyle{promptstyle}{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{lightgray},
+  frame=single,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false
+}
+
+\renewcommand{\contentsname}{MỤC LỤC}
+\renewcommand{\chaptername}{Chương}
+\renewcommand{\bibname}{TÀI LIỆU THAM KHẢO}
+\renewcommand{\figurename}{Hình}
+\renewcommand{\tablename}{Bảng}
+
+\newcommand{\projecttitle}{ĐÁNH GIÁ KHẢ NĂNG SUY LUẬN VÀ GIẢI QUYẾT BÀI TOÁN CSP CỦA LLM THÔNG QUA SUDOKU-BENCH}
+
+\begin{document}
+
+% =========================
+% Cover Page
+% =========================
+\begin{titlepage}
+  \coverborder
+  \centering
+  \vspace*{0.8cm}
+
+  {\bfseries\Large TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN}\\
+  {\bfseries\large ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}\\
+  {\bfseries\large KHOA KHOA HỌC MÁY TÍNH}
+
+  \vspace{0.8cm}
+  \universitylogo
+
+  \vspace{1.2cm}
+
+  {\bfseries\Large BÁO CÁO ĐỒ ÁN CUỐI KỲ}\\[0.4cm]
+  {\bfseries\large MÔN HỌC: CS106 - TRÍ TUỆ NHÂN TẠO}
+
+  \vspace{1.8cm}
+
+  \begin{minipage}{0.92\textwidth}
+    \centering
+    {\bfseries\Large\color{uitblue} \projecttitle}
+  \end{minipage}
+
+  \vspace{1.8cm}
+
+  \begin{tabular}{>{\bfseries}p{5.0cm}p{8.2cm}}
+    Giảng viên hướng dẫn: & Lương Ngọc Hoàng \\
+    Nhóm thực hiện: & Nhóm 4 \\
+    Thời gian thực hiện: & 02/05/2026 -- 30/05/2026 \\
+  \end{tabular}
+
+  \vspace{1.0cm}
+
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{clc}
+      \toprule
+      STT & Họ và tên & MSSV \\
+      \midrule
+      1 & Đặng Anh Khoa & 23520732 \\
+      2 & Phạm Minh Bảo Khang & 23520705 \\
+      3 & Nguyễn Khang Hy & 23520662 \\
+      4 & Phan Công Nam & 23520986 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \vfill
+  {\bfseries TP. Hồ Chí Minh, tháng 05 năm 2026}
+\end{titlepage}
+
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+% =========================
+% Abstract
+% =========================
+\chapter*{TÓM TẮT}
+\addcontentsline{toc}{chapter}{TÓM TẮT}
+
+Đồ án này nghiên cứu khả năng suy luận của các mô hình ngôn ngữ lớn (Large Language Models -- LLMs) trên lớp bài toán thỏa mãn ràng buộc (Constraint Satisfaction Problems -- CSP), thông qua việc tái hiện một phần thiết kế thực nghiệm của bài báo \textit{Sudoku-Bench: Evaluating Creative Reasoning with Sudoku Variants}. Thay vì đánh giá LLM trên các tác vụ ngôn ngữ quen thuộc, Sudoku-Bench đặt mô hình vào các bài toán có luật chặt chẽ, đòi hỏi tính nhất quán toàn cục, khả năng suy luận nhiều bước và phát hiện các điểm đột phá logic.
+
+Trong phạm vi đồ án, nhóm xây dựng một pipeline đánh giá tự động cho biến thể Killer Sudoku. Pipeline nhận dữ liệu đề bài ở định dạng JSON, chuyển đổi sang biểu diễn văn bản, gửi prompt đến LLM, phân tích phản hồi, cập nhật trạng thái lưới và đối chiếu với nghiệm chuẩn. Thực nghiệm chính được tiến hành trên 5 bài Killer Sudoku kích thước 6x6; ngoài ra, nhóm bổ sung 2 bài 9x9 như một kiểm tra mở rộng nhằm quan sát tác động của việc tăng kích thước lưới. Hai mô hình được đánh giá là Gemini 2.5 Flash và Gemini 2.5 Pro.
+
+Kết quả cho thấy trên tập 6x6, cả hai mô hình đạt tỷ lệ giải thành công 4/5. Tuy nhiên, ở các bài 9x9, cả hai mô hình đều thất bại rất sớm trong quá trình suy luận. Điều này phù hợp với nhận định của bài báo gốc rằng LLM vẫn gặp khó khăn trong việc duy trì tính nhất quán của các ràng buộc khi không gian trạng thái mở rộng. Đồ án cũng cho thấy lợi ích của cách tiếp cận multi-step: thay vì yêu cầu mô hình trả lời toàn bộ nghiệm trong một lần, hệ thống buộc mô hình phân tích và cam kết từng bước, nhờ đó tạo ra log chi tiết để phục vụ phân tích lỗi.
+
+\textbf{Từ khóa:} Constraint Satisfaction Problem, Sudoku-Bench, Killer Sudoku, Large Language Models, creative reasoning, multi-step reasoning.
+
+% =========================
+% Chapter 1
+% =========================
+\chapter{TỔNG QUAN}
+
+\section{Bối cảnh và lý do chọn đề tài}
+
+Các mô hình ngôn ngữ lớn hiện nay thể hiện năng lực ấn tượng trong nhiều tác vụ như trả lời câu hỏi, sinh văn bản, dịch máy và hỗ trợ lập trình. Tuy nhiên, việc một mô hình sinh ra lời giải có vẻ hợp lý không đồng nghĩa với việc mô hình thật sự duy trì được một chuỗi suy luận logic nhất quán. Với các bài toán cần ràng buộc nghiêm ngặt, chỉ một quyết định sai ở giai đoạn đầu có thể làm toàn bộ lời giải trở nên không hợp lệ.
+
+Sudoku và các biến thể của Sudoku là một môi trường đánh giá phù hợp cho vấn đề trên. Một lời giải Sudoku không thể đúng một phần theo nghĩa thông thường: mọi hàng, cột, khối và ràng buộc bổ sung đều phải đồng thời được thỏa mãn. Do đó, bài toán này giúp kiểm tra liệu LLM có thể vận dụng luật mới, duy trì trạng thái trung gian và thực hiện suy luận nhiều bước hay không.
+
+Bài báo \textit{Sudoku-Bench} đề xuất một benchmark gồm các Sudoku variants nhằm đánh giá năng lực suy luận sáng tạo của LLM. Nhóm chọn bài báo này làm tài liệu tham chiếu chính vì nó gắn trực tiếp với nội dung môn Trí tuệ nhân tạo, đặc biệt là lớp bài toán CSP, đồng thời cho phép tái hiện thực nghiệm ở quy mô phù hợp với điều kiện đồ án cuối kỳ.
+
+\section{Mục tiêu đồ án}
+
+Đồ án tập trung vào bốn mục tiêu chính:
+
+\begin{enumerate}[label=\arabic*.]
+  \item Nghiên cứu cơ sở lý thuyết về CSP, Sudoku variants và cách bài báo Sudoku-Bench thiết kế benchmark đánh giá LLM.
+  \item Xây dựng pipeline tự động để đưa đề Killer Sudoku vào LLM, nhận kết quả, cập nhật trạng thái và kiểm tra đúng sai.
+  \item Tái hiện một phần thực nghiệm của bài báo trên tập rút gọn gồm 5 bài 6x6 và 2 bài 9x9.
+  \item Phân tích kết quả, chỉ ra các dạng lỗi thường gặp và đánh giá giới hạn của mô hình trong suy luận dựa trên ràng buộc.
+\end{enumerate}
+
+\section{Phạm vi thực hiện}
+
+Do giới hạn thời gian, chi phí API và phạm vi đồ án môn học, nhóm không tái hiện toàn bộ benchmark của bài báo gốc. Thay vào đó, nhóm chọn một phạm vi rút gọn:
+
+\begin{itemize}
+  \item Biến thể tập trung: Killer Sudoku.
+  \item Tập chính: 5 bài Killer Sudoku 6x6.
+  \item Tập mở rộng: 2 bài Killer Sudoku 9x9.
+  \item Mô hình đánh giá: Gemini 2.5 Flash và Gemini 2.5 Pro.
+  \item Chế độ đánh giá chính: multi-step reasoning, trong đó mỗi vòng lặp mô hình phân tích trạng thái rồi điền một ô.
+\end{itemize}
+
+Nhóm không đưa các bài 4x4 vào kết quả chính vì kích thước này có tỷ lệ giải thành công cao, ít tạo khác biệt rõ ràng giữa các mô hình và không phản ánh tốt độ khó của suy luận ràng buộc nhiều bước.
+
+% =========================
+% Chapter 2
+% =========================
+\chapter{CƠ SỞ LÝ THUYẾT}
+
+\section{Bài toán thỏa mãn ràng buộc}
+
+Một bài toán thỏa mãn ràng buộc (Constraint Satisfaction Problem -- CSP) thường được mô hình hóa bởi bộ ba:
+
+\[
+  \langle X, D, C \rangle
+\]
+
+Trong đó, \(X = \{X_1, X_2, ..., X_n\}\) là tập biến, \(D = \{D_1, D_2, ..., D_n\}\) là tập miền giá trị tương ứng, và \(C\) là tập các ràng buộc mô tả tổ hợp giá trị hợp lệ giữa các biến. Mục tiêu của CSP là tìm một phép gán giá trị cho toàn bộ biến sao cho mọi ràng buộc đều được thỏa mãn.
+
+Sudoku chuẩn là một ví dụ trực quan của CSP. Mỗi ô trên lưới là một biến, miền giá trị là tập các chữ số hợp lệ, còn ràng buộc là quy tắc không lặp số trong hàng, cột và khối. Đối với Sudoku 9x9, mỗi biến có miền giá trị \(\{1,2,\ldots,9\}\), còn với Sudoku 6x6, miền giá trị là \(\{1,2,\ldots,6\}\).
+
+Các thuật toán truyền thống để giải CSP thường kết hợp tìm kiếm quay lui với lan truyền ràng buộc. Một số kỹ thuật phổ biến gồm:
+
+\begin{itemize}
+  \item \textbf{Backtracking}: thử gán giá trị cho biến và quay lui khi phát hiện vi phạm.
+  \item \textbf{Forward Checking}: loại bỏ trước các giá trị không còn hợp lệ sau mỗi phép gán.
+  \item \textbf{Arc Consistency}: duy trì tính nhất quán cục bộ giữa các cặp biến.
+  \item \textbf{Minimum Remaining Values}: ưu tiên chọn biến có ít giá trị khả thi nhất.
+\end{itemize}
+
+\section{Sudoku variants và Killer Sudoku}
+
+Sudoku variants mở rộng Sudoku chuẩn bằng cách bổ sung các luật ngoài hàng, cột và khối. Các luật này có thể dựa trên hình học, tổng số, thứ tự hoặc quan hệ giữa các ô. Một số biến thể phổ biến gồm Arrow Sudoku, Thermometer Sudoku, Knight's Move Sudoku và Killer Sudoku.
+
+Trong đồ án này, nhóm tập trung vào Killer Sudoku. Ngoài luật Sudoku chuẩn, Killer Sudoku có thêm các \textit{cage}. Mỗi cage là một nhóm ô có tổng mục tiêu cho trước. Các chữ số trong cùng một cage không được lặp lại và tổng của chúng phải đúng bằng giá trị được chỉ định.
+
+Ví dụ, nếu một cage gồm hai ô \(r1c1\) và \(r2c1\) có tổng bằng 3 trong lưới 6x6, thì hai ô này chỉ có thể nhận cặp giá trị \(\{1,2\}\). Ràng buộc cage tạo thêm các phương trình số học và làm tăng đáng kể độ phức tạp của không gian tìm kiếm.
+
+\section{Suy luận sáng tạo và khái niệm break-in}
+
+Một điểm quan trọng của Sudoku variants là nhiều bài không thể bắt đầu bằng các bước đơn giản. Người giải cần tìm ra một \textit{break-in}: một chuỗi suy luận ban đầu giúp thu hẹp miền giá trị ở một khu vực quan trọng, từ đó tạo hiệu ứng lan truyền sang các phần còn lại của lưới.
+
+Khái niệm break-in làm cho Sudoku variants trở thành bài kiểm tra tốt cho năng lực suy luận sáng tạo. Mô hình không chỉ cần nhớ luật Sudoku quen thuộc mà còn phải hiểu luật mới, kết hợp nhiều ràng buộc và tìm được điểm mở khóa lời giải.
+
+\section{Giới hạn của LLM trong bài toán CSP}
+
+LLM sinh phản hồi theo cơ chế tự hồi quy, dự đoán token tiếp theo dựa trên ngữ cảnh đã có. Cơ chế này rất mạnh trong các tác vụ ngôn ngữ, nhưng gặp thách thức khi phải duy trì tính nhất quán tuyệt đối của một hệ ràng buộc lớn.
+
+Trong CSP, mỗi bước suy luận đều ảnh hưởng đến toàn bộ không gian nghiệm. Nếu mô hình điền sai một ô, các bước sau có thể vẫn nghe hợp lý về mặt ngôn ngữ nhưng đã được xây dựng trên trạng thái sai. Đây là lý do cần đánh giá LLM bằng các bài toán có nghiệm kiểm chứng được và có log trung gian rõ ràng.
+
+% =========================
+% Chapter 3
+% =========================
+\chapter{BÀI BÁO THAM CHIẾU SUDOKU-BENCH}
+
+\section{Mục tiêu của bài báo}
+
+Bài báo \textit{Sudoku-Bench: Evaluating Creative Reasoning with Sudoku Variants} được xây dựng nhằm đánh giá năng lực suy luận sáng tạo của LLM trên các bài Sudoku variants. Thay vì chỉ kiểm tra khả năng giải Sudoku chuẩn, benchmark này đưa vào nhiều biến thể có luật mới nhằm giảm khả năng mô hình dựa vào các mẫu quen thuộc trong dữ liệu huấn luyện.
+
+Ý tưởng trung tâm của bài báo là: nếu một mô hình thật sự có năng lực suy luận linh hoạt, nó phải có thể đọc luật mới, hiểu các ràng buộc, tìm break-in và duy trì lời giải nhất quán đến cuối.
+
+\section{Thiết kế đánh giá trong bài báo}
+
+Bài báo đề xuất hai chế độ đánh giá chính:
+
+\begin{itemize}
+  \item \textbf{Single-shot}: mô hình nhận toàn bộ đề bài và trả về lời giải hoàn chỉnh trong một lần.
+  \item \textbf{Multi-step}: mô hình điền từng bước; sau mỗi bước, hệ thống cập nhật trạng thái lưới và kiểm tra tính hợp lệ.
+\end{itemize}
+
+Single-shot kiểm tra khả năng lập kế hoạch và sinh nghiệm đầy đủ. Multi-step phù hợp hơn để quan sát quá trình suy luận, vì mỗi quyết định được ghi lại và có thể phân tích. Trong đồ án này, nhóm ưu tiên multi-step vì chế độ này tạo được log chi tiết, giúp phục vụ phần phân tích lỗi.
+
+\section{Phạm vi tái hiện của nhóm so với bài báo gốc}
+
+Bảng sau làm rõ phần nào của Sudoku-Bench được nhóm tái hiện, phần nào được rút gọn do giới hạn của đồ án.
+
+\begin{table}[H]
+  \centering
+  \caption{So sánh phạm vi bài báo gốc và phạm vi đồ án}
+  \begin{tabularx}{\textwidth}{p{3.2cm}XX}
+    \toprule
+    Tiêu chí & Bài báo Sudoku-Bench & Đồ án của nhóm \\
+    \midrule
+    Mục tiêu & Đánh giá năng lực suy luận sáng tạo của nhiều LLM trên Sudoku variants & Tái hiện rút gọn ý tưởng đánh giá LLM trên Killer Sudoku dưới góc nhìn CSP \\
+    Dạng bài & Nhiều loại Sudoku variants với luật đa dạng & Tập trung vào Killer Sudoku để kiểm soát phạm vi và phân tích sâu hơn \\
+    Kích thước & Bao gồm nhiều kích thước lưới & 5 bài 6x6 làm tập chính, 2 bài 9x9 làm kiểm tra mở rộng \\
+    Mô hình & Nhiều LLM thương mại và mã nguồn mở & Gemini 2.5 Flash và Gemini 2.5 Pro \\
+    Chế độ & Single-shot và multi-step & Ưu tiên multi-step để thu log suy luận từng bước \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+Việc rút gọn này không làm thay đổi câu hỏi nghiên cứu trung tâm của đồ án: LLM có thể duy trì suy luận logic nhất quán trong một hệ ràng buộc Sudoku biến thể hay không. Tuy nhiên, kết luận của nhóm chỉ được diễn giải trong phạm vi tập thực nghiệm nhỏ, không được xem là thay thế cho benchmark đầy đủ của bài báo gốc.
+
+\section{Các chỉ số đánh giá}
+
+Chỉ số quan trọng nhất là tỷ lệ giải thành công:
+
+\[
+  ASR = \frac{\text{số bài giải đúng hoàn toàn}}{\text{tổng số bài đánh giá}}
+\]
+
+Đối với multi-step, có thể quan sát thêm số bước đúng trước khi mô hình mắc lỗi. Trong đồ án, nhóm ghi nhận \textit{total steps} của từng phiên chạy. Với các phiên thất bại, số bước nhỏ cho thấy mô hình mắc lỗi sớm, còn số bước lớn cho thấy mô hình đã đi được xa hơn trước khi vi phạm ràng buộc.
+
+% =========================
+% Chapter 4
+% =========================
+\chapter{PHƯƠNG PHÁP THỰC NGHIỆM}
+
+\section{Dữ liệu thực nghiệm}
+
+Dữ liệu thực nghiệm của nhóm gồm 7 bài Killer Sudoku. Trong đó, 5 bài 6x6 được xem là tập đánh giá chính; 2 bài 9x9 được dùng như tập mở rộng để quan sát độ khó khi tăng kích thước lưới.
+
+\begin{table}[H]
+  \centering
+  \caption{Tập dữ liệu thực nghiệm của nhóm}
+  \begin{tabular}{ccccc}
+    \toprule
+    Puzzle & Kích thước & Độ khó & Số cage & Vai trò trong thực nghiệm \\
+    \midrule
+    1 & 6x6 & easy & 14 & Tập chính \\
+    2 & 6x6 & easy & 16 & Tập chính \\
+    3 & 6x6 & easy & 16 & Tập chính \\
+    4 & 6x6 & easy & 15 & Tập chính \\
+    5 & 6x6 & easy & 15 & Tập chính \\
+    6 & 9x9 & hard & 29 & Mở rộng / stress-test \\
+    7 & 9x9 & hard & 33 & Mở rộng / stress-test \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mỗi file dữ liệu gồm mã bài, độ khó, kích thước lưới, trạng thái ban đầu, nghiệm chuẩn và danh sách cage. Trạng thái ban đầu của các bài trong tập này là lưới trống, do đó mô hình phải dựa hoàn toàn vào các ràng buộc cage và luật Sudoku để tìm lời giải.
+
+\section{Pipeline đánh giá}
+
+Pipeline của nhóm gồm các bước sau:
+
+\begin{enumerate}[label=\arabic*.]
+  \item Đọc file JSON của bài Sudoku.
+  \item Chuyển lưới và danh sách cage sang biểu diễn văn bản.
+  \item Xây dựng prompt gồm luật Sudoku, luật Killer Sudoku, cheat sheet tổ hợp cage và trạng thái hiện tại.
+  \item Gửi prompt đến LLM thông qua API.
+  \item Parse phản hồi theo schema JSON.
+  \item Cập nhật lưới và kiểm tra với nghiệm chuẩn.
+  \item Ghi log gồm bước đi, ô được chọn, giá trị, lý do và trạng thái lưới.
+\end{enumerate}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\begin{minipage}{0.92\textwidth}
+    \centering
+    Puzzle JSON \(\rightarrow\) Prompt Builder \(\rightarrow\) LLM API \(\rightarrow\) Parser \(\rightarrow\) Validator \(\rightarrow\) Result Log
+  \end{minipage}}
+  \caption{Sơ đồ pipeline đánh giá tự động}
+\end{figure}
+
+\section{Tiêu chí chấm điểm và tiêu chí dừng}
+
+Trong mỗi lượt multi-step, mô hình chỉ được phép điền đúng một ô đang trống. Sau khi nhận phản hồi, hệ thống chuyển tọa độ dạng \(rXcY\) về chỉ số hàng, cột trong mảng và cập nhật trạng thái lưới. Trạng thái mới được so sánh với nghiệm chuẩn ở các ô đã điền.
+
+Một phiên chạy được xem là \textbf{thành công} nếu toàn bộ lưới cuối cùng trùng khớp với nghiệm chuẩn. Một phiên chạy được xem là \textbf{thất bại} nếu mô hình điền một giá trị sai so với nghiệm chuẩn hoặc tạo ra trạng thái không thể tiếp tục hợp lệ. Trong log hiện tại, các phiên thất bại đều thuộc nhóm \textit{Incorrect Solution}.
+
+Do các bài trong tập dữ liệu có lưới ban đầu trống, số bước kỳ vọng để hoàn tất một bài 6x6 là 36. Với 9x9, số bước kỳ vọng là 81. Điều này cho thấy chi phí multi-step tăng nhanh theo kích thước lưới, vì mỗi bước thường cần ít nhất một lượt phân tích và một lượt quyết định điền số.
+
+\section{Lý do không đưa 4x4 vào kết quả chính}
+
+Nhóm không chọn 4x4 làm tập đánh giá chính vì kích thước này quá nhỏ, không tạo đủ áp lực lên khả năng duy trì ràng buộc dài hạn của LLM. Với các bài 4x4, số ô, số chữ số và số tổ hợp cage đều thấp hơn đáng kể, nên mô hình có thể đạt tỷ lệ thành công cao mà chưa bộc lộ rõ giới hạn suy luận. Vì vậy, 6x6 được chọn làm mức cân bằng: đủ nhỏ để chạy được trong phạm vi đồ án, nhưng đủ lớn để tạo khác biệt giữa các bước suy luận đúng và sai.
+
+\section{Prompt multi-step}
+
+Trong chế độ multi-step, nhóm tách một vòng suy luận thành hai prompt:
+
+\begin{itemize}
+  \item \textbf{Analysis prompt}: yêu cầu mô hình phân tích trạng thái hiện tại, liệt kê ràng buộc và ứng viên.
+  \item \textbf{Fill prompt}: yêu cầu mô hình chọn đúng một ô để điền và trả về JSON gồm ô, giá trị, lý do và mức độ chắc chắn.
+\end{itemize}
+
+Việc tách hai bước này nhằm giảm tình trạng mô hình trả lời vội, đồng thời tạo ra log có cấu trúc để phân tích. Một đoạn yêu cầu đầu ra được rút gọn như sau:
+
+\begin{lstlisting}[style=promptstyle]
+Output your decision for exactly ONE cell.
+Return a valid JSON object:
+{
+  "reasoning": "...",
+  "cell": "rXcY",
+  "value": integer,
+  "is_certain": boolean
+}
+\end{lstlisting}
+
+\section{Mô hình và cấu hình}
+
+Nhóm đánh giá hai mô hình:
+
+\begin{itemize}
+  \item Gemini 2.5 Flash.
+  \item Gemini 2.5 Pro.
+\end{itemize}
+
+Cấu hình sinh được đặt ở nhiệt độ thấp (\(temperature = 0\)) nhằm giảm tính ngẫu nhiên và tăng khả năng tái lập kết quả. Phản hồi của mô hình được yêu cầu ở dạng JSON để hạn chế lỗi parse và giúp hệ thống tự động chấm điểm.
+
+% =========================
+% Chapter 5
+% =========================
+\chapter{KẾT QUẢ VÀ PHÂN TÍCH}
+
+\section{Kết quả tổng hợp}
+
+Bảng dưới đây trình bày kết quả multi-step trên 7 bài thực nghiệm.
+
+\begin{longtable}{cccccc}
+  \caption{Kết quả chi tiết theo mô hình và puzzle} \\
+  \toprule
+  Mô hình & Puzzle & Kích thước & Độ khó & Số bước & Trạng thái \\
+  \midrule
+  \endfirsthead
+  \toprule
+  Mô hình & Puzzle & Kích thước & Độ khó & Số bước & Trạng thái \\
+  \midrule
+  \endhead
+  Gemini 2.5 Flash & 1 & 6x6 & easy & 37 & Thành công \\
+  Gemini 2.5 Flash & 2 & 6x6 & easy & 5 & Sai nghiệm \\
+  Gemini 2.5 Flash & 3 & 6x6 & easy & 36 & Thành công \\
+  Gemini 2.5 Flash & 4 & 6x6 & easy & 36 & Thành công \\
+  Gemini 2.5 Flash & 5 & 6x6 & easy & 36 & Thành công \\
+  Gemini 2.5 Flash & 6 & 9x9 & hard & 3 & Sai nghiệm \\
+  Gemini 2.5 Flash & 7 & 9x9 & hard & 1 & Sai nghiệm \\
+  \midrule
+  Gemini 2.5 Pro & 1 & 6x6 & easy & 36 & Thành công \\
+  Gemini 2.5 Pro & 2 & 6x6 & easy & 36 & Thành công \\
+  Gemini 2.5 Pro & 3 & 6x6 & easy & 36 & Thành công \\
+  Gemini 2.5 Pro & 4 & 6x6 & easy & 37 & Thành công \\
+  Gemini 2.5 Pro & 5 & 6x6 & easy & 5 & Sai nghiệm \\
+  Gemini 2.5 Pro & 6 & 9x9 & hard & 2 & Sai nghiệm \\
+  Gemini 2.5 Pro & 7 & 9x9 & hard & 3 & Sai nghiệm \\
+  \bottomrule
+\end{longtable}
+
+\begin{table}[H]
+  \centering
+  \caption{Tỷ lệ giải thành công theo nhóm bài}
+  \begin{tabular}{lccc}
+    \toprule
+    Mô hình & 6x6 & 9x9 & Toàn bộ tập \\
+    \midrule
+    Gemini 2.5 Flash & 4/5 (80.0\%) & 0/2 (0.0\%) & 4/7 (57.1\%) \\
+    Gemini 2.5 Pro & 4/5 (80.0\%) & 0/2 (0.0\%) & 4/7 (57.1\%) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Phân tích kết quả 6x6}
+
+Trên tập chính 6x6, cả Gemini 2.5 Flash và Gemini 2.5 Pro đều giải đúng 4/5 bài. Kết quả này cho thấy với không gian ràng buộc vừa phải, prompt multi-step có thể hỗ trợ mô hình duy trì quá trình suy luận đủ lâu để hoàn thành phần lớn bài toán.
+
+Số bước thành công của các bài 6x6 thường xấp xỉ 36 hoặc 37. Với lưới 6x6 trống, số ô cần điền là 36. Một số phiên có 37 bước do mô hình lặp lại hoặc cập nhật một ô đã được xử lý trong quá trình log, nhưng trạng thái cuối vẫn khớp nghiệm chuẩn. Điều này cho thấy việc chỉ đo số bước chưa đủ; cần kết hợp với kiểm tra nghiệm cuối và phân tích log.
+
+\section{Phân tích kết quả 9x9}
+
+Hai bài 9x9 đều thất bại rất sớm đối với cả hai mô hình. Điều này phản ánh hai vấn đề. Thứ nhất, khi kích thước lưới tăng từ 6x6 lên 9x9, số ô tăng từ 36 lên 81, số chữ số hợp lệ tăng từ 6 lên 9, và số cage cũng tăng đáng kể. Không gian trạng thái vì thế lớn hơn nhiều. Thứ hai, pipeline và cheat sheet ban đầu được tối ưu cho Killer Sudoku 6x6, nên kết quả 9x9 nên được xem là quan sát mở rộng thay vì kết luận chính.
+
+Vì vậy, báo cáo không diễn giải thất bại 9x9 như bằng chứng tuyệt đối rằng mô hình không thể giải 9x9. Kết luận phù hợp hơn là: trong cấu hình thực nghiệm rút gọn của nhóm, khi mở rộng sang 9x9, mô hình và pipeline hiện tại chưa đủ ổn định để duy trì suy luận đúng.
+
+\section{Độ tin cậy và giới hạn diễn giải kết quả}
+
+Kết quả thực nghiệm của nhóm có ý nghĩa như một tái hiện rút gọn, không phải một benchmark quy mô lớn. Do số lượng bài còn ít, chênh lệch giữa hai mô hình không nên được diễn giải như kết luận tổng quát về năng lực tuyệt đối của Gemini 2.5 Flash và Gemini 2.5 Pro. Thay vào đó, kết quả nên được đọc theo hướng định tính: cả hai mô hình có thể giải phần lớn bài 6x6 trong cấu hình multi-step, nhưng đều gặp khó khăn khi không gian ràng buộc mở rộng.
+
+Ngoài ra, vì prompt và cheat sheet được thiết kế chủ yếu cho 6x6, kết quả 9x9 chịu ảnh hưởng đồng thời từ năng lực mô hình và giới hạn của pipeline. Đây là lý do nhóm tách riêng 9x9 thành phần kiểm tra mở rộng thay vì gộp trực tiếp vào kết luận chính.
+
+\section{Phân tích lỗi}
+
+Tất cả các phiên thất bại trong log đều được phân loại là \textit{Incorrect Solution}. Dạng lỗi này xảy ra khi mô hình điền một giá trị không khớp với nghiệm chuẩn hoặc làm trạng thái hiện tại trở nên không hợp lệ.
+
+Các lỗi có thể được giải thích bởi một số nguyên nhân:
+
+\begin{itemize}
+  \item Mô hình suy luận đúng cục bộ nhưng bỏ qua ràng buộc toàn cục ở hàng, cột, khối hoặc cage khác.
+  \item Mô hình chọn một giả định chưa được chứng minh là chắc chắn nhưng vẫn đánh dấu hoặc diễn giải như bước bắt buộc.
+  \item Khi số lượng ràng buộc tăng, mô hình khó duy trì đầy đủ trạng thái ứng viên của mọi ô.
+  \item Với 9x9, mô hình chịu áp lực lớn hơn về độ dài ngữ cảnh, số cage và số tổ hợp có thể xét.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth]{benchmark_results_comparison.png}
+  \caption{Biểu đồ so sánh tỷ lệ giải và phân tích lỗi từ log thực nghiệm}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.88\textwidth]{advanced_analysis.png}
+  \caption{Biểu đồ phân tích bổ sung theo độ khó và số bước}
+\end{figure}
+
+\section{So sánh với nhận định của bài báo gốc}
+
+Kết quả của nhóm phù hợp với tinh thần của Sudoku-Bench: LLM có thể thể hiện tốt ở các bài nhỏ hoặc trung bình, nhưng dễ thất bại khi yêu cầu duy trì nhiều ràng buộc đồng thời trong thời gian dài. Điểm đáng chú ý là các lời giải sai thường đi kèm với phần giải thích nghe hợp lý, cho thấy LLM có thể tạo ra lập luận thuyết phục về mặt ngôn ngữ nhưng không luôn đảm bảo tính đúng đắn hình thức.
+
+Điều này củng cố luận điểm rằng các benchmark có nghiệm kiểm chứng được, như Sudoku variants, là cần thiết để đánh giá năng lực suy luận của LLM một cách chặt chẽ hơn.
+
+% =========================
+% Chapter 6
+% =========================
+\chapter{KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+
+\section{Kết luận}
+
+Đồ án đã tái hiện một phần thiết kế thực nghiệm của bài báo Sudoku-Bench trên biến thể Killer Sudoku. Nhóm đã xây dựng pipeline tự động gồm đọc dữ liệu, tạo prompt, gọi LLM, parse kết quả, cập nhật trạng thái và ghi log. Thực nghiệm chính trên 5 bài 6x6 cho thấy Gemini 2.5 Flash và Gemini 2.5 Pro đều đạt tỷ lệ giải thành công 80\%. Tuy nhiên, khi mở rộng sang 9x9, cả hai mô hình đều thất bại sớm trong cấu hình hiện tại.
+
+Kết quả này cho thấy LLM có tiềm năng trong việc xử lý các bài toán ràng buộc ở quy mô vừa phải, đặc biệt khi được hỗ trợ bằng prompt multi-step có cấu trúc. Tuy vậy, mô hình vẫn gặp khó khăn trong việc duy trì tính nhất quán toàn cục khi không gian ràng buộc mở rộng.
+
+\section{Đóng góp của nhóm}
+
+Nhóm có ba đóng góp chính:
+
+\begin{itemize}
+  \item Tóm tắt và diễn giải Sudoku-Bench dưới góc nhìn CSP phù hợp với nội dung môn CS106.
+  \item Xây dựng pipeline thực nghiệm rút gọn cho Killer Sudoku với khả năng ghi log từng bước.
+  \item Thực hiện so sánh hai mô hình Gemini và phân tích lỗi dựa trên trạng thái trung gian.
+\end{itemize}
+
+\section{Hạn chế}
+
+Đồ án vẫn còn một số hạn chế:
+
+\begin{itemize}
+  \item Tập thực nghiệm còn nhỏ, chỉ gồm 7 bài.
+  \item Biến thể tập trung là Killer Sudoku, chưa bao phủ nhiều loại Sudoku variants khác trong bài báo gốc.
+  \item Kết quả 9x9 mới mang tính quan sát mở rộng, chưa phải benchmark 9x9 đầy đủ.
+  \item Chưa tích hợp symbolic solver để kiểm tra ứng viên hoặc hỗ trợ mô hình trong quá trình suy luận.
+  \item Chưa chạy lặp nhiều lần để đo độ ổn định thống kê của từng mô hình.
+\end{itemize}
+
+\section{Hướng phát triển}
+
+Trong tương lai, nhóm có thể mở rộng đồ án theo các hướng:
+
+\begin{itemize}
+  \item Mở rộng số lượng bài và số loại Sudoku variants.
+  \item Chuẩn hóa pipeline để hỗ trợ linh hoạt cả 6x6 và 9x9.
+  \item Bổ sung chỉ số Average Correct Placements cho multi-step.
+  \item So sánh thêm các mô hình khác như GPT, Claude hoặc Llama.
+  \item Kết hợp LLM với symbolic solver để hình thành hướng tiếp cận neuro-symbolic, trong đó LLM đọc và diễn giải luật, còn solver đảm nhiệm kiểm tra ràng buộc hình thức.
+\end{itemize}
+
+% =========================
+% References
+% =========================
+\begin{thebibliography}{9}
+
+\bibitem{sudoku-bench}
+Sakana AI.
+\textit{Sudoku-Bench: Evaluating Creative Reasoning with Sudoku Variants}.
+Technical report, 2025.
+
+\bibitem{russell-norvig}
+Stuart Russell and Peter Norvig.
+\textit{Artificial Intelligence: A Modern Approach}.
+Pearson, 4th edition, 2020.
+
+\bibitem{vaswani}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\textit{Attention Is All You Need}.
+Advances in Neural Information Processing Systems, 2017.
+
+\bibitem{csp-handbook}
+Francesca Rossi, Peter van Beek, and Toby Walsh.
+\textit{Handbook of Constraint Programming}.
+Elsevier, 2006.
+
+\end{thebibliography}
+
+\end{document}
