@@ -1,5 +1,7 @@
 # CS106-Sudoku-Bench
 ĐỒ ÁN CS106 - TRÍ TUỆ NHÂN TẠO - Sudoku-Bench
 
-Bao cao: https://docs.google.com/document/d/1Wa33b8nDccIheb_Tc_gT8FHsTcdufQ4XwcA6rne-gMc/edit?tab=t.0
+Báo cáo đổi qua dùng latex, nằm ngay trên repo luôn
+
+Link slide: https://canva.link/1ulwst58droe42i
 
