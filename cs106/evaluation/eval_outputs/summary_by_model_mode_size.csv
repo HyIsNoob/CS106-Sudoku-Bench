@@ -1,0 +1,17 @@
+﻿grid_size,mode,model,n_runs,solved,solve_rate_pct,avg_correct_placements,avg_placement_accuracy_pct,avg_total_steps,avg_time_seconds,total_time_minutes
+6,multi,gemini-3.5-flash,5,5,100.0,36.0,100.0,36.0,,0.0
+6,multi,gemini-2.5-flash,5,4,80.0,29.6,82.22222222222221,30.0,,0.0
+6,multi,gemini-2.5-pro,5,4,80.0,29.6,82.22222222222221,30.0,,0.0
+6,multi,gemini-3.1-flash-lite,5,0,0.0,7.0,19.444444444444446,8.6,,0.0
+6,single,gemini-2.5-pro,5,5,100.0,,,,106.12685046195983,8.84390420516332
+6,single,gemini-3.5-flash,5,5,100.0,,,,27.57188777923584,2.2976573149363198
+6,single,gemini-2.5-flash,5,4,80.0,,,,169.64744806289673,14.137287338574726
+6,single,gemini-3.1-flash-lite,5,0,0.0,,,,68.87211327552795,5.739342772960662
+9,multi,gemini-2.5-pro,2,2,100.0,81.0,100.0,83.5,,0.0
+9,multi,gemini-3.5-flash,2,2,100.0,81.0,100.0,81.5,,0.0
+9,multi,gemini-2.5-flash,2,0,0.0,5.0,6.172839506172839,9.0,,0.0
+9,multi,gemini-3.1-flash-lite,2,0,0.0,0.0,0.0,3.0,,0.0
+9,single,gemini-3.5-flash,2,1,50.0,,,,311.0385135412216,10.367950451374053
+9,single,gemini-2.5-flash,2,0,0.0,,,,127.82757139205933,4.260919046401977
+9,single,gemini-2.5-pro,2,0,0.0,,,,254.37110030651093,8.479036676883698
+9,single,gemini-3.1-flash-lite,2,0,0.0,,,,80.38533186912537,2.679511062304179

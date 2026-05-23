@@ -1,0 +1,57 @@
+﻿grid_size,puzzle_id,difficulty,mode,model,outcome,correct_placements,total_steps,time_seconds,relative_path
+6,1,easy,multi,gemini-2.5-flash,Success,36.0,37.0,,gemini-2.5/multi_prompt/flash/log_puzzle_01.json
+6,1,easy,multi,gemini-2.5-pro,Success,36.0,36.0,,gemini-2.5/multi_prompt/pro/log_puzzle_01.json
+6,1,easy,multi,gemini-3.1-flash-lite,Failed: Incorrect Solution,13.0,14.0,,gemini-3.x/multi-prompt/lite/log_puzzle_01.json
+6,1,easy,multi,gemini-3.5-flash,Success,36.0,36.0,,gemini-3.x/multi-prompt/flash/log_puzzle_01.json
+6,1,easy,single,gemini-2.5-flash,Failed: Incorrect Solution,,,277.5187077522278,gemini-2.5/single_prompt/flash/result_puzzle_01.json
+6,1,easy,single,gemini-2.5-pro,Success,,,97.22126531600952,gemini-2.5/single_prompt/pro/result_puzzle_01.json
+6,1,easy,single,gemini-3.1-flash-lite,Failed: Incorrect Solution,,,11.355442762374878,gemini-3.x/single-prompt/lite/result_puzzle_01.json
+6,1,easy,single,gemini-3.5-flash,Success,,,30.83661985397339,gemini-3.x/single-prompt/flash/result_puzzle_01.json
+6,2,easy,multi,gemini-2.5-flash,Failed: Incorrect Solution,4.0,5.0,,gemini-2.5/multi_prompt/flash/log_puzzle_02.json
+6,2,easy,multi,gemini-2.5-pro,Success,36.0,36.0,,gemini-2.5/multi_prompt/pro/log_puzzle_02.json
+6,2,easy,multi,gemini-3.1-flash-lite,Failed: Incorrect Solution,11.0,13.0,,gemini-3.x/multi-prompt/lite/log_puzzle_02.json
+6,2,easy,multi,gemini-3.5-flash,Success,36.0,36.0,,gemini-3.x/multi-prompt/flash/log_puzzle_02.json
+6,2,easy,single,gemini-2.5-flash,Success,,,220.3640513420105,gemini-2.5/single_prompt/flash/result_puzzle_02.json
+6,2,easy,single,gemini-2.5-pro,Success,,,139.4904704093933,gemini-2.5/single_prompt/pro/result_puzzle_02.json
+6,2,easy,single,gemini-3.1-flash-lite,Failed: Incorrect Solution,,,142.18764853477478,gemini-3.x/single-prompt/lite/result_puzzle_02.json
+6,2,easy,single,gemini-3.5-flash,Success,,,23.97554326057434,gemini-3.x/single-prompt/flash/result_puzzle_02.json
+6,3,easy,multi,gemini-2.5-flash,Success,36.0,36.0,,gemini-2.5/multi_prompt/flash/log_puzzle_03.json
+6,3,easy,multi,gemini-2.5-pro,Success,36.0,36.0,,gemini-2.5/multi_prompt/pro/log_puzzle_03.json
+6,3,easy,multi,gemini-3.1-flash-lite,Failed: Incorrect Solution,0.0,1.0,,gemini-3.x/multi-prompt/lite/log_puzzle_03.json
+6,3,easy,multi,gemini-3.5-flash,Success,36.0,36.0,,gemini-3.x/multi-prompt/flash/log_puzzle_03.json
+6,3,easy,single,gemini-2.5-flash,Success,,,84.70139670372009,gemini-2.5/single_prompt/flash/result_puzzle_03.json
+6,3,easy,single,gemini-2.5-pro,Success,,,104.64495587348938,gemini-2.5/single_prompt/pro/result_puzzle_03.json
+6,3,easy,single,gemini-3.1-flash-lite,Failed: Incorrect Solution,,,8.451044797897339,gemini-3.x/single-prompt/lite/result_puzzle_03.json
+6,3,easy,single,gemini-3.5-flash,Success,,,22.374724626541138,gemini-3.x/single-prompt/flash/result_puzzle_03.json
+6,4,easy,multi,gemini-2.5-flash,Success,36.0,36.0,,gemini-2.5/multi_prompt/flash/log_puzzle_04.json
+6,4,easy,multi,gemini-2.5-pro,Success,36.0,37.0,,gemini-2.5/multi_prompt/pro/log_puzzle_04.json
+6,4,easy,multi,gemini-3.1-flash-lite,Failed: Incorrect Solution,11.0,14.0,,gemini-3.x/multi-prompt/lite/log_puzzle_04.json
+6,4,easy,multi,gemini-3.5-flash,Success,36.0,36.0,,gemini-3.x/multi-prompt/flash/log_puzzle_04.json
+6,4,easy,single,gemini-2.5-flash,Success,,,71.90521693229675,gemini-2.5/single_prompt/flash/result_puzzle_04.json
+6,4,easy,single,gemini-2.5-pro,Success,,,87.5641713142395,gemini-2.5/single_prompt/pro/result_puzzle_04.json
+6,4,easy,single,gemini-3.1-flash-lite,Failed: Incorrect Solution,,,143.12400579452515,gemini-3.x/single-prompt/lite/result_puzzle_04.json
+6,4,easy,single,gemini-3.5-flash,Success,,,26.844123601913452,gemini-3.x/single-prompt/flash/result_puzzle_04.json
+6,5,easy,multi,gemini-2.5-flash,Success,36.0,36.0,,gemini-2.5/multi_prompt/flash/log_puzzle_05.json
+6,5,easy,multi,gemini-2.5-pro,Failed: Incorrect Solution,4.0,5.0,,gemini-2.5/multi_prompt/pro/log_puzzle_05.json
+6,5,easy,multi,gemini-3.1-flash-lite,Failed: Incorrect Solution,0.0,1.0,,gemini-3.x/multi-prompt/lite/log_puzzle_05.json
+6,5,easy,multi,gemini-3.5-flash,Success,36.0,36.0,,gemini-3.x/multi-prompt/flash/log_puzzle_05.json
+6,5,easy,single,gemini-2.5-flash,Success,,,193.74786758422852,gemini-2.5/single_prompt/flash/result_puzzle_05.json
+6,5,easy,single,gemini-2.5-pro,Success,,,101.71338939666748,gemini-2.5/single_prompt/pro/result_puzzle_05.json
+6,5,easy,single,gemini-3.1-flash-lite,Failed: Incorrect Solution,,,39.24242448806763,gemini-3.x/single-prompt/lite/result_puzzle_05.json
+6,5,easy,single,gemini-3.5-flash,Success,,,33.82842755317688,gemini-3.x/single-prompt/flash/result_puzzle_05.json
+9,6,hard,multi,gemini-2.5-flash,Failed: No Certain Move,9.0,14.0,,gemini-2.5/multi_prompt/flash/log_puzzle_06.json
+9,6,hard,multi,gemini-2.5-pro,Success,81.0,83.0,,gemini-2.5/multi_prompt/pro/log_puzzle_06.json
+9,6,hard,multi,gemini-3.1-flash-lite,Failed: No Certain Move,0.0,3.0,,gemini-3.x/multi-prompt/lite/log_puzzle_06.json
+9,6,hard,multi,gemini-3.5-flash,Success,81.0,81.0,,gemini-3.x/multi-prompt/flash/log_puzzle_06.json
+9,6,hard,single,gemini-2.5-flash,Failed: Incorrect Solution,,,132.76568150520325,gemini-2.5/single_prompt/flash/result_puzzle_06.json
+9,6,hard,single,gemini-2.5-pro,Failed: Incorrect Solution,,,255.8121361732483,gemini-2.5/single_prompt/pro/result_puzzle_06.json
+9,6,hard,single,gemini-3.1-flash-lite,Failed: Incorrect Solution,,,10.292407274246216,gemini-3.x/single-prompt/lite/result_puzzle_06.json
+9,6,hard,single,gemini-3.5-flash,Failed: Incorrect Solution,,,242.817688703537,gemini-3.x/single-prompt/flash/result_puzzle_06.json
+9,7,hard,multi,gemini-2.5-flash,Failed: No Certain Move,1.0,4.0,,gemini-2.5/multi_prompt/flash/log_puzzle_07.json
+9,7,hard,multi,gemini-2.5-pro,Success,81.0,84.0,,gemini-2.5/multi_prompt/pro/log_puzzle_07.json
+9,7,hard,multi,gemini-3.1-flash-lite,Failed: No Certain Move,0.0,3.0,,gemini-3.x/multi-prompt/lite/log_puzzle_07.json
+9,7,hard,multi,gemini-3.5-flash,Success,81.0,82.0,,gemini-3.x/multi-prompt/flash/log_puzzle_07.json
+9,7,hard,single,gemini-2.5-flash,Failed: Incorrect Solution,,,122.8894612789154,gemini-2.5/single_prompt/flash/result_puzzle_07.json
+9,7,hard,single,gemini-2.5-pro,Failed: Incorrect Solution,,,252.93006443977356,gemini-2.5/single_prompt/pro/result_puzzle_07.json
+9,7,hard,single,gemini-3.1-flash-lite,Failed: Incorrect Solution,,,150.47825646400452,gemini-3.x/single-prompt/lite/result_puzzle_07.json
+9,7,hard,single,gemini-3.5-flash,Success,,,379.25933837890625,gemini-3.x/single-prompt/flash/result_puzzle_07.json

@@ -1,0 +1,21 @@
+﻿grid_size,mode,model,error_type,count
+6,multi,gemini-2.5-flash,Success,4
+6,multi,gemini-2.5-flash,Incorrect Solution,1
+6,multi,gemini-2.5-pro,Success,4
+6,multi,gemini-2.5-pro,Incorrect Solution,1
+6,multi,gemini-3.1-flash-lite,Incorrect Solution,5
+6,multi,gemini-3.5-flash,Success,5
+6,single,gemini-2.5-flash,Success,4
+6,single,gemini-2.5-flash,Incorrect Solution,1
+6,single,gemini-2.5-pro,Success,5
+6,single,gemini-3.1-flash-lite,Incorrect Solution,5
+6,single,gemini-3.5-flash,Success,5
+9,multi,gemini-2.5-flash,No Certain Move,2
+9,multi,gemini-2.5-pro,Success,2
+9,multi,gemini-3.1-flash-lite,No Certain Move,2
+9,multi,gemini-3.5-flash,Success,2
+9,single,gemini-2.5-flash,Incorrect Solution,2
+9,single,gemini-2.5-pro,Incorrect Solution,2
+9,single,gemini-3.1-flash-lite,Incorrect Solution,2
+9,single,gemini-3.5-flash,Incorrect Solution,1
+9,single,gemini-3.5-flash,Success,1
