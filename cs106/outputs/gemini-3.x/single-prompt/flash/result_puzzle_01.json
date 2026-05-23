@@ -1,8 +1,0 @@
-{
-  "puzzle_id": 1,
-  "difficulty": "easy",
-  "model": "gemini-3.5-flashs",
-  "status": "Failed",
-  "time_seconds": 0.2969541549682617,
-  "prediction": null
-}
