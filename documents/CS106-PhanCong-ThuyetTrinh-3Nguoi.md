@@ -16,8 +16,8 @@ Nguyên tắc chia:
 | Người | Phạm vi slide | Vai trò chính | Thời lượng gợi ý |
 |---|---:|---|---:|
 | Người A | Slide 1-16 | Mở bài, paper, lý thuyết, thiết kế benchmark | 7-8 phút |
-| Người B | Slide 17-28, 37-40 | Pipeline, dataset, single/multi, 6x6, demo | 8-10 phút |
-| Người C | Slide 29-36, 41-44 | 9x9, phân tích lỗi, so sánh paper, hạn chế, kết luận | 7-8 phút |
+| Người B | Slide 17-25, 27-28, 37 | Pipeline, dataset, single/multi, 6x6, demo web | 8-9 phút |
+| Người C | Slide 26, 29-36, 38-40 | 9x9, phân tích lỗi, so sánh paper, hạn chế, kết luận | 7-8 phút |
 
 Backup slide dùng khi vấn đáp, không cần đưa vào mạch nói chính trừ khi còn thời gian.
 
@@ -66,7 +66,7 @@ Người A cần làm rõ:
 
 ## Người B - Pipeline, 6x6 Và Demo
 
-**Phạm vi chính: Slide 17-28 và Slide 37-40**
+**Phạm vi chính: Slide 17-25, 27-28 và Slide 37**
 
 Người B là người phụ trách chính phần demo và 6x6.
 
@@ -85,10 +85,7 @@ Người B là người phụ trách chính phần demo và 6x6.
 | 25 | Chi Tiết Single-Prompt 6x6 | Có thể nói nhanh hoặc bỏ nếu thiếu thời gian |
 | 27 | Kết Quả Multi-Step 6x6 Hiện Tại | Bảng kết quả 6x6 multi |
 | 28 | Chi Tiết Multi-Step 6x6 | Có thể nói nhanh hoặc bỏ nếu thiếu thời gian |
-| 37 | Demo Pipeline | Kịch bản demo |
-| 38 | Demo Single-Prompt | Demo output single-prompt |
-| 39 | Demo Multi-Step | Demo log từng bước |
-| 40 | Nếu Demo Trực Tiếp Gặp Lỗi | Phương án dự phòng |
+| 37 | Demo Web | Mở web demo trong thư mục `demo/` |
 
 ### Mục tiêu phần nói
 
@@ -103,7 +100,8 @@ Người B cần làm rõ:
   - Gemini 2.5 Pro và Gemini 3.5 Flash đạt 5/5 ở single-prompt.
   - Gemini 3.5 Flash đạt 5/5 ở multi-step.
   - Gemini 3.1 Flash Lite fail toàn bộ, dùng được như baseline yếu.
-- Demo nên ưu tiên replay output/log đã lưu, không gọi API lại toàn bộ.
+- Demo sẽ thực hiện trực tiếp bằng web trong thư mục `demo/`.
+- Slide demo chỉ cần ảnh giao diện và link/path mở web; phần giải thích sẽ nằm trong lúc thao tác demo.
 
 ### Gợi ý nếu thiếu thời gian
 
@@ -111,7 +109,7 @@ Nếu bị thiếu thời gian, Người B có thể:
 
 - Gộp Slide 19-21 thành một đoạn nói ngắn.
 - Bỏ Slide 25 và Slide 28 khỏi phần trình bày chính, chỉ để backup.
-- Demo tập trung vào một log multi-step thành công thay vì mở quá nhiều file.
+- Demo tập trung vào một case đã chuẩn bị sẵn, không cần mở notebook hoặc JSON trong lúc trình bày.
 
 ### Câu chuyển cho Người C
 
@@ -121,7 +119,7 @@ Nếu bị thiếu thời gian, Người B có thể:
 
 ## Người C - 9x9, Phân Tích Và Kết Luận
 
-**Phạm vi chính: Slide 26, 29-36, 41-44**
+**Phạm vi chính: Slide 26, 29-36, 38-40**
 
 Người C là người phụ trách chính phần 9x9.
 
@@ -138,10 +136,9 @@ Người C là người phụ trách chính phần 9x9.
 | 34 | Vì Sao 9x9 Khó Hơn? | Giải thích vì sao 9x9 phân tách model tốt hơn |
 | 35 | Nhận Định Từ Kết Quả Hiện Tại | Tổng hợp insight |
 | 36 | So Sánh Với Paper Gốc | Liên hệ lại paper |
-| 41 | Đóng Góp Của Nhóm | Tóm lại nhóm đã làm gì |
-| 42 | Hạn Chế Của Đồ Án | Nói rõ phạm vi rút gọn |
-| 43 | Hướng Phát Triển | Mở rộng dataset/model/variant |
-| 44 | Kết Luận | Chốt thông điệp |
+| 38 | Hạn Chế Của Đồ Án | Nói rõ phạm vi rút gọn |
+| 39 | Hướng Phát Triển | Mở rộng dataset/model/variant |
+| 40 | Kết Luận | Chốt thông điệp |
 
 ### Mục tiêu phần nói
 
@@ -169,7 +166,7 @@ Nếu bị thiếu thời gian, Người C có thể:
 
 - Bỏ Slide 31 hoặc chỉ nói một câu: “single-prompt fail thì khó biết sai từ bước nào”.
 - Gộp Slide 35 và Slide 36.
-- Nói Slide 41-44 theo dạng chốt nhanh, mỗi slide khoảng 30-45 giây.
+- Nói Slide 38-40 theo dạng chốt nhanh, mỗi slide khoảng 30-45 giây.
 
 ---
 
@@ -196,16 +193,16 @@ Nếu bị thiếu thời gian, Người C có thể:
 | 5:30-7:30 | A | Thiết kế đánh giá paper và phạm vi tái hiện |
 | 7:30-10:30 | B | Dataset, pipeline, single/multi, validator |
 | 10:30-13:30 | B | Kết quả 6x6 |
-| 13:30-16:00 | B | Demo/replay log |
-| 16:00-19:30 | C | Kết quả 9x9 và so sánh single/multi |
-| 19:30-21:30 | C | Phân tích lỗi, vì sao 9x9 khó hơn |
-| 21:30-23:30 | C | So sánh với paper, đóng góp, hạn chế |
-| 23:30-25:00 | C | Hướng phát triển, kết luận |
+| 13:30-15:30 | B | Demo web |
+| 15:30-19:00 | C | Kết quả 9x9 và so sánh single/multi |
+| 19:00-21:00 | C | Phân tích lỗi, vì sao 9x9 khó hơn |
+| 21:00-23:00 | C | So sánh với paper, hạn chế |
+| 23:00-24:30 | C | Hướng phát triển, kết luận |
 
 Nếu chỉ có 20 phút:
 
 - Người A rút còn 6 phút.
-- Người B rút demo còn 2 phút.
+- Người B rút demo web còn 1-2 phút.
 - Người C gộp phân tích lỗi và so sánh paper còn 4-5 phút.
 
 ---
@@ -217,6 +214,4 @@ Nếu slide deck quá dài, nên đưa các slide sau xuống backup:
 - Slide 25. Chi Tiết Single-Prompt 6x6
 - Slide 28. Chi Tiết Multi-Step 6x6
 - Slide 31. Ví Dụ Single-Prompt Fail
-- Slide 40. Nếu Demo Trực Tiếp Gặp Lỗi
-
 Các slide này vẫn hữu ích khi vấn đáp, nhưng không bắt buộc phải nói kỹ trong mạch chính.

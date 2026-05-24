@@ -101,11 +101,7 @@ Media:
    - So Sánh Với Paper Gốc
 
 6. **Demo, kết luận và hướng phát triển**
-   - Demo Pipeline
-   - Demo Single-Prompt
-   - Demo Multi-Step
-   - Nếu Demo Trực Tiếp Gặp Lỗi
-   - Đóng Góp Của Nhóm
+   - Demo Web
    - Hạn Chế Của Đồ Án
    - Hướng Phát Triển
    - Kết Luận
@@ -1234,198 +1230,37 @@ Media:
 
 ---
 
-# Slide 37. Demo Pipeline
+# Slide 37. Demo Web
 
-**Kịch bản demo**
+**Demo trực tiếp trên web**
 
-1. Mở notebook:
-
-```text
-cs106/api_llm.ipynb
-```
-
-2. Chỉ file dataset:
+Link/mở thư mục demo:
 
 ```text
-cs106/dataset/puzzle_01.json
+demo/
 ```
 
-3. Chỉ prompt/cheat sheet:
+Nội dung slide:
 
-```text
-cs106/killer_sudoku_cheat_sheet.md
-cs106/analysis_template.md
-```
+- Ảnh chụp giao diện web demo.
+- Link hoặc path để mở demo.
+- Không cần giải thích pipeline chi tiết trên slide.
 
-4. Chỉ output single-prompt:
+Mục tiêu khi demo trực tiếp:
 
-```text
-cs106/outputs/gemini-2.5/single_prompt/flash/result_puzzle_01.json
-cs106/outputs/gemini-2.5/single_prompt/pro/result_puzzle_01.json
-cs106/outputs/gemini-3.x/single-prompt/lite/result_puzzle_01.json
-```
+- Cho thấy board Sudoku được cập nhật từng bước.
+- Cho thấy reasoning của model ở cạnh board.
+- Cho thấy trạng thái Success/Failed hoặc bước hiện tại.
+- Minh họa trực quan multi-step evaluation thay vì gọi API/notebook trong lúc thuyết trình.
 
-5. Chỉ log multi-step:
+Ghi chú cho người demo:
 
-```text
-cs106/outputs/gemini-2.5/multi_prompt/flash/log_puzzle_01.json
-cs106/outputs/gemini-3.x/multi-prompt/flash/log_puzzle_01.json
-cs106/outputs/gemini-2.5/multi_prompt/pro/log_puzzle_06.json
-cs106/outputs/gemini-3.x/multi-prompt/flash/log_puzzle_07.json
-```
-
-6. Chỉ biểu đồ:
-
-```text
-cs106/evaluation/eval_outputs/solve_rate_by_model_mode_size.png
-cs106/evaluation/eval_outputs/per_puzzle_outcome_heatmap.png
-cs106/evaluation/eval_outputs/error_type_summary.png
-```
-
-Demo nên ưu tiên:
-
-- replay output/log có sẵn;
-- không gọi API quá nhiều trực tiếp;
-- tránh rủi ro mạng/rate limit/chi phí.
+- Mở web demo, chạy/replay một case đã chuẩn bị.
+- Sau khi demo xong thì quay lại slide kết quả/kết luận.
 
 ---
 
-# Slide 38. Demo Single-Prompt
-
-**Demo single-prompt**
-
-Mục tiêu demo:
-
-- cho thấy model nhận toàn bộ puzzle;
-- trả về một grid hoàn chỉnh;
-- hệ thống kiểm tra grid với solution;
-- lưu status Success/Failed.
-
-File minh họa:
-
-```text
-cs106/outputs/gemini-2.5/single_prompt/flash/result_puzzle_02.json
-cs106/outputs/gemini-2.5/single_prompt/pro/result_puzzle_01.json
-cs106/outputs/gemini-3.x/single-prompt/lite/result_puzzle_01.json
-```
-
-Nội dung cần highlight:
-
-```json
-{
-  "puzzle_id": 1,
-  "model": "gemini-2.5-pro",
-  "status": "Success",
-  "prediction": [...]
-}
-```
-
-Điểm cần nhấn:
-
-- Single-prompt đơn giản hơn multi-step.
-- Ít lượt gọi API.
-- Nhưng khi fail, khó biết mô hình sai ở bước nào.
-
----
-
-# Slide 39. Demo Multi-Step
-
-**Demo multi-step**
-
-Mục tiêu demo:
-
-- cho thấy mô hình điền từng ô;
-- mỗi bước có reasoning;
-- board được cập nhật;
-- validator kiểm tra từng bước;
-- log lưu lại toàn bộ quá trình.
-
-File minh họa:
-
-```text
-cs106/outputs/gemini-3.x/multi-prompt/flash/log_puzzle_01.json
-cs106/outputs/gemini-2.5/multi_prompt/pro/log_puzzle_06.json
-cs106/outputs/gemini-3.x/multi-prompt/flash/log_puzzle_07.json
-```
-
-Một entry log gồm:
-
-```json
-{
-  "step": 1,
-  "chosen_cell": "r2c5",
-  "value": 1,
-  "reasoning": "...",
-  "is_certain": true,
-  "board_state": [...]
-}
-```
-
-Điểm cần nhấn:
-
-- Multi-step giúp phân tích lỗi tốt hơn.
-- Nếu sai một bước, phiên chạy dừng.
-- Không có cơ chế hoàn tác hoặc solver sửa giúp.
-
----
-
-# Slide 40. Nếu Demo Trực Tiếp Gặp Lỗi
-
-**Phương án dự phòng**
-
-Vì demo phụ thuộc vào API và môi trường chạy, nhóm chuẩn bị:
-
-- notebook đã chạy sẵn;
-- output JSON đã lưu;
-- log multi-step đã lưu;
-- biểu đồ kết quả;
-- video demo bổ sung nếu cần.
-
-Theo quy định mới:
-
-- nếu thực nghiệm/demo chưa hoàn tất, nhóm có thể quay video bổ sung;
-- hạn chót bổ sung video: 21/06;
-- sau báo cáo, nhóm chỉnh slide/demo theo góp ý của GV và nộp lại.
-
-Thông điệp:
-
-> Demo chính là pipeline và log thực nghiệm, không nhất thiết phải gọi API lại toàn bộ trong lúc trình bày.
-
----
-
-# Slide 41. Đóng Góp Của Nhóm
-
-**Nhóm đã thực hiện**
-
-Về lý thuyết:
-
-- đọc paper Sudoku-Bench;
-- tìm hiểu Sudoku variants;
-- giải thích Sudoku/Killer Sudoku dưới góc nhìn suy luận ràng buộc;
-- liên hệ hạn chế của LLM với suy luận ràng buộc.
-
-Về thực nghiệm:
-
-- xây dựng dataset JSON cho Killer Sudoku;
-- xây dựng single-prompt evaluation;
-- xây dựng multi-step evaluation;
-- benchmark 6x6 trên 4 model Gemini: 2.5 Flash, 2.5 Pro, 3.1 Flash Lite, 3.5 Flash;
-- benchmark 9x9 trên 4 model Gemini với cả single-prompt và multi-step;
-- xây parser và validator;
-- lưu output/log;
-- xây notebook evaluation để tổng hợp solve rate, correct placements, error type và thời gian;
-- xuất bảng CSV và biểu đồ phục vụ slide/báo cáo.
-
-Về báo cáo/demo:
-
-- chuẩn bị slide;
-- chuẩn bị notebook demo;
-- chuẩn bị log để phân tích lỗi;
-- chuẩn bị video bổ sung nếu cần.
-
----
-
-# Slide 42. Hạn Chế Của Đồ Án
+# Slide 38. Hạn Chế Của Đồ Án
 
 **Hạn chế**
 
@@ -1455,7 +1290,7 @@ Về báo cáo/demo:
 
 ---
 
-# Slide 43. Hướng Phát Triển
+# Slide 39. Hướng Phát Triển
 
 **Hướng phát triển tiếp theo**
 
@@ -1488,7 +1323,7 @@ Về báo cáo/demo:
 
 ---
 
-# Slide 44. Kết Luận
+# Slide 40. Kết Luận
 
 **Kết luận chính**
 
