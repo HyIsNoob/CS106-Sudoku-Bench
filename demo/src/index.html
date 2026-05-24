@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LLM Killer Sudoku Visualizer</title>
+		<link href="./output.css" rel="stylesheet" />
+	</head>
+	<body class="bg-ctp-base text-ctp-text min-h-screen flex flex-col font-sans">
+		<header
+			class="bg-ctp-mantle p-4 border-b border-ctp-surface0 shadow-md flex items-center justify-between gap-4"
+		>
+			<h1 class="text-2xl font-bold text-ctp-blue">
+				Killer Sudoku LLM Reasoning Visualizer
+			</h1>
+			<div class="flex items-center gap-3">
+				<div class="flex items-center gap-2">
+					<button
+						id="btn-prev"
+						class="px-3 py-1 rounded bg-ctp-surface1 hover:bg-ctp-surface2"
+					>
+						◀
+					</button>
+					<button
+						id="btn-next"
+						class="px-3 py-1 rounded bg-ctp-surface1 hover:bg-ctp-surface2"
+					>
+						▶
+					</button>
+				</div>
+				<select
+					id="model-select"
+					class="bg-ctp-base border border-ctp-surface1 rounded px-2 py-1"
+				>
+					<option value="pro">pro</option>
+					<option value="flash">flash</option>
+				</select>
+				<span
+					id="status-badge"
+					class="ml-3 hidden text-xs font-semibold px-2 py-1 rounded-full"
+				></span>
+			</div>
+		</header>
+
+		<main class="flex-1 flex items-center justify-center p-8 gap-12 flex-wrap">
+			<div class="w-full flex flex-col gap-6 items-stretch">
+				<div class="w-full flex gap-8 items-center justify-center">
+					<div class="flex-1 flex flex-col items-center gap-3">
+						<h2
+							class="text-lg font-semibold text-ctp-lavender"
+							id="puzzle-title-solution"
+						>
+							Puzzle ID: Loading...
+						</h2>
+						<div
+							id="solution-board"
+							class="bg-ctp-crust border-2 border-ctp-subtext0 grid shadow-xl p-[2px] rounded-sm"
+						></div>
+					</div>
+
+					<div class="flex-1 flex flex-col items-center gap-3">
+						<h2
+							class="text-lg font-semibold text-ctp-lavender"
+							id="puzzle-title-current"
+						>
+							Puzzle ID: Loading...
+						</h2>
+						<div
+							id="current-board"
+							class="bg-ctp-crust border-2 border-ctp-subtext0 grid shadow-xl p-[2px] rounded-sm"
+						></div>
+					</div>
+
+					<div
+						class="flex-1 w-full bg-ctp-mantle border border-ctp-surface1 rounded-xl flex flex-col h-[360px] shadow-lg mx-auto"
+					>
+						<div
+							class="bg-ctp-crust p-4 rounded-t-xl border-b border-ctp-surface1 flex justify-between items-center"
+						>
+							<h3 class="font-bold text-ctp-green">AI Reasoning Stream</h3>
+							<span id="step-counter" class="text-ctp-subtext0 text-sm"
+								>Step 0/0</span
+							>
+						</div>
+						<div
+							class="p-6 overflow-y-auto flex-1 flex flex-col gap-4"
+							id="reasoning-container"
+						>
+							<p class="text-ctp-subtext1 italic">
+								Nhấn "Start Simulation" để bắt đầu theo dõi suy luận của AI...
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- action buttons below both boards -->
+				<div class="w-full flex justify-center mt-4">
+					<button
+						id="btn-start"
+						class="bg-ctp-blue hover:bg-ctp-sapphire text-ctp-crust font-bold py-2 px-6 rounded-lg transition-colors mr-4"
+					>
+						Start Simulation
+					</button>
+					<button
+						id="btn-reset"
+						class="bg-ctp-surface1 hover:bg-ctp-surface2 text-ctp-text font-bold py-2 px-6 rounded-lg transition-colors"
+					>
+						Reset
+					</button>
+				</div>
+			</div>
+		</main>
+
+		<script src="script.js"></script>
+	</body>
+</html>

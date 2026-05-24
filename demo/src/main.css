@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "@catppuccin/tailwindcss/mocha.css";
+
+@layer components {
+	.sudoku-cell {
+		@apply border border-ctp-surface1;
+	}
+
+	.thick-right {
+		@apply border-r-2 border-ctp-subtext0;
+	}
+
+	.thick-bottom {
+		@apply border-b-2 border-ctp-subtext0;
+	}
+
+	.thick-left {
+		@apply border-l-2 border-ctp-subtext0;
+	}
+
+	.thick-top {
+		@apply border-t-2 border-ctp-subtext0;
+	}
+
+	.cage-border {
+		@apply border-dashed border-ctp-blue pointer-events-none m-[2px];
+	}
+}
