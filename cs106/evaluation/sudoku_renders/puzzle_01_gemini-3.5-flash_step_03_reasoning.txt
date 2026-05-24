@@ -1,0 +1,1 @@
+Subgrid 3 (r3-4, c1-3) must sum to 21. The cages r3c1+r3c2=6 and r4c1+r4c2+r4c3=13 cover all cells in this subgrid except r3c3. Therefore, r3c3 must be 21 - 6 - 13 = 2.
