@@ -223,7 +223,7 @@ function processNextStep() {
 		const p = document.createElement("div");
 		p.className =
 			"bg-ctp-crust p-3 rounded-lg border border-ctp-surface0 slide-in text-sm leading-relaxed";
-		p.innerHTML = `<span class="text-ctp-blue font-bold uppercase tracking-wider text-xs">Step ${stepObj.step}: ${stepObj.chosen_cell} = ${stepObj.value}</span><br/>
+		p.innerHTML = `<span class="text-ctp-blue font-bold uppercase tracking-wider text-xs">Step ${currentStep + 1}: ${stepObj.chosen_cell} = ${stepObj.value}</span><br/>
                            <span class="text-ctp-subtext1">${stepObj.error_type}</span>`;
 
 		// Nếu là bước đầu tiên thì xoá text hướng dẫn
@@ -269,7 +269,7 @@ function processNextStep() {
 	const p = document.createElement("div");
 	p.className =
 		"bg-ctp-crust p-3 rounded-lg border border-ctp-surface0 slide-in text-sm leading-relaxed";
-	p.innerHTML = `<span class="text-ctp-blue font-bold uppercase tracking-wider text-xs">Step ${stepObj.step}: ${stepObj.chosen_cell} = ${stepObj.value}</span><br/>
+	p.innerHTML = `<span class="text-ctp-blue font-bold uppercase tracking-wider text-xs">Step ${currentStep + 1}: ${stepObj.chosen_cell} = ${stepObj.value}</span><br/>
                            <span class="text-ctp-subtext1">${stepObj.reasoning}</span>`;
 
 	// Nếu là bước đầu tiên thì xoá text hướng dẫn

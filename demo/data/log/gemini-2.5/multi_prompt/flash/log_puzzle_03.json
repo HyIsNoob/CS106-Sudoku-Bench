@@ -1,2098 +1,586 @@
 {
-  "puzzle_id": 3,
-  "difficulty": "easy",
-  "model": "gemini-2.5-flash",
-  "total_steps": 36,
-  "final_status": "Success",
-  "error_type": "None",
-  "execution_log": [
-    {
-      "step": 1,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Several small cages (sum 3, sum 4, sum 5) s...",
-      "chosen_cell": "r3c5",
-      "value": 4,
-      "reasoning": "Block 4 (cells r3c4, r3c5, r3c6, r4c4, r4c5, r4c6) contains the 3-cell cage {r3c4, r4c4, r4c5} summing to 14 (digits {3,5,6}) and the 2-cell cage {r3c6, r4c6} summing to 3 (digits {1,2}). These 5 cells use digits {1,2,3,5,6}, leaving 4 as the only possible digit for the remaining cell r3c5 in Block 4.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "step": 2,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The initial placement of '4' in r3c5, combi...",
-      "chosen_cell": "r2c5",
-      "value": 6,
-      "reasoning": "The cage r2c5 + r3c5 has a sum of 10. Since r3c5 is already given as 4, r2c5 must be 10 - 4 = 6.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "step": 3,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The given digits r2c5=6 and r3c5=4, along w...",
-      "chosen_cell": "r4c4",
-      "value": 6,
-      "reasoning": "Cage r3c4+r4c4+r4c5=14 has only one 3-cell combination: {3,5,6}. The digit 6 is already present in r2c5. Since r4c5 is in the same column as r2c5, r4c5 cannot be 6. Since r3c4 is in the same 2x3 block (Block 5) as r2c5, r3c4 cannot be 6. Therefore, 6 must be placed in r4c4.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "step": 4,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The given digits r2c5=6, r3c5=4, and r4c4=6...",
-      "chosen_cell": "r5c5",
-      "value": 5,
-      "reasoning": "Cage r5c5+r5c6=11 has combinations {5,6}. The digit 6 is in r2c5 (Col 5), eliminating 6 from r5c5. Therefore, r5c5 must be 5.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "step": 5,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The given digits r2c5=6, r3c5=4, r4c4=6, an...",
-      "chosen_cell": "r5c6",
-      "value": 6,
-      "reasoning": "Cage r5c5+r5c6=11. The cell r5c5 is already filled with 5. Therefore, r5c6 must be 11 - 5 = 6.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "step": 6,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The board has several pre-filled cells and ...",
-      "chosen_cell": "r6c6",
-      "value": 3,
-      "reasoning": "In Column 6, cells r1c6 and r2c6 must contain {4,5} (from cage r1c6+r2c6=9, and r2c5=6 eliminates 6, leaving {4,5} as the only 2-cell combination for 9). Cells r3c6 and r4c6 must contain {1,2} (from cage r3c6+r4c6=3, which only has {1,2} as a combination). Cell r5c6 is already filled with 6. Therefore, the numbers 1, 2, 4, 5, 6 are all accounted for in the first five cells of Column 6. The only remaining digit for Column 6 is 3, which must go into r6c6.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 7,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The board has several pre-filled cells, inc...",
-      "chosen_cell": "r6c5",
-      "value": 2,
-      "reasoning": "Cage r6c5+r6c6=5. With r6c6=3 (from the current board state), r6c5 must be 5-3=2.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 8,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Column 5 is highly constrained with r2c...",
-      "chosen_cell": "r1c5",
-      "value": 1,
-      "reasoning": "Column 5 is missing {1,3} for r1c5 and r4c5. Cage r1c4+r1c5=3 has only {1,2} as a combination. If r1c5 were 3, then r1c4 would be 0, which is impossible. Therefore, r1c5 must be 1.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          1,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 9,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Column 4 is now full: {2,3,5,6,4...",
-      "chosen_cell": "r2c6",
-      "value": 4,
-      "reasoning": "The logical analysis states that r1c6 and r2c6 form a {4,5} pair in Block 2. It also deduces that the remaining candidates for r2c1, r2c2, and r2c6 in Row 2 are {1,2,4}. For r2c6 to satisfy both conditions (be in {4,5} and {1,2,4}), it must be 4.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          0,
-          1,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          4
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 10,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Column 6 is full: {5,4,1,2,6,3}....",
-      "chosen_cell": "r1c4",
-      "value": 2,
-      "reasoning": "Cage r1c4+r1c5 has a sum of 3. The cell r1c5 is already filled with 1. Therefore, r1c4 must be 3 - 1 = 2.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          4
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          0,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 11,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Column 5 is highly constrained, ...",
-      "chosen_cell": "r4c5",
-      "value": 3,
-      "reasoning": "Column 5 already contains digits 1, 6, 4, 5, and 2. The only missing digit in a 6x6 Sudoku is 3. Therefore, r4c5 must be 3.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          4
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 12,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Several 2-cell cages are partial...",
-      "chosen_cell": "r1c6",
-      "value": 5,
-      "reasoning": "Column 6 already contains 4 (r2c6), 6 (r5c6), and 3 (r6c6). The cage r3c6+r4c6=3 implies that r3c6 and r4c6 must be 1 and 2 (the only combination for sum 3). Therefore, the only remaining digit for r1c6 in Column 6 is 5.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          4
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 13,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Row 2 is now completely filled a...",
-      "chosen_cell": "r3c4",
-      "value": 5,
-      "reasoning": "Based on the cage sum for r3c4 + r4c4 + r4c5 = 14. Given that r4c4 is 6 and r4c5 is 3, the value for r3c4 must be 14 - 6 - 3 = 5.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          6,
-          4
-        ],
-        [
-          0,
-          0,
-          0,
-          5,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 14,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Columns 4, 5, and 6 are highly c...",
-      "chosen_cell": "r2c4",
-      "value": 3,
-      "reasoning": "Block 2 (r1c4-r2c6) contains the digits 2, 1, 5, 6, 4 in cells r1c4, r1c5, r1c6, r2c5, r2c6 respectively. The only missing digit in this 2x3 block is 3. Since r2c4 is the only empty cell in Block 2, it must be 3.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          0,
-          3,
-          6,
-          4
-        ],
-        [
-          0,
-          0,
-          0,
-          5,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 15,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Columns 4, 5, and 6 are very hig...",
-      "chosen_cell": "r3c2",
-      "value": 6,
-      "reasoning": "Row 3 currently has digits {3,5,4,1}. The remaining digits for r3c2 and r3c3 must be {2,6}. Column 2 already contains a '2' at r2c2, which means r3c2 cannot be '2'. Therefore, r3c2 must be '6'.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          0,
-          3,
-          6,
-          4
-        ],
-        [
-          0,
-          6,
-          0,
-          5,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 16,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Columns 4, 5, and 6 are highly c...",
-      "chosen_cell": "r2c3",
-      "value": 5,
-      "reasoning": "Cage r2c3+r2c4=8. The cell r2c4 is already filled with 3. Therefore, r2c3 must be 8 - 3 = 5.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          0,
-          6,
-          0,
-          5,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 17,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Several cages are already fully ...",
-      "chosen_cell": "r3c3",
-      "value": 2,
-      "reasoning": "Cell r3c3 must be 2 because it is part of a 2-cell cage (r3c2 + r3c3) with a sum of 8. Since r3c2 is already filled with 6, r3c3 must be 8 - 6 = 2.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          0,
-          6,
-          2,
-          5,
-          4,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 18,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Rows 1, 2, and 3 are now complet...",
-      "chosen_cell": "r3c6",
-      "value": 1,
-      "reasoning": "Row 3 is missing digits {1,3} for cells r3c1 and r3c6. Cell r3c6 is part of a 2-cell cage with r4c6 that sums to 3. The only possible combinations for a sum of 3 are {1,2}. Therefore, r3c6 must be either 1 or 2. The intersection of the candidates from Row 3 ({1,3}) and the cage ({1,2}) is {1}. Additionally, the digit 3 is already present in Block 4 (which contains r3c6) at r4c5, further eliminating 3 as a possibility for r3c6. Thus, r3c6 must be 1.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          0,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 19,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Row 3 is now almost complete, wi...",
-      "chosen_cell": "r3c1",
-      "value": 3,
-      "reasoning": "Row 3 is currently '0 6 2 5 4 1'. The numbers 1, 2, 4, 5, 6 are already present. For a 6x6 Sudoku, each row must contain digits 1 through 6 exactly once. Therefore, the missing digit in r3c1 must be 3.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          0,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 20,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Rows 2, 3, Column 5, and Column ...",
-      "chosen_cell": "r4c2",
-      "value": 5,
-      "reasoning": "Based on the current board, candidates for r4c2 are {1,4,5} (from row 4, excluding 2,3,6) and candidates for r5c2 are {1,4} (from row 5, excluding 2,3,5,6). The cage r4c2 + r5c2 must sum to 6. The only combination of these candidates that sums to 6 is r4c2=5 and r5c2=1. If r5c2 were 4, r4c2 would need to be 2, but 2 is not a candidate for r4c2.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          0,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 21,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**:\n    - Row 3 is complete.\n    - Column 5...",
-      "chosen_cell": "r2c2",
-      "value": 2,
-      "reasoning": "Based on candidate elimination for Row 2 ({1,2}) and Column 2 ({2,3,4}), 2 is the only possible digit for r2c2.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          0,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 22,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**:\n    - Row 2 and Row 3 are complete.\n   ...",
-      "chosen_cell": "r1c2",
-      "value": 3,
-      "reasoning": "Based on candidate elimination, r1c2 is the only cell in its row, column, and 2x3 block that can contain the digit 3. Row 1 is missing {3,4}. Column 2 is missing {3}. Block 1 is missing {3,4}. The only common candidate is 3.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          3,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          0,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 23,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**:\n    - Row 2 (1 ...",
-      "chosen_cell": "r2c1",
-      "value": 1,
-      "reasoning": "Row 2 currently contains the digits 2, 5, 3, 6, and 4. For a 6x6 Sudoku, each row must contain the digits 1 through 6 exactly once. The only missing digit in Row 2 is 1. Therefore, r2c1 must be 1.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          3,
-          0,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 24,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Rows 2, ...",
-      "chosen_cell": "r1c3",
-      "value": 4,
-      "reasoning": "Based on Row 1, Column 3, and Block 1 constraints, 4 is the only possible digit for r1c3. Row 1 is missing 4, Column 3 is missing 3 and 4, and Block 1 is missing 4. All constraints converge on 4 for r1c3.",
-      "is_certain": true,
-      "board_state": [
-        [
-          0,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 25,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Several rows, c...",
-      "chosen_cell": "r1c1",
-      "value": 6,
-      "reasoning": "The cage r1c1 + r2c1 + r3c1 sums to 10. With r2c1 already 1 and r3c1 already 3, r1c1 must be 10 - 1 - 3 = 6. This is a mathematically forced digit.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 26,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
-      "chosen_cell": "r5c2",
-      "value": 1,
-      "reasoning": "Cell r5c2 must be 1 because its cage r4c2 + r5c2 = 6 has r4c2=5, leaving r5c2 = 6 - 5 = 1. This is a direct deduction.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          0
-        ],
-        [
-          0,
-          1,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 27,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
-      "chosen_cell": "r4c6",
-      "value": 2,
-      "reasoning": "The cage r3c6 + r4c6 has a sum of 3. Since r3c6 is already filled with 1, r4c6 must be 3 - 1 = 2 to satisfy the cage sum.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          2
-        ],
-        [
-          0,
-          1,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          0,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 28,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
-      "chosen_cell": "r6c2",
-      "value": 4,
-      "reasoning": "Column 2 currently contains digits [3, 2, 6, 5, 1]. For a 6x6 Sudoku, the column must contain digits 1 through 6 exactly once. Therefore, the only missing digit in column 2 is 4, forcing r6c2 to be 4.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          0,
-          6,
-          3,
-          2
-        ],
-        [
-          0,
-          1,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          4,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 29,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
-      "chosen_cell": "r4c1",
-      "value": 4,
-      "reasoning": "r4c1 MUST be 4 because Row 4 is missing {1, 4}, Column 1 is missing {2, 4, 5}, and Block 4 is missing {2, 3, 4, 6}. The only common candidate for r4c1 among these constraints is 4.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          0,
-          6,
-          3,
-          2
-        ],
-        [
-          0,
-          1,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          4,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 30,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
-      "chosen_cell": "r4c3",
-      "value": 1,
-      "reasoning": "Row 4 is [4, 5, 0, 6, 3, 2]. The only missing digit in this row is 1, making r4c3 a naked single.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1,
-          6,
-          3,
-          2
-        ],
-        [
-          0,
-          1,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          4,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 31,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, 3, a...",
-      "chosen_cell": "r5c1",
-      "value": 2,
-      "reasoning": "Cell r5c1 is part of a 2-cell cage with r4c1, summing to 6. Since r4c1 is already filled with 4, r5c1 must be 6 - 4 = 2.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1,
-          6,
-          3,
-          2
-        ],
-        [
-          2,
-          1,
-          0,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          4,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 32,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, 3, a...",
-      "chosen_cell": "r5c3",
-      "value": 3,
-      "reasoning": "The cage `r4c3 + r5c3` has a sum of 4. Since `r4c3` is already filled with 1, `r5c3` must be `4 - 1 = 3`.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1,
-          6,
-          3,
-          2
-        ],
-        [
-          2,
-          1,
-          3,
-          0,
-          5,
-          6
-        ],
-        [
-          0,
-          4,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 33,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, 3, a...",
-      "chosen_cell": "r5c4",
-      "value": 4,
-      "reasoning": "Row 5 currently contains the digits {2, 1, 3, 5, 6}. The only missing digit in Row 5 is 4, therefore r5c4 must be 4.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1,
-          6,
-          3,
-          2
-        ],
-        [
-          2,
-          1,
-          3,
-          4,
-          5,
-          6
-        ],
-        [
-          0,
-          4,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 34,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, 3, 4...",
-      "chosen_cell": "r6c1",
-      "value": 5,
-      "reasoning": "Column 1 already contains the digits {6, 1, 3, 4, 2}. For the column to contain all digits from 1 to 6 exactly once, the missing digit in r6c1 must be 5.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1,
-          6,
-          3,
-          2
-        ],
-        [
-          2,
-          1,
-          3,
-          4,
-          5,
-          6
-        ],
-        [
-          5,
-          4,
-          0,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 35,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1-5 are co...",
-      "chosen_cell": "r6c3",
-      "value": 6,
-      "reasoning": "Column 3 already contains {4, 5, 2, 1, 3}. The only missing digit in Column 3 is 6. Additionally, Block 5 (r5c1-r6c3) contains {2, 1, 3, 5, 4}, making 6 the only possible digit for r6c3 within that block.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1,
-          6,
-          3,
-          2
-        ],
-        [
-          2,
-          1,
-          3,
-          4,
-          5,
-          6
-        ],
-        [
-          5,
-          4,
-          6,
-          0,
-          2,
-          3
-        ]
-      ]
-    },
-    {
-      "step": 36,
-      "analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1-5 are co...",
-      "chosen_cell": "r6c4",
-      "value": 1,
-      "reasoning": "Cell r6c4 is part of a 2-cell cage with r5c4, summing to 5. Since r5c4 is already filled with 4, r6c4 must be 5 - 4 = 1. This is also consistent with the missing digit in column 4 and block 6.",
-      "is_certain": true,
-      "board_state": [
-        [
-          6,
-          3,
-          4,
-          2,
-          1,
-          5
-        ],
-        [
-          1,
-          2,
-          5,
-          3,
-          6,
-          4
-        ],
-        [
-          3,
-          6,
-          2,
-          5,
-          4,
-          1
-        ],
-        [
-          4,
-          5,
-          1,
-          6,
-          3,
-          2
-        ],
-        [
-          2,
-          1,
-          3,
-          4,
-          5,
-          6
-        ],
-        [
-          5,
-          4,
-          6,
-          1,
-          2,
-          3
-        ]
-      ]
-    }
-  ]
+	"puzzle_id": 3,
+	"difficulty": "easy",
+	"model": "gemini-2.5-flash",
+	"total_steps": 36,
+	"final_status": "Success",
+	"error_type": "None",
+	"execution_log": [
+		{
+			"step": 1,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Several small cages (sum 3, sum 4, sum 5) s...",
+			"chosen_cell": "r3c5",
+			"value": 4,
+			"reasoning": "Block 4 (cells r3c4, r3c5, r3c6, r4c4, r4c5, r4c6) contains the 3-cell cage {r3c4, r4c4, r4c5} summing to 14 (digits {3,5,6}) and the 2-cell cage {r3c6, r4c6} summing to 3 (digits {1,2}). These 5 cells use digits {1,2,3,5,6}, leaving 4 as the only possible digit for the remaining cell r3c5 in Block 4.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 2,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The initial placement of '4' in r3c5, combi...",
+			"chosen_cell": "r2c5",
+			"value": 6,
+			"reasoning": "The cage r2c5 + r3c5 has a sum of 10. Since r3c5 is already given as 4, r2c5 must be 10 - 4 = 6.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 6, 0],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 3,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The given digits r2c5=6 and r3c5=4, along w...",
+			"chosen_cell": "r4c4",
+			"value": 6,
+			"reasoning": "Cage r3c4+r4c4+r4c5=14 has only one 3-cell combination: {3,5,6}. The digit 6 is already present in r2c5. Since r4c5 is in the same column as r2c5, r4c5 cannot be 6. Since r3c4 is in the same 2x3 block (Block 5) as r2c5, r3c4 cannot be 6. Therefore, 6 must be placed in r4c4.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 6, 0],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 0, 0],
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 4,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The given digits r2c5=6, r3c5=4, and r4c4=6...",
+			"chosen_cell": "r5c5",
+			"value": 5,
+			"reasoning": "Cage r5c5+r5c6=11 has combinations {5,6}. The digit 6 is in r2c5 (Col 5), eliminating 6 from r5c5. Therefore, r5c5 must be 5.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 6, 0],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 0, 0],
+				[0, 0, 0, 0, 5, 0],
+				[0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 5,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The given digits r2c5=6, r3c5=4, r4c4=6, an...",
+			"chosen_cell": "r5c6",
+			"value": 6,
+			"reasoning": "Cage r5c5+r5c6=11. The cell r5c5 is already filled with 5. Therefore, r5c6 must be 11 - 5 = 6.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 6, 0],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 0, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 6,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The board has several pre-filled cells and ...",
+			"chosen_cell": "r6c6",
+			"value": 3,
+			"reasoning": "In Column 6, cells r1c6 and r2c6 must contain {4,5} (from cage r1c6+r2c6=9, and r2c5=6 eliminates 6, leaving {4,5} as the only 2-cell combination for 9). Cells r3c6 and r4c6 must contain {1,2} (from cage r3c6+r4c6=3, which only has {1,2} as a combination). Cell r5c6 is already filled with 6. Therefore, the numbers 1, 2, 4, 5, 6 are all accounted for in the first five cells of Column 6. The only remaining digit for Column 6 is 3, which must go into r6c6.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 6, 0],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 0, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 0, 3]
+			]
+		},
+		{
+			"step": 7,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: The board has several pre-filled cells, inc...",
+			"chosen_cell": "r6c5",
+			"value": 2,
+			"reasoning": "Cage r6c5+r6c6=5. With r6c6=3 (from the current board state), r6c5 must be 5-3=2.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 6, 0],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 0, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 8,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Column 5 is highly constrained with r2c...",
+			"chosen_cell": "r1c5",
+			"value": 1,
+			"reasoning": "Column 5 is missing {1,3} for r1c5 and r4c5. Cage r1c4+r1c5=3 has only {1,2} as a combination. If r1c5 were 3, then r1c4 would be 0, which is impossible. Therefore, r1c5 must be 1.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 1, 0],
+				[0, 0, 0, 0, 6, 0],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 0, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 9,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Column 4 is now full: {2,3,5,6,4...",
+			"chosen_cell": "r2c6",
+			"value": 4,
+			"reasoning": "The logical analysis states that r1c6 and r2c6 form a {4,5} pair in Block 2. It also deduces that the remaining candidates for r2c1, r2c2, and r2c6 in Row 2 are {1,2,4}. For r2c6 to satisfy both conditions (be in {4,5} and {1,2,4}), it must be 4.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 0, 1, 0],
+				[0, 0, 0, 0, 6, 4],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 0, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 10,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Column 6 is full: {5,4,1,2,6,3}....",
+			"chosen_cell": "r1c4",
+			"value": 2,
+			"reasoning": "Cage r1c4+r1c5 has a sum of 3. The cell r1c5 is already filled with 1. Therefore, r1c4 must be 3 - 1 = 2.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 0],
+				[0, 0, 0, 0, 6, 4],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 0, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 11,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Column 5 is highly constrained, ...",
+			"chosen_cell": "r4c5",
+			"value": 3,
+			"reasoning": "Column 5 already contains digits 1, 6, 4, 5, and 2. The only missing digit in a 6x6 Sudoku is 3. Therefore, r4c5 must be 3.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 0],
+				[0, 0, 0, 0, 6, 4],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 12,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Several 2-cell cages are partial...",
+			"chosen_cell": "r1c6",
+			"value": 5,
+			"reasoning": "Column 6 already contains 4 (r2c6), 6 (r5c6), and 3 (r6c6). The cage r3c6+r4c6=3 implies that r3c6 and r4c6 must be 1 and 2 (the only combination for sum 3). Therefore, the only remaining digit for r1c6 in Column 6 is 5.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 0, 0, 6, 4],
+				[0, 0, 0, 0, 4, 0],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 13,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Row 2 is now completely filled a...",
+			"chosen_cell": "r3c4",
+			"value": 5,
+			"reasoning": "Based on the cage sum for r3c4 + r4c4 + r4c5 = 14. Given that r4c4 is 6 and r4c5 is 3, the value for r3c4 must be 14 - 6 - 3 = 5.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 0, 0, 6, 4],
+				[0, 0, 0, 5, 4, 0],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 14,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Columns 4, 5, and 6 are highly c...",
+			"chosen_cell": "r2c4",
+			"value": 3,
+			"reasoning": "Block 2 (r1c4-r2c6) contains the digits 2, 1, 5, 6, 4 in cells r1c4, r1c5, r1c6, r2c5, r2c6 respectively. The only missing digit in this 2x3 block is 3. Since r2c4 is the only empty cell in Block 2, it must be 3.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 0, 3, 6, 4],
+				[0, 0, 0, 5, 4, 0],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 15,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Columns 4, 5, and 6 are very hig...",
+			"chosen_cell": "r3c2",
+			"value": 6,
+			"reasoning": "Row 3 currently has digits {3,5,4,1}. The remaining digits for r3c2 and r3c3 must be {2,6}. Column 2 already contains a '2' at r2c2, which means r3c2 cannot be '2'. Therefore, r3c2 must be '6'.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 0, 3, 6, 4],
+				[0, 6, 0, 5, 4, 0],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 16,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Columns 4, 5, and 6 are highly c...",
+			"chosen_cell": "r2c3",
+			"value": 5,
+			"reasoning": "Cage r2c3+r2c4=8. The cell r2c4 is already filled with 3. Therefore, r2c3 must be 8 - 3 = 5.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 5, 3, 6, 4],
+				[0, 6, 0, 5, 4, 0],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 17,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Several cages are already fully ...",
+			"chosen_cell": "r3c3",
+			"value": 2,
+			"reasoning": "Cell r3c3 must be 2 because it is part of a 2-cell cage (r3c2 + r3c3) with a sum of 8. Since r3c2 is already filled with 6, r3c3 must be 8 - 6 = 2.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 5, 3, 6, 4],
+				[0, 6, 2, 5, 4, 0],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 18,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Rows 1, 2, and 3 are now complet...",
+			"chosen_cell": "r3c6",
+			"value": 1,
+			"reasoning": "Row 3 is missing digits {1,3} for cells r3c1 and r3c6. Cell r3c6 is part of a 2-cell cage with r4c6 that sums to 3. The only possible combinations for a sum of 3 are {1,2}. Therefore, r3c6 must be either 1 or 2. The intersection of the candidates from Row 3 ({1,3}) and the cage ({1,2}) is {1}. Additionally, the digit 3 is already present in Block 4 (which contains r3c6) at r4c5, further eliminating 3 as a possibility for r3c6. Thus, r3c6 must be 1.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 5, 3, 6, 4],
+				[0, 6, 2, 5, 4, 1],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 19,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Row 3 is now almost complete, wi...",
+			"chosen_cell": "r3c1",
+			"value": 3,
+			"reasoning": "Row 3 is currently '0 6 2 5 4 1'. The numbers 1, 2, 4, 5, 6 are already present. For a 6x6 Sudoku, each row must contain digits 1 through 6 exactly once. Therefore, the missing digit in r3c1 must be 3.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 0, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 20,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Rows 2, 3, Column 5, and Column ...",
+			"chosen_cell": "r4c2",
+			"value": 5,
+			"reasoning": "Based on the current board, candidates for r4c2 are {1,4,5} (from row 4, excluding 2,3,6) and candidates for r5c2 are {1,4} (from row 5, excluding 2,3,5,6). The cage r4c2 + r5c2 must sum to 6. The only combination of these candidates that sums to 6 is r4c2=5 and r5c2=1. If r5c2 were 4, r4c2 would need to be 2, but 2 is not a candidate for r4c2.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 0, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 21,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**:\n    - Row 3 is complete.\n    - Column 5...",
+			"chosen_cell": "r2c2",
+			"value": 2,
+			"reasoning": "Based on candidate elimination for Row 2 ({1,2}) and Column 2 ({2,3,4}), 2 is the only possible digit for r2c2.",
+			"is_certain": true,
+			"board_state": [
+				[0, 0, 0, 2, 1, 5],
+				[0, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 22,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, column, and 2x3 block must contain numbers 1-6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**:\n    - Row 2 and Row 3 are complete.\n   ...",
+			"chosen_cell": "r1c2",
+			"value": 3,
+			"reasoning": "Based on candidate elimination, r1c2 is the only cell in its row, column, and 2x3 block that can contain the digit 3. Row 1 is missing {3,4}. Column 2 is missing {3}. Block 1 is missing {3,4}. The only common candidate is 3.",
+			"is_certain": true,
+			"board_state": [
+				[0, 3, 0, 2, 1, 5],
+				[0, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 23,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**:\n    - Row 2 (1 ...",
+			"chosen_cell": "r2c1",
+			"value": 1,
+			"reasoning": "Row 2 currently contains the digits 2, 5, 3, 6, and 4. For a 6x6 Sudoku, each row must contain the digits 1 through 6 exactly once. The only missing digit in Row 2 is 1. Therefore, r2c1 must be 1.",
+			"is_certain": true,
+			"board_state": [
+				[0, 3, 0, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 24,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: \n    - Rows 2, ...",
+			"chosen_cell": "r1c3",
+			"value": 4,
+			"reasoning": "Based on Row 1, Column 3, and Block 1 constraints, 4 is the only possible digit for r1c3. Row 1 is missing 4, Column 3 is missing 3 and 4, and Block 1 is missing 4. All constraints converge on 4 for r1c3.",
+			"is_certain": true,
+			"board_state": [
+				[0, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 25,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Several rows, c...",
+			"chosen_cell": "r1c1",
+			"value": 6,
+			"reasoning": "The cage r1c1 + r2c1 + r3c1 sums to 10. With r2c1 already 1 and r3c1 already 3, r1c1 must be 10 - 1 - 3 = 6. This is a mathematically forced digit.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 0],
+				[0, 0, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 26,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
+			"chosen_cell": "r5c2",
+			"value": 1,
+			"reasoning": "Cell r5c2 must be 1 because its cage r4c2 + r5c2 = 6 has r4c2=5, leaving r5c2 = 6 - 5 = 1. This is a direct deduction.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 0],
+				[0, 1, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 27,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
+			"chosen_cell": "r4c6",
+			"value": 2,
+			"reasoning": "The cage r3c6 + r4c6 has a sum of 3. Since r3c6 is already filled with 1, r4c6 must be 3 - 1 = 2 to satisfy the cage sum.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 2],
+				[0, 1, 0, 0, 5, 6],
+				[0, 0, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 28,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
+			"chosen_cell": "r6c2",
+			"value": 4,
+			"reasoning": "Column 2 currently contains digits [3, 2, 6, 5, 1]. For a 6x6 Sudoku, the column must contain digits 1 through 6 exactly once. Therefore, the only missing digit in column 2 is 4, forcing r6c2 to be 4.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[0, 5, 0, 6, 3, 2],
+				[0, 1, 0, 0, 5, 6],
+				[0, 4, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 29,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
+			"chosen_cell": "r4c1",
+			"value": 4,
+			"reasoning": "r4c1 MUST be 4 because Row 4 is missing {1, 4}, Column 1 is missing {2, 4, 5}, and Block 4 is missing {2, 3, 4, 6}. The only common candidate for r4c1 among these constraints is 4.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[4, 5, 0, 6, 3, 2],
+				[0, 1, 0, 0, 5, 6],
+				[0, 4, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 30,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, and ...",
+			"chosen_cell": "r4c3",
+			"value": 1,
+			"reasoning": "Row 4 is [4, 5, 0, 6, 3, 2]. The only missing digit in this row is 1, making r4c3 a naked single.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[4, 5, 1, 6, 3, 2],
+				[0, 1, 0, 0, 5, 6],
+				[0, 4, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 31,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, 3, a...",
+			"chosen_cell": "r5c1",
+			"value": 2,
+			"reasoning": "Cell r5c1 is part of a 2-cell cage with r4c1, summing to 6. Since r4c1 is already filled with 4, r5c1 must be 6 - 4 = 2.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[4, 5, 1, 6, 3, 2],
+				[2, 1, 0, 0, 5, 6],
+				[0, 4, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 32,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, 3, a...",
+			"chosen_cell": "r5c3",
+			"value": 3,
+			"reasoning": "The cage `r4c3 + r5c3` has a sum of 4. Since `r4c3` is already filled with 1, `r5c3` must be `4 - 1 = 3`.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[4, 5, 1, 6, 3, 2],
+				[2, 1, 3, 0, 5, 6],
+				[0, 4, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 33,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, 3, a...",
+			"chosen_cell": "r5c4",
+			"value": 4,
+			"reasoning": "Row 5 currently contains the digits {2, 1, 3, 5, 6}. The only missing digit in Row 5 is 4, therefore r5c4 must be 4.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[4, 5, 1, 6, 3, 2],
+				[2, 1, 3, 4, 5, 6],
+				[0, 4, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 34,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1, 2, 3, 4...",
+			"chosen_cell": "r6c1",
+			"value": 5,
+			"reasoning": "Column 1 already contains the digits {6, 1, 3, 4, 2}. For the column to contain all digits from 1 to 6 exactly once, the missing digit in r6c1 must be 5.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[4, 5, 1, 6, 3, 2],
+				[2, 1, 3, 4, 5, 6],
+				[5, 4, 0, 0, 2, 3]
+			]
+		},
+		{
+			"step": 35,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1-5 are co...",
+			"chosen_cell": "r6c3",
+			"value": 6,
+			"reasoning": "Column 3 already contains {4, 5, 2, 1, 3}. The only missing digit in Column 3 is 6. Additionally, Block 5 (r5c1-r6c3) contains {2, 1, 3, 5, 4}, making 6 the only possible digit for r6c3 within that block.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[4, 5, 1, 6, 3, 2],
+				[2, 1, 3, 4, 5, 6],
+				[5, 4, 6, 0, 2, 3]
+			]
+		},
+		{
+			"step": 36,
+			"analysis_summary": "### 1. Constraint Analysis\n\n- **Active Rules**: Standard 6x6 Sudoku rules (each row, each column, and each 2x3 subgrid must contain the numbers 1 through 6 exactly once) and Killer Sudoku rules (cage sums must match, and digits within a cage cannot repeat).\n- **Global Observations**: Rows 1-5 are co...",
+			"chosen_cell": "r6c4",
+			"value": 1,
+			"reasoning": "Cell r6c4 is part of a 2-cell cage with r5c4, summing to 5. Since r5c4 is already filled with 4, r6c4 must be 5 - 4 = 1. This is also consistent with the missing digit in column 4 and block 6.",
+			"is_certain": true,
+			"board_state": [
+				[6, 3, 4, 2, 1, 5],
+				[1, 2, 5, 3, 6, 4],
+				[3, 6, 2, 5, 4, 1],
+				[4, 5, 1, 6, 3, 2],
+				[2, 1, 3, 4, 5, 6],
+				[5, 4, 6, 1, 2, 3]
+			]
+		}
+	]
 }
