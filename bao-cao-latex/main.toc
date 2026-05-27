@@ -24,11 +24,11 @@
 \contentsline {section}{\numberline {4.5}Định dạng output và validator}{11}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Cheat sheet Killer Sudoku}{11}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Pipeline tổng quát}{11}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Các thành phần cài đặt quan trọng}{11}{section.4.8}%
+\contentsline {section}{\numberline {4.8}Các thành phần cài đặt quan trọng}{12}{section.4.8}%
 \contentsline {subsection}{\numberline {4.8.1}Cấu trúc prompt}{12}{subsection.4.8.1}%
 \contentsline {subsection}{\numberline {4.8.2}Vòng lặp multi-step}{12}{subsection.4.8.2}%
 \contentsline {subsection}{\numberline {4.8.3}Validator}{13}{subsection.4.8.3}%
-\contentsline {subsection}{\numberline {4.8.4}Parser và chuẩn hóa output}{13}{subsection.4.8.4}%
+\contentsline {subsection}{\numberline {4.8.4}Parser và chuẩn hóa output}{14}{subsection.4.8.4}%
 \contentsline {subsection}{\numberline {4.8.5}Logger và evaluation notebook}{14}{subsection.4.8.5}%
 \contentsline {chapter}{\numberline {5}KẾT QUẢ VÀ PHÂN TÍCH}{15}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Tổng quan kết quả}{15}{section.5.1}%
@@ -43,7 +43,3 @@
 \contentsline {section}{\numberline {6.2}Hạn chế}{20}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Hướng phát triển}{21}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Bài học rút ra}{21}{section.6.4}%
-\contentsline {chapter}{\numberline {A}PHỤ LỤC: TÀI NGUYÊN THỰC NGHIỆM}{22}{chapter.A}%
-\contentsline {section}{\numberline {A.1}Các file kết quả chính}{22}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Schema dữ liệu puzzle}{22}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Schema output multi-step}{23}{section.A.3}%
