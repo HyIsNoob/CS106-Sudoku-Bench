@@ -1,35 +1,49 @@
 \babel@toc {vietnamese}{}\relax 
-\contentsline {chapter}{TÓM TẮT}{1}{chapter*.3}%
+\contentsline {chapter}{TÓM TẮT}{1}{chapter*.2}%
 \contentsline {chapter}{\numberline {1}TỔNG QUAN}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Bối cảnh và lý do chọn đề tài}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Mục tiêu đồ án}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Phạm vi thực hiện}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Phạm vi và đóng góp}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Cấu trúc báo cáo}{3}{section.1.4}%
 \contentsline {chapter}{\numberline {2}CƠ SỞ LÝ THUYẾT}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Bài toán thỏa mãn ràng buộc}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Sudoku variants và Killer Sudoku}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Suy luận sáng tạo và khái niệm break-in}{5}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Giới hạn của LLM trong bài toán CSP}{5}{section.2.4}%
+\contentsline {section}{\numberline {2.1}Sudoku dưới góc nhìn ràng buộc}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Sudoku variants}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Killer Sudoku}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Break-in và suy luận sáng tạo}{5}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Giới hạn của LLM trong suy luận ràng buộc}{5}{section.2.5}%
 \contentsline {chapter}{\numberline {3}BÀI BÁO THAM CHIẾU SUDOKU-BENCH}{6}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Mục tiêu của bài báo}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Thiết kế đánh giá trong bài báo}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Phạm vi tái hiện của nhóm so với bài báo gốc}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.2}Thiết kế benchmark trong bài báo}{6}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Phạm vi tái hiện của nhóm}{7}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Các chỉ số đánh giá}{7}{section.3.4}%
-\contentsline {chapter}{\numberline {4}PHƯƠNG PHÁP THỰC NGHIỆM}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Dữ liệu thực nghiệm}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Pipeline đánh giá}{8}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Tiêu chí chấm điểm và tiêu chí dừng}{9}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Lý do không đưa 4x4 vào kết quả chính}{9}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Prompt multi-step}{9}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Mô hình và cấu hình}{10}{section.4.6}%
-\contentsline {chapter}{\numberline {5}KẾT QUẢ VÀ PHÂN TÍCH}{11}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Kết quả tổng hợp}{11}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Phân tích kết quả 6x6}{12}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Phân tích kết quả 9x9}{12}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Độ tin cậy và giới hạn diễn giải kết quả}{12}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Phân tích lỗi}{12}{section.5.5}%
-\contentsline {section}{\numberline {5.6}So sánh với nhận định của bài báo gốc}{14}{section.5.6}%
-\contentsline {chapter}{\numberline {6}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{15}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Kết luận}{15}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Đóng góp của nhóm}{15}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Hạn chế}{15}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Hướng phát triển}{16}{section.6.4}%
+\contentsline {chapter}{\numberline {4}PHƯƠNG PHÁP THỰC NGHIỆM}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Dữ liệu thực nghiệm}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Mô hình được đánh giá}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Single-prompt evaluation}{10}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Multi-step evaluation}{10}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Định dạng output và validator}{11}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Cheat sheet Killer Sudoku}{11}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Pipeline tổng quát}{11}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Các thành phần cài đặt quan trọng}{11}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Cấu trúc prompt}{12}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Vòng lặp multi-step}{12}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}Validator}{13}{subsection.4.8.3}%
+\contentsline {subsection}{\numberline {4.8.4}Parser và chuẩn hóa output}{13}{subsection.4.8.4}%
+\contentsline {subsection}{\numberline {4.8.5}Logger và evaluation notebook}{14}{subsection.4.8.5}%
+\contentsline {chapter}{\numberline {5}KẾT QUẢ VÀ PHÂN TÍCH}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Tổng quan kết quả}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Kết quả single-prompt}{16}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Kết quả multi-step}{16}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Kết quả theo từng puzzle}{17}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Phân tích lỗi}{18}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Thời gian và chi phí thực nghiệm}{18}{section.5.6}%
+\contentsline {section}{\numberline {5.7}So sánh với paper gốc}{19}{section.5.7}%
+\contentsline {chapter}{\numberline {6}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{20}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Kết luận}{20}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Hạn chế}{20}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Hướng phát triển}{21}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Bài học rút ra}{21}{section.6.4}%
+\contentsline {chapter}{\numberline {A}PHỤ LỤC: TÀI NGUYÊN THỰC NGHIỆM}{22}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Các file kết quả chính}{22}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Schema dữ liệu puzzle}{22}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Schema output multi-step}{23}{section.A.3}%
