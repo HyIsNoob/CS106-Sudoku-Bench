@@ -1,0 +1,1653 @@
+{
+	"puzzle_id": 7,
+	"difficulty": "hard",
+	"grid_size": 9,
+	"model": "gemini-3.5-flash",
+	"total_steps": 82,
+	"final_status": "Success",
+	"error_type": "None",
+	"final_board": [
+		[3, 4, 9, 1, 8, 2, 6, 5, 7],
+		[2, 8, 7, 4, 5, 6, 1, 3, 9],
+		[5, 6, 1, 9, 3, 7, 2, 4, 8],
+		[8, 2, 3, 6, 1, 9, 4, 7, 5],
+		[4, 7, 6, 3, 2, 5, 9, 8, 1],
+		[1, 9, 5, 7, 4, 8, 3, 6, 2],
+		[7, 5, 4, 2, 9, 3, 8, 1, 6],
+		[9, 3, 8, 5, 6, 1, 7, 2, 4],
+		[6, 1, 2, 8, 7, 4, 5, 9, 3]
+	],
+	"solution": [
+		[3, 4, 9, 1, 8, 2, 6, 5, 7],
+		[2, 8, 7, 4, 5, 6, 1, 3, 9],
+		[5, 6, 1, 9, 3, 7, 2, 4, 8],
+		[8, 2, 3, 6, 1, 9, 4, 7, 5],
+		[4, 7, 6, 3, 2, 5, 9, 8, 1],
+		[1, 9, 5, 7, 4, 8, 3, 6, 2],
+		[7, 5, 4, 2, 9, 3, 8, 1, 6],
+		[9, 3, 8, 5, 6, 1, 7, 2, 4],
+		[6, 1, 2, 8, 7, 4, 5, 9, 3]
+	],
+	"execution_log": [
+		{
+			"step": 1,
+			"analysis_summary": "Puzzle Information: Grid size 9x9, Box shape 3x3, Row/Col/Box sum 45. Column 1 is exactly covered by four cages: r1c1+r2c1+r3c1=10, r4c1+r5c1=12, r6c1+r7c1=8, r8c1+r9c1=15. Column 9 is exactly covered by four cages: r1c9+r2c9=16, r3c9+r4c9=13, r5c9+r6c9=3, r7c9+r8c9+r9c9=13. Since r5c9+r6c9=3, we ha...",
+			"chosen_cell": "r3c1",
+			"value": 5,
+			"reasoning": "By summing the cages that cover Row 1 and Row 2, we can find the value of r3c1. The cages are: (r1c1+r2c1+r3c1=10), (r1c2+r1c3+r2c2=21), (r1c4+r2c3+r2c4=12), (r1c5+r1c6+r2c5=15), (r1c7+r1c8=11), (r1c9+r2c9=16), and (r2c6+r2c7+r2c8=10). Together, these cages cover exactly all 18 cells of Row 1 and Row 2, plus r3c1. Since the sum of Row 1 and Row 2 is 45 + 45 = 90, and the sum of these cages is 10 + 21 + 12 + 15 + 11 + 16 + 10 = 95, we have r3c1 = 95 - 90 = 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 3,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r7c9",
+			"value": 6,
+			"reasoning": "By summing the eight cages that cover Rows 8 and 9 completely, plus three cells in Row 7 (r7c3, r7c4, r7c9), we get: (r8c1+r9c1) + (r9c2+r9c3) + (r8c2+r8c3+r8c4) + (r7c3+r7c4) + (r8c5+r9c4+r9c5) + (r8c6+r8c7+r9c6) + (r8c8+r9c7+r9c8) + (r7c9+r8c9+r9c9) = 15 + 3 + 16 + 6 + 21 + 12 + 16 + 13 = 102. Since Rows 8 and 9 must each sum to 45, their combined sum is 90. This leaves r7c3 + r7c4 + r7c9 = 102 - 90 = 12. Since the cage r7c3 + r7c4 = 6, we have 6 + r7c9 = 12, which forces r7c9 = 6.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 4,
+			"analysis_summary": " {5, 7, 8}` and `r6c7 ∈ {1, 3, 4}`.\n\n### Row 6 Sum Analysis\n- `r6c1 + r6c2 + r6c6 + r6c7 = 21`.\n- Let's test **Configuration A** (`r6c1 = 2`):\n  - If `r6c2 = 5`: `r6c1 + r6c2 = 7` implies `r6c6 + r6c7 = 14`. Since `r6c7 ≤ 4`, `r6c6 ≥ 10` (impossible).\n  - If `r6c2 = 6`: `r6c1 + r6c2 = 8` implies `r6...",
+			"chosen_cell": "r6c1",
+			"value": 1,
+			"reasoning": "The cage r9c2 + r9c3 = 3 is in Box 7, forcing the digits 1 and 2 to be in those two cells. Thus, no other cell in Box 7 can be 1 or 2, meaning r7c1 cannot be 1 or 2. Since r3c1 = 5, neither r6c1 nor r7c1 can be 5. Since r7c9 = 6, r7c1 cannot be 6. The cage r6c1 + r7c1 = 8 must be filled with distinct digits summing to 8. The pair {3, 5} is ruled out by r3c1 = 5. The pair {2, 6} is ruled out because r7c1 cannot be 6 or 2. Thus, the only possible pair is {1, 7}. Since r7c1 cannot be 1, we must have r7c1 = 7 and r6c1 = 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[1, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 5,
+			"analysis_summary": "### 1. Immediate Forced Placements\n\n*   **r7c1 = 7**:\n    *   The cage `r6c1 + r7c1 = 8` contains `r6c1 = 1`.\n    *   Therefore, `r7c1` must be `8 - 1 = 7`.\n\n*   **r6c9 = 2, r5c9 = 1**:\n    *   The cage `r5c9 + r6c9 = 3` must contain the digits `{1, 2}`.\n    *   Since `r6c1 = 1` is in Row 6, no othe...",
+			"chosen_cell": "r7c1",
+			"value": 7,
+			"reasoning": "The cage r6c1 + r7c1 has a sum of 8. Since r6c1 is given as 1, r7c1 must be 8 - 1 = 7.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[1, 0, 0, 0, 0, 0, 0, 0, 0],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 6,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r6c9",
+			"value": 2,
+			"reasoning": "The cage r5c9 + r6c9 has a sum of 3, which can only be formed by the digits {1, 2}. Since r6c1 is 1, the digit 1 is already used in row 6. Therefore, r6c9 cannot be 1, forcing r6c9 to be 2.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[1, 0, 0, 0, 0, 0, 0, 0, 2],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 7,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r5c9",
+			"value": 1,
+			"reasoning": "The cage containing r5c9 and r6c9 has a sum of 3. Since r6c9 is given as 2, r5c9 must be 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 1],
+				[1, 0, 0, 0, 0, 0, 0, 0, 2],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 8,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r6c5",
+			"value": 4,
+			"reasoning": "The cage r4c5 + r5c5 + r6c5 = 7 has only one possible combination of three distinct digits, which is {1, 2, 4}. Row 6 already contains 1 (at r6c1) and 2 (at r6c9). Therefore, r6c5 cannot be 1 or 2, which mathematically forces r6c5 = 4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 0, 0, 2],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 9,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r5c5",
+			"value": 2,
+			"reasoning": "Cage r4c5 + r5c5 + r6c5 = 7 has r6c5 = 4, so r4c5 + r5c5 = 3, which must be {1, 2}. Since row 5 contains r5c9 = 1, r5c5 cannot be 1, forcing r5c5 = 2.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 0, 0, 2],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 10,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r4c5",
+			"value": 1,
+			"reasoning": "The cage r4c5 + r5c5 + r6c5 = 7 contains r5c5 = 2 and r6c5 = 4. This mathematically forces r4c5 = 7 - 2 - 4 = 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 0, 0, 2],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 11,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r8c7",
+			"value": 7,
+			"reasoning": "By analyzing Box 9, we have r7c7 + r7c8 + r8c7 + r8c8 + r9c7 + r9c8 = 32. Since r8c8 + r9c7 + r9c8 = 16 (Cage K32), we get r7c7 + r7c8 + r8c7 = 16. Using Cage K29 (r6c7 + r7c7 + r7c8 = 12), we substitute r7c7 + r7c8 = 12 - r6c7 to get r8c7 = r6c7 + 4. Since r6c7 cannot be 1, 2, or 4 (already in row 6), r6c7 must be 3 or 5, making r8c7 either 7 or 9. If r8c7 = 9, then Cage K31 (r8c6 + r8c7 + r9c6 = 12) requires r8c6 + r9c6 = 3, forcing {r8c6, r9c6} = {1, 2}. However, Cage K27 (r9c2 + r9c3 = 3) already places {1, 2} in row 9, which would cause a duplicate. Thus, r8c7 cannot be 9, forcing r8c7 = 7.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 0, 0, 2],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 12,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r6c7",
+			"value": 3,
+			"reasoning": "By summing the three cages that cover Box 9 (except r8c7) plus r6c7, we get: (r6c7 + r7c7 + r7c8) + (r8c8 + r9c7 + r9c8) + (r7c9 + r8c9 + r9c9) = 12 + 16 + 13 = 41. Since the sum of Box 9 is 45, we have Box 9 - r8c7 + r6c7 = 41, which simplifies to 45 - r8c7 + r6c7 = 41, or r8c7 - r6c7 = 4. Given r8c7 = 7, we must have r6c7 = 3.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 3, 0, 2],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 13,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r8c8",
+			"value": 2,
+			"reasoning": "Box 9 sum analysis shows that {r8c8, r9c7, r9c8} must be {2, 5, 9}. Since row 9 contains {1, 2} in r9c2/r9c3, r9c7 and r9c8 cannot be 2, forcing r8c8 = 2.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 3, 0, 2],
+				[7, 0, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 14,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r7c2",
+			"value": 5,
+			"reasoning": "Box 7 contains r7c1 = 7 and the cage r8c1 + r9c1 = 15, which must be {6, 9} since 7 is already in the box. This means 6 is already in Box 7, so r7c2 cannot be 6. Row 7 and Row 6 analysis shows r6c6 - r7c2 = 3. Since r6c6 is in {6, 8, 9}, r7c2 must be in {5, 6}. Since 6 is eliminated, r7c2 is forced to be 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 3, 0, 2],
+				[7, 5, 0, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 15,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r7c3",
+			"value": 4,
+			"reasoning": "Cage r7c3 + r7c4 = 6. Since r7c2 = 5, 5 is in Row 7 and Box 7, so neither r7c3 nor r7c4 can be 5, ruling out the combination {1, 5}. Thus, the combination must be {2, 4}. Since r9c2 + r9c3 = 3, the combination for those cells is {1, 2}, placing 2 in Box 7. Since r7c3 is in Box 7, it cannot be 2, forcing r7c3 = 4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 3, 0, 2],
+				[7, 5, 4, 0, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 16,
+			"analysis_summary": ": {3} (9 is in Column 6)\n- r7c5: {9} (forced by r7c6 = 3)\n- r1c8: {5} (6 is in Column 8)\n- r1c7: {6} (forced by r1c8 = 5)\n- r9c8: {9} (5 is in Column 8)\n- r9c7: {5} (forced by r9c8 = 9)\n- r2c8: {3} (remaining cell in Column 8)\n- r4c8: {7} (4 is in Row 4)\n- r3c8: {4} (forced by r4c8 = 7)\n- r4c9: {5} ...",
+			"chosen_cell": "r7c4",
+			"value": 2,
+			"reasoning": "Cage r7c3 + r7c4 = 6. Since r7c3 is 4 (given on the board), r7c4 must be 2 to satisfy the cage sum. This cell is currently empty and does not conflict with any other cells in its row, column, or box.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 0, 0, 0, 4, 0, 3, 0, 2],
+				[7, 5, 4, 2, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 17,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r6c2",
+			"value": 9,
+			"reasoning": "The cage containing r6c2 and r7c2 has a sum of 14. Since r7c2 is given as 5, r6c2 must be 9.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 9, 0, 0, 4, 0, 3, 0, 2],
+				[7, 5, 4, 2, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 18,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r6c6",
+			"value": 8,
+			"reasoning": "Row 7 sum is 45. The known cells in Row 7 are r7c1=7, r7c2=5, r7c3=4, r7c4=2, and r7c9=6, which sum to 24. Thus, r7c5 + r7c6 + r7c7 + r7c8 = 21. The cage r6c7 + r7c7 + r7c8 = 12, and since r6c7=3, we have r7c7 + r7c8 = 9. Substituting this gives r7c5 + r7c6 = 12. The cage r6c6 + r7c5 + r7c6 = 20, which means r6c6 + 12 = 20, so r6c6 must be 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 9, 0, 0, 4, 8, 3, 0, 2],
+				[7, 5, 4, 2, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 19,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r6c8",
+			"value": 6,
+			"reasoning": "Row 6 contains the values 1, 9, 4, 8, 3, and 2. The remaining cells in Row 6 are r6c3, r6c4, and r6c8, which must contain the remaining digits {5, 6, 7}. Since r6c3 and r6c4 form a cage of sum 12, they must contain the digits 5 and 7. This leaves 6 as the only possible value for r6c8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 0, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 20,
+			"analysis_summary": "9 = 13:\n  - Since r7c9 = 6, r8c9 + r9c9 = 7. Possible combinations: {1, 6}, {2, 5}, {3, 4}.\n  - Since 6 is in Column 9 and 2 is in Row 8, {1, 6} and {2, 5} are eliminated, leaving {3, 4}.\n- Cage r8c6 + r8c7 + r9c6 = 12:\n  - Since r8c7 = 7, r8c6 + r9c6 = 5. Possible combinations: {1, 4}, {2, 3}.\n  - ...",
+			"chosen_cell": "r5c8",
+			"value": 8,
+			"reasoning": "The cage r5c8 + r6c8 has a sum of 14. Since r6c8 is already filled with 6, r5c8 must be 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 0],
+				[0, 0, 0, 0, 2, 0, 0, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 21,
+			"analysis_summary": "## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle as a constraint system with 81 variables:\n\nr...",
+			"chosen_cell": "r4c9",
+			"value": 5,
+			"reasoning": "The cage r1c9 + r2c9 = 16 must contain {7, 9}, which rules out 7 and 9 from the rest of column 9. The cage r3c9 + r4c9 = 13 must contain {5, 8} because the other combinations {4, 9} and {6, 7} are ruled out. Since r5c8 = 8 is in Box 6, r4c9 (which is also in Box 6) cannot be 8. Thus, r4c9 is mathematically forced to be 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 1, 0, 0, 0, 5],
+				[0, 0, 0, 0, 2, 0, 0, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 22,
+			"analysis_summary": "+ r7c6 + r8c6 + r9c6 = 45\n- C7: r1c7 + r2c7 + r3c7 + r4c7 + r5c7 + r6c7 + r7c7 + r8c7 + r9c7 = 45\n- C8: r1c8 + r2c8 + r3c8 + r4c8 + r5c8 + r6c8 + r7c8 + r8c8 + r9c8 = 45\n- C9: r1c9 + r2c9 + r3c9 + r4c9 + r5c9 + r6c9 + r7c9 + r8c9 + r9c9 = 45\n\n---\n\n## 4. Box Equations\n\n- B3: r1c7 + r1c8 + r1c9 + r2c7...",
+			"chosen_cell": "r3c9",
+			"value": 8,
+			"reasoning": "The cage r3c9 + r4c9 has a sum of 13. Since r4c9 is already filled with 5, r3c9 must be 13 - 5 = 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 8],
+				[0, 0, 0, 0, 1, 0, 0, 0, 5],
+				[0, 0, 0, 0, 2, 0, 0, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 0, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 23,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a constraint system with 81 variables.\n\n## 1.1 State ...",
+			"chosen_cell": "r7c7",
+			"value": 8,
+			"reasoning": "Cage r6c7 + r7c7 + r7c8 = 12 with r6c7 = 3 forces r7c7 + r7c8 = 9. Since r7c7 and r7c8 are in Box 9 and Row 7, they cannot contain any of the digits already present in Box 9 or Row 7, which are {2, 4, 5, 6, 7}. This eliminates the pairs {2, 7}, {3, 6}, and {4, 5}, leaving only {1, 8}. Since r5c8 = 8, r7c8 (in Column 8) cannot be 8, forcing r7c8 = 1 and r7c7 = 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 8],
+				[0, 0, 0, 0, 1, 0, 0, 0, 5],
+				[0, 0, 0, 0, 2, 0, 0, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 0, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 24,
+			"analysis_summary": "Analysis of Killer Sudoku 9x9: 1. Cage r6c7 + r7c7 + r7c8 = 12: Since r6c7 = 3 and r7c7 = 8, r7c8 must be 1. 2. Cage r5c6 + r5c7 = 14: Since r5c8 = 8, {6, 8} is eliminated, so {r5c6, r5c7} must be {5, 9}. Since r4c9 = 5 is in Box 6, r5c7 cannot be 5, forcing r5c7 = 9 and r5c6 = 5. 3. Cage r8c8 + r9c...",
+			"chosen_cell": "r7c8",
+			"value": 1,
+			"reasoning": "According to the cage r6c7 + r7c7 + r7c8 = 12, since r6c7 = 3 and r7c7 = 8, the remaining cell r7c8 must be 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 8],
+				[0, 0, 0, 0, 1, 0, 0, 0, 5],
+				[0, 0, 0, 0, 2, 0, 0, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 25,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTotal equations = 27...",
+			"chosen_cell": "r5c7",
+			"value": 9,
+			"reasoning": "The cage r5c6 + r5c7 = 14 can only be {5, 9} or {6, 8}. Since r5c8 is 8, the combination {6, 8} is eliminated, leaving {5, 9}. Since r4c9 is 5 and shares Box 6 with r5c7, r5c7 cannot be 5. Therefore, r5c7 is forced to be 9.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 8],
+				[0, 0, 0, 0, 1, 0, 0, 0, 5],
+				[0, 0, 0, 0, 2, 0, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 26,
+			"analysis_summary": "+ r9c6 = 45\n- C7: r1c7 + r2c7 + r3c7 + r4c7 + r5c7 + r6c7 + r7c7 + r8c7 + r9c7 = 45\n- C8: r1c8 + r2c8 + r3c8 + r4c8 + r5c8 + r6c8 + r7c8 + r8c8 + r9c8 = 45\n- C9: r1c9 + r2c9 + r3c9 + r4c9 + r5c9 + r6c9 + r7c9 + r8c9 + r9c9 = 45\n\n---\n\n## 4. Box Equations\n- B5: r4c4 + r4c5 + r4c6 + r5c4 + r5c5 + r5c6 ...",
+			"chosen_cell": "r5c6",
+			"value": 5,
+			"reasoning": "The cage r5c6 + r5c7 has a sum of 14. Since r5c7 is already filled with 9, r5c6 must be 5 to satisfy the cage sum.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 8],
+				[0, 0, 0, 0, 1, 0, 0, 0, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 27,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r4c7",
+			"value": 4,
+			"reasoning": "In Box 6, the filled cells are r4c9=5, r5c7=9, r5c8=8, r5c9=1, r6c7=3, r6c8=6, and r6c9=2. The remaining empty cells in Box 6 are r4c7 and r4c8, which must contain the remaining digits {4, 7}. Since Column 7 already contains 7 (at r8c7), r4c7 cannot be 7. Therefore, r4c7 is mathematically forced to be 4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 8],
+				[0, 0, 0, 0, 1, 0, 4, 0, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 28,
+			"analysis_summary": "straint Propagation\nAfter the placement of r4c7 = 4, we update the constraints for Box 6, Row 4, Column 7, and cage r4c6 + r4c7 = 13.\n\n---\n\n## 2. Row Equations\n- R4: r4c1 + r4c2 + r4c3 + r4c4 + 1 + r4c6 + 4 + r4c8 + 5 = 45 => r4c1 + r4c2 + r4c3 + r4c4 + r4c6 + r4c8 = 35\n- R5: r5c1 + r5c2 + r5c3 + r5...",
+			"chosen_cell": "r4c8",
+			"value": 7,
+			"reasoning": "In Box 6, the cells are r4c7=4, r4c9=5, r5c7=9, r5c8=8, r5c9=1, r6c7=3, r6c8=6, r6c9=2. The only remaining empty cell in Box 6 is r4c8, which must contain the remaining digit 7.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 0, 8],
+				[0, 0, 0, 0, 1, 0, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 29,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9  ## 0. Puzzle Information  - Grid size: 9x9 - Digits allowed: 1-9 - Box shape: 3x3 - Row sum: 45 - Column sum: 45 - Box sum: 45 - Cage rule: digits in each cage cannot repeat and must sum to the cage clue.  ## 1. Equation System View  Treat the puzzle as a c...",
+			"chosen_cell": "r3c8",
+			"value": 4,
+			"reasoning": "Cage r3c8 + r4c8 = 11. Since r4c8 is 7, r3c8 must be 4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 0, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 30,
+			"analysis_summary": "ce Column 4 contains 6 in {r4c4, r5c4}, r9c4 = 8 and r8c5 = 6.\n- In Row 9, since {r9c2, r9c3} = {1, 2}, 1 is in Row 9. Thus r9c6 cannot be 1, so r9c6 = 4 and r8c6 = 1.\n- In Row 8, r8c1 cannot be 6 (since r8c5 = 6), so r8c1 = 9 and r9c1 = 6.\n- In Row 8, the only missing digit is 4, so r8c9 = 4.\n- Cag...",
+			"chosen_cell": "r4c6",
+			"value": 9,
+			"reasoning": "Since r4c7 is 4 (given on the board) and they belong to the cage r4c6 + r4c7 = 13, r4c6 must be 9. This cell is currently empty and 9 is not present in row 4, column 6, or box 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0]
+			]
+		},
+		{
+			"step": 31,
+			"analysis_summary": ": digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as a constraint system with 81 variables:\nr1c1, r1c2, ..., r9c9\n\nEach variable must satisfy:\nr[x]c[y] ∈ {1,2,3,4,5,6,7,8,9}\n\nThe full constraint system contains:\n9 row equations\n9 col...",
+			"chosen_cell": "r9c7",
+			"value": 5,
+			"reasoning": "The cage r8c8 + r9c7 + r9c8 = 16 contains r8c8 = 2, so r9c7 + r9c8 = 14. The only possible pairs for 14 are {5, 9} and {6, 8}. Since 6 and 8 are already in Box 9 (at r7c9 and r7c7 respectively), the pair must be {5, 9}. Column 7 already contains 9 at r5c7, so r9c7 cannot be 9. Thus, r9c7 is forced to be 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 5, 0, 0]
+			]
+		},
+		{
+			"step": 32,
+			"analysis_summary": "ce r7c9 = 6, r8c9 + r9c9 = 7. Since r9c6 = 4, r9c9 = 3, r8c9 = 4.\n- Row 8 missing digit is 6, so r8c5 = 6.\n- Since Column 4 has 7 at r6c4, r9c4 = 8, r9c5 = 7.\n- Row 5 remaining digits are {4, 7} for {r5c1, r5c2}. If r5c2 = 4, r4c2 = 5 (contradiction). Thus, r5c2 = 7, r5c1 = 4.\n- Since r5c2 = 7, r4c2...",
+			"chosen_cell": "r9c8",
+			"value": 9,
+			"reasoning": "The cage containing r8c8, r9c7, and r9c8 has a sum of 16. Since r8c8 = 2 and r9c7 = 5 are already filled on the board, r9c8 is mathematically forced to be 16 - 2 - 5 = 9.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 0, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 5, 9, 0]
+			]
+		},
+		{
+			"step": 33,
+			"analysis_summary": "### 0. Puzzle Information\\n- Grid size: 9x9\\n- Box shape: 3x3\\n- Row/Col/Box sum: 45\\n\\n### 1. Logical Analysis\\n- **Row 6 Analysis**: Knowns are r6c1=1, r6c2=9, r6c5=4, r6c6=8, r6c7=3, r6c8=6, r6c9=2. Remaining sum is 12 for r6c3 and r6c4. The remaining digits are {5, 7}. Thus, {r6c3, r6c4} = {5, 7...",
+			"chosen_cell": "r7c6",
+			"value": 3,
+			"reasoning": "Row 7 contains the digits 1, 2, 4, 5, 6, 7, and 8, leaving only 3 and 9 for the empty cells r7c5 and r7c6. Since column 6 already contains 9 (at r4c6), r7c6 cannot be 9. Thus, r7c6 is mathematically forced to be 3.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 0, 3, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 5, 9, 0]
+			]
+		},
+		{
+			"step": 34,
+			"analysis_summary": "## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a constraint system with 81 variables.\nTotal equ...",
+			"chosen_cell": "r7c5",
+			"value": 9,
+			"reasoning": "Row 7 has only one empty cell, r7c5. The sum of the known cells in Row 7 is 7 + 5 + 4 + 2 + 3 + 8 + 1 + 6 = 36. Since the sum of any row must be 45, r7c5 must be 45 - 36 = 9. This is also consistent with the cage r6c6 + r7c5 + r7c6 = 20, where r6c6 = 8 and r7c6 = 3, forcing r7c5 = 9.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[0, 0, 0, 0, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 5, 9, 0]
+			]
+		},
+		{
+			"step": 35,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r8c4",
+			"value": 5,
+			"reasoning": "In Box 8, the sum of all cells is 45. The known cells r7c4, r7c5, and r7c6 sum to 2 + 9 + 3 = 14, meaning the remaining cells (r8c4, r8c5, r8c6, r9c4, r9c5, r9c6) must sum to 31. The cage r8c5 + r9c4 + r9c5 sums to 21. The cage r8c6 + r8c7 + r9c6 sums to 12, and since r8c7 = 7, we have r8c6 + r9c6 = 5. Therefore, r8c4 + 21 + 5 = 31, which forces r8c4 = 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[0, 0, 0, 5, 0, 0, 7, 2, 0],
+				[0, 0, 0, 0, 0, 0, 5, 9, 0]
+			]
+		},
+		{
+			"step": 36,
+			"analysis_summary": "Analysis of the current board state: 1. Box 7 Analysis: The remaining cells in Box 7 are r8c1, r8c2, r8c3, r9c1, r9c2, r9c3, which must sum to 29. The cages are r8c1+r9c1 = 15, r9c2+r9c3 = 3, and r8c2+r8c3 = 11 (since r8c4 = 5). Since r9c2+r9c3 = 3, they must be {1, 2}. Since r8c1+r9c1 = 15, they mu...",
+			"chosen_cell": "r9c1",
+			"value": 6,
+			"reasoning": "In Box 7, the cage r8c1 + r9c1 = 15 must contain the digits {6, 9} because 7 is already in Column 1 (r7c1 = 7), which rules out the alternative combination {7, 8}. Since 9 is already present in Row 9 (r9c8 = 9), r9c1 cannot be 9. Therefore, r9c1 is mathematically forced to be 6.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[0, 0, 0, 5, 0, 0, 7, 2, 0],
+				[6, 0, 0, 0, 0, 0, 5, 9, 0]
+			]
+		},
+		{
+			"step": 37,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r8c1",
+			"value": 9,
+			"reasoning": "The cage containing r8c1 and r9c1 has a sum of 15. Since r9c1 is 6, r8c1 must be 9.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 0, 0, 7, 2, 0],
+				[6, 0, 0, 0, 0, 0, 5, 9, 0]
+			]
+		},
+		{
+			"step": 38,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r8c9",
+			"value": 4,
+			"reasoning": "In Box 9, the remaining cells are r8c9 and r9c9, which must contain {3, 4} because the other digits are already placed in the box. In Box 7, the remaining digits are {1, 2, 3, 8}. The cage r9c2 + r9c3 = 3 must contain {1, 2}, which leaves {3, 8} for {r8c2, r8c3}. This forces the digit 3 to be in Row 8 (specifically in r8c2 or r8c3). Consequently, r8c9 cannot be 3, which forces r8c9 = 4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 0, 0, 7, 2, 4],
+				[6, 0, 0, 0, 0, 0, 5, 9, 0]
+			]
+		},
+		{
+			"step": 39,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r9c9",
+			"value": 3,
+			"reasoning": "Cage K33 consists of r7c9, r8c9, and r9c9 with a sum of 13. Since r7c9 = 6 and r8c9 = 4, their sum is 10, which mathematically forces r9c9 to be 3. This cell is currently empty and 3 is not present in row 9, column 9, or box 9.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 0, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 0, 0, 7, 2, 4],
+				[6, 0, 0, 0, 0, 0, 5, 9, 3]
+			]
+		},
+		{
+			"step": 40,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r6c4",
+			"value": 7,
+			"reasoning": "Row 6 has only two empty cells, r6c3 and r6c4. The filled digits in Row 6 are {1, 2, 3, 4, 6, 8, 9}, leaving {5, 7} for r6c3 and r6c4. Since r8c4 = 5, Column 4 already contains 5, which means r6c4 cannot be 5. Thus, r6c4 is mathematically forced to be 7.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 0, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 0, 0, 7, 2, 4],
+				[6, 0, 0, 0, 0, 0, 5, 9, 3]
+			]
+		},
+		{
+			"step": 41,
+			"analysis_summary": "4c9 = 45\nR5: r5c1 + r5c2 + r5c3 + r5c4 + r5c5 + r5c6 + r5c7 + r5c8 + r5c9 = 45\nR6: r6c1 + r6c2 + r6c3 + r6c4 + r6c5 + r6c6 + r6c7 + r6c8 + r6c9 = 45\nR7: r7c1 + r7c2 + r7c3 + r7c4 + r7c5 + r7c6 + r7c7 + r7c8 + r7c9 = 45\nR8: r8c1 + r8c2 + r8c3 + r8c4 + r8c5 + r8c6 + r8c7 + r8c8 + r8c9 = 45\nR9: r9c1 + ...",
+			"chosen_cell": "r6c3",
+			"value": 5,
+			"reasoning": "Row 6 currently contains the digits 1, 9, 7, 4, 8, 3, 6, and 2. The only missing digit to complete the row sum of 45 is 5, which must be placed in the only empty cell of the row, r6c3. This is also consistent with cage K24 (r6c3 + r6c4 = 12, where r6c4 is 7).",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 0, 0, 7, 2, 4],
+				[6, 0, 0, 0, 0, 0, 5, 9, 3]
+			]
+		},
+		{
+			"step": 42,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r9c6",
+			"value": 4,
+			"reasoning": "Row 9 is missing digits {1, 2, 4, 7, 8}. The cage r9c2 + r9c3 = 3 must contain {1, 2}, which leaves {4, 7, 8} for {r9c4, r9c5, r9c6}. The cage r8c6 + r8c7 + r9c6 = 12. Since r8c7 = 7, we have r8c6 + r9c6 = 5. Since r9c6 must be one of {4, 7, 8}, and r8c6 must be at least 1, the only possible value for r9c6 is 4 (forcing r8c6 = 1).",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 0, 0, 7, 2, 4],
+				[6, 0, 0, 0, 0, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 43,
+			"analysis_summary": "# Analysis for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreating the puzzle as a cons...",
+			"chosen_cell": "r8c6",
+			"value": 1,
+			"reasoning": "The cage r8c6 + r8c7 + r9c6 has a sum of 12. Since r8c7 is 7 and r9c6 is 4, the remaining cell r8c6 must be 1 to satisfy the sum (12 - 7 - 4 = 1).",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 0, 1, 7, 2, 4],
+				[6, 0, 0, 0, 0, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 44,
+			"analysis_summary": "## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\n\nTreat the puzzle as a constraint system with 81 variables.\n\n## 1.1...",
+			"chosen_cell": "r8c5",
+			"value": 6,
+			"reasoning": "In Box 7, the missing digits are {1, 2, 3, 8}. The cage r9c2 + r9c3 = 3 must contain {1, 2}, which leaves {3, 8} for r8c2 and r8c3. In Row 8, the missing digits are {3, 6, 8}. Since r8c2 and r8c3 must be {3, 8}, the remaining empty cell r8c5 must be 6.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 0, 0, 0, 0, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 45,
+			"analysis_summary": "sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle as a constraint system with 81 variables:\n\n```text\nr1c1, r1c2, ..., r9c9\n```\n\nEach variable must satisfy:\n\n```text\nr[x]c[y] ∈ {1,2,3,4,5,6,7,8,9}\n```\n\nThe full con...",
+			"chosen_cell": "r9c4",
+			"value": 8,
+			"reasoning": "In Box 8, the filled cells are r7c4=2, r7c5=9, r7c6=3, r8c4=5, r8c5=6, r8c6=1, and r9c6=4. This leaves the digits {7, 8} for the remaining empty cells r9c4 and r9c5. Since r6c4=7, column 4 already contains a 7, which means r9c4 cannot be 7. Thus, r9c4 is mathematically forced to be 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 0, 0, 8, 0, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 46,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r9c5",
+			"value": 7,
+			"reasoning": "In Box 8, the known cells are r7c4=2, r7c5=9, r7c6=3, r8c4=5, r8c5=6, r8c6=1, r9c4=8, and r9c6=4. Their sum is 2+9+3+5+6+1+8+4 = 38. Since the sum of all cells in a 3x3 box must be 45, the remaining cell r9c5 is mathematically forced to be 45 - 38 = 7.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[0, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 0, 0, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 47,
+			"analysis_summary": "## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle as a constraint system with 81 variables.\n\n-...",
+			"chosen_cell": "r5c1",
+			"value": 4,
+			"reasoning": "In Row 5, the known cells are r5c5=2, r5c6=5, r5c7=9, r5c8=8, r5c9=1, which sum to 25. Thus, the remaining cells r5c1 + r5c2 + r5c3 + r5c4 must sum to 20. Since cage r5c3 + r5c4 = 9, we have r5c1 + r5c2 = 11. The remaining digits for Row 5 are {3, 4, 6, 7}. The only pair from this set that sums to 9 for r5c3 + r5c4 is {3, 6}, which leaves {4, 7} for {r5c1, r5c2}. Cage r4c1 + r5c1 = 12. If r5c1 = 7, then r4c1 = 5, but 5 is already in Row 4 at r4c9. Thus, r5c1 must be 4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[4, 0, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 0, 0, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 48,
+			"analysis_summary": "d equation, compute:\n\n```text\nremaining_sum = target_sum - sum(known_values)\nremaining_cells = cells that are still 0\nused_digits = digits already placed in this equation\nallowed_digits = {1,2,3,4,5,6,7,8,9} - used_digits\n```\n\n---\n\n## 2. Row Equations\n\n- R1: r1c1 + r1c2 + r1c3 + r1c4 + r1c5 + r1c6 +...",
+			"chosen_cell": "r5c2",
+			"value": 7,
+			"reasoning": "Row 5 has known values 4, 2, 5, 9, 8, and 1, which sum to 29. The remaining cells r5c2, r5c3, and r5c4 must sum to 16. Since r5c3 and r5c4 form a cage with a sum of 9, r5c2 is mathematically forced to be 16 - 9 = 7.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[0, 0, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 0, 0, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 49,
+			"analysis_summary": "3c3.\n\n## 5. Cage Equations\n- **K13 (r4c1 + r5c1 = 12)**: Since r5c1 = 4, we have r4c1 = 8.\n- **K14 (r4c2 + r5c2 = 9)**: Since r5c2 = 7, we have r4c2 = 2.\n- **K15 (r5c3 + r5c4 = 9)**: {r5c3, r5c4} = {3, 6}.\n- **K27 (r9c2 + r9c3 = 3)**: Only combination is {1, 2}.\n- **K26 (r8c2 + r8c3 + r8c4 = 16)**: ...",
+			"chosen_cell": "r4c1",
+			"value": 8,
+			"reasoning": "Since r5c1 = 4 and the cage r4c1 + r5c1 has a sum of 12, r4c1 must be 12 - 4 = 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[8, 0, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 0, 0, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 50,
+			"analysis_summary": "4c4 = 18\n- r3c6 + r3c7 = 9\n- r1c7 + r1c8 = 11\n- r2c6 + r2c7 + r2c8 = 10\n- r1c5 + r1c6 + r2c5 = 15\n- r1c9 + r2c9 = 16\n- r1c4 + r2c3 + r2c4 = 12\n- r1c2 + r1c3 + r2c2 = 21\n\n---\n\n## 6. Cage Domain Analysis\n- Cage r4c2 + r5c2 = 9: Since r5c2 = 7, r4c2 must be 2.\n- Cage r9c2 + r9c3 = 3: Only combination i...",
+			"chosen_cell": "r4c2",
+			"value": 2,
+			"reasoning": "The cage r4c2 + r5c2 has a sum of 9. Since r5c2 is already filled with 7, r4c2 must be 2.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 0, 0, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 51,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9. ## 0. Puzzle Information: Grid size 9x9, digits 1-9, box 3x3, row/col/box sum 45. ## 1. Equation System View: 81 variables, 60 equations. ## 1.1 State Update and Constraint Propagation: Propagating constraints from filled cells to empty cells. ## 2. Row Equ...",
+			"chosen_cell": "r9c2",
+			"value": 1,
+			"reasoning": "Row 9 has missing digits 1 and 2. The cage r9c2 + r9c3 = 3 requires {1, 2}. Since r4c2 = 2, r9c2 cannot be 2, forcing r9c2 = 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 1, 0, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 52,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r9c3",
+			"value": 2,
+			"reasoning": "The sum of Row 9 must be 45. The known values in Row 9 are r9c1=6, r9c2=1, r9c4=8, r9c5=7, r9c6=4, r9c7=5, r9c8=9, and r9c9=3. Their sum is 43, which mathematically forces r9c3 to be 2. This is also consistent with the cage r9c2 + r9c3 = 3, where r9c2 = 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 0, 0, 0, 0, 0, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 53,
+			"analysis_summary": "olumn 1 missing digits are {2, 3} at {r1c1, r2c1}. Since r1c6 = 2, r1c1 = 3 and r2c1 = 2.\n- Column 9 missing digits are {7, 9} at {r1c9, r2c9}. Since r1c3 = 9, r1c9 = 7 and r2c9 = 9.\n- Cage r1c7 + r1c8 = 11: Since 2, 3, 7, 9 are in Row 1, the combination must be {5, 6}. Since 6 is in Column 8, r1c8 ...",
+			"chosen_cell": "r3c3",
+			"value": 1,
+			"reasoning": "In Box 4, the only empty cells are r4c3 and r5c3, and the missing digits are 3 and 6, so {r4c3, r5c3} = {3, 6}. This means Column 3 contains {2, 3, 4, 5, 6} at r9c3=2, {r4c3, r5c3}={3, 6}, r7c3=4, and r6c3=5. The cage r3c2 + r3c3 + r4c3 = 10 requires r3c2 + r3c3 to be either 7 (if r4c3=3) or 4 (if r4c3=6). In either case, r3c3 must be less than 7 and cannot be 2, 3, 4, 5, or 6, which forces r3c3 = 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 1, 0, 0, 0, 0, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 0, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 54,
+			"analysis_summary": "issing digits are {1, 6}. Thus, {r1c7, r2c7} = {1, 6}.\n- **Column 8**: The missing digits are {3, 5}. Thus, {r1c8, r2c8} = {3, 5}.\n- **Cage r2c6 + r2c7 + r2c8 = 10**: Since r2c6 = 6, r2c7 + r2c8 = 4. This forces r2c7 = 1 and r2c8 = 3. Consequently, r1c7 = 6 and r1c8 = 5.\n- **Column 9**: The missing ...",
+			"chosen_cell": "r8c3",
+			"value": 8,
+			"reasoning": "In Box 7, the missing digits are 3 and 8, which must go into r8c2 and r8c3. In Row 4, the missing digits are 3 and 6, so {r4c3, r4c4} = {3, 6}. In Row 5, the missing digits are also 3 and 6, so {r5c3, r5c4} = {3, 6}. Since r4c3 and r5c3 are both in Column 3, one of them must be 3 and the other 6. This means 3 is already placed in Column 3, so r8c3 cannot be 3. Thus, r8c3 is forced to be 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 1, 0, 0, 0, 0, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 0, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 55,
+			"analysis_summary": "### 0. Puzzle Information\n- Grid size: 9x9\n- Box shape: 3x3\n- Row/Col/Box sum: 45\n\n### 1. State Update and Constraint Propagation\n- Row 8 has only one empty cell: r8c2. Since the sum of Row 8 is 45 and the known cells sum to 42, r8c2 must be 3.\n- Box 7 also has only r8c2 empty, confirming r8c2 = 3.\n...",
+			"chosen_cell": "r8c2",
+			"value": 3,
+			"reasoning": "Row 8 has only one empty cell, r8c2. The sum of the known cells in Row 8 is 42 (9 + 8 + 5 + 6 + 1 + 7 + 2 + 4). Since the sum of any row in Sudoku must be 45, r8c2 is mathematically forced to be 3. This is also confirmed by Box 7 and the cage r8c2 + r8c3 + r8c4 = 16, where r8c3 = 8 and r8c4 = 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 1, 0, 0, 0, 0, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 56,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r3c7",
+			"value": 2,
+			"reasoning": "Row 3 missing digits are {2, 3, 6, 7, 9}. Row 4 missing digits are {3, 6}, so r4c3 must be 3 or 6. Since r3c2 + r3c3 + r4c3 = 10 and r3c3 = 1, we have r3c2 + r4c3 = 9, which forces r3c2 to be 3 or 6. This means one of {3, 6} is placed at r3c2, so the cage r3c6 + r3c7 = 9 cannot be {3, 6} and must be {2, 7}. Since r8c7 = 7, r3c7 cannot be 7, forcing r3c7 = 2.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 1, 0, 0, 0, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 57,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\\n\\n## 0. Puzzle Information\\n- Grid size: 9x9\\n- Digits allowed: 1–9\\n- Box shape: 3x3\\n- Row sum: 45\\n- Column sum: 45\\n- Box sum: 45\\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\\n\\n---\\n\\n## 1. Equation System View\\nTreat ...",
+			"chosen_cell": "r3c6",
+			"value": 7,
+			"reasoning": "Cage K10 (r3c6 + r3c7 = 9) with r3c7 = 2 forces r3c6 = 7.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[5, 0, 1, 0, 0, 7, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 58,
+			"analysis_summary": "raction Analysis\n\n- **Column 6, 7, 8 Completion**:\n  - Column 6 missing digits are {2, 6}. Since r2c6 = 6, r1c6 must be 2.\n  - Column 7 missing digits are {1, 6}. Since r2c7 = 1, r1c7 must be 6.\n  - Column 8 missing digits are {3, 5}. Since r2c8 = 3, r1c8 must be 5.\n\n- **Column 5 and Cage K4**:\n  - ...",
+			"chosen_cell": "r2c6",
+			"value": 6,
+			"reasoning": "Column 6 missing digits are {2, 6}. Cage K7 (r2c6 + r2c7 + r2c8 = 10) requires r2c7 to be in {1, 6} (from Column 7 missing digits) and r2c8 to be in {3, 5} (from Column 8 missing digits). If r2c6 = 2, then r2c7 + r2c8 = 8, which has no valid solution since 1+7=8 (7 is not in {3,5}) and 6+2=8 (2 is not in {3,5}). Thus, r2c6 cannot be 2, forcing r2c6 = 6.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 0, 0, 0, 0],
+				[0, 0, 0, 0, 0, 6, 0, 0, 0],
+				[5, 0, 1, 0, 0, 7, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 59,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreating the puzzle ...",
+			"chosen_cell": "r1c6",
+			"value": 2,
+			"reasoning": "Column 6 has 8 filled cells: r2c6=6, r3c6=7, r4c6=9, r5c6=5, r6c6=8, r7c6=3, r8c6=1, and r9c6=4. Their sum is 43. Since the sum of any column in Sudoku must be 45, the remaining cell r1c6 is mathematically forced to be 45 - 43 = 2.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 0, 0, 0],
+				[0, 0, 0, 0, 0, 6, 0, 0, 0],
+				[5, 0, 1, 0, 0, 7, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 60,
+			"analysis_summary": "ue.\n\n## 1. Equation System View\nTreat the puzzle as a constraint system with 81 variables.\nTotal equations = 27 + 33 = 60 equations.\n\n## 1.1 State Update and Constraint Propagation\nWe propagate constraints from the last move (r1c6 = 2) and existing filled cells.\n\n## 2. Row Equations\n- R1: r1c1 + r1c...",
+			"chosen_cell": "r2c7",
+			"value": 1,
+			"reasoning": "Cage K7 (r2c6 + r2c7 + r2c8 = 10) has r2c6 = 6, which forces r2c7 + r2c8 = 4, meaning {r2c7, r2c8} must be {1, 3}. Column 7 has filled cells r3c7=2, r4c7=4, r5c7=9, r6c7=3, r7c7=8, r8c7=7, r9c7=5, which sum to 38, leaving r1c7 + r2c7 = 7. Thus, r2c7 must be 1 or 6. Intersecting these constraints, r2c7 is mathematically forced to be 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 0, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 0, 1, 0, 0, 7, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 61,
+			"analysis_summary": "+ 8 + 1 = 45 => r5c3 + r5c4 = 9\n\n---\n\n## 3. Column Equations\n\n- C1: r1c1 + r2c1 + 5 + 8 + 4 + 1 + 7 + 9 + 6 = 45 => r1c1 + r2c1 = 5\n- C2: r1c2 + r2c2 + r3c2 + 2 + 7 + 9 + 5 + 3 + 1 = 45 => r1c2 + r2c2 + r3c2 = 18\n- C3: r1c3 + r2c3 + 1 + r4c3 + r5c3 + 5 + 4 + 8 + 2 = 45 => r1c3 + r2c3 + r4c3 + r5c3 =...",
+			"chosen_cell": "r1c7",
+			"value": 6,
+			"reasoning": "Column 7 contains the digits 1, 2, 4, 9, 3, 8, 7, and 5 in rows 2 through 9. Since the sum of all digits in a column must be 45, the remaining cell r1c7 must be 45 - (1 + 2 + 4 + 9 + 3 + 8 + 7 + 5) = 6.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 0, 1, 0, 0, 7, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 62,
+			"analysis_summary": "Analysis of Killer Sudoku 9x9: 1. Equation System View: We treat the puzzle as a constraint system with 81 variables. 2. Row and Column Equations: Row 3 missing digits are {3, 6, 9}. Column 5 missing digits are {3, 5, 8}. Their intersection at r3c5 forces r3c5 = 3. 3. Cage Domain Analysis: Cage K8 (...",
+			"chosen_cell": "r3c5",
+			"value": 3,
+			"reasoning": "Row 3 is missing digits {3, 6, 9} and Column 5 is missing digits {3, 5, 8}. The intersection cell r3c5 must contain a digit common to both sets, which uniquely forces r3c5 = 3.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 0, 1, 0, 3, 7, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 63,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r3c2",
+			"value": 6,
+			"reasoning": "Row 3 is missing digits 6 and 9. Column 2 already contains 9 at r6c2, so r3c2 cannot be 9. This mathematically forces r3c2 = 6.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 6, 1, 0, 3, 7, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 64,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r3c4",
+			"value": 9,
+			"reasoning": "Row 3 currently contains the digits 5, 6, 1, 3, 7, 2, 4, and 8. The only missing digit to complete the row sum of 45 is 9, which must be placed in the only empty cell of the row, r3c4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 0, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 65,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n- 9 row equations\n- ...",
+			"chosen_cell": "r4c3",
+			"value": 3,
+			"reasoning": "The cage r3c2 + r3c3 + r4c3 has a sum of 10. Since r3c2 = 6 and r3c3 = 1, r4c3 is mathematically forced to be 3.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 0, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 66,
+			"analysis_summary": "sfy:\nr[x]c[y] ∈ {1,2,3,4,5,6,7,8,9}\n\nThe full constraint system contains:\n9 row equations\n9 column equations\n9 box equations\n33 cage equations\n\n---\n\n## 1.1 State Update and Constraint Propagation\nAfter every committed placement, update all equations that contain that cell.\nFor a filled cell:\nrXcY = ...",
+			"chosen_cell": "r4c4",
+			"value": 6,
+			"reasoning": "Row 4 has only one empty cell, r4c4. The sum of the known cells in Row 4 is 8 + 2 + 3 + 1 + 9 + 4 + 7 + 5 = 39. Since the sum of any row must be 45, r4c4 is mathematically forced to be 45 - 39 = 6.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 0, 0, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 67,
+			"analysis_summary": "Analysis of the current board state: 1. Row 5 has empty cells r5c3 and r5c4. The known cells in Row 5 are r5c1=4, r5c2=7, r5c5=2, r5c6=5, r5c7=9, r5c8=8, r5c9=1. Their sum is 36. Since the row sum must be 45, r5c3 + r5c4 = 9. The missing digits are {3, 6}. Since Column 4 already contains 6 (at r4c4)...",
+			"chosen_cell": "r5c4",
+			"value": 3,
+			"reasoning": "Row 5 has two empty cells, r5c3 and r5c4. The sum of the known cells in Row 5 is 36 (4+7+2+5+9+8+1), meaning r5c3 + r5c4 = 9. The missing digits in Row 5 are 3 and 6. Since Column 4 already contains 6 at r4c4, r5c4 cannot be 6. Thus, r5c4 is mathematically forced to be 3.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 0, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 68,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r5c3",
+			"value": 6,
+			"reasoning": "Row 5 has only one empty cell r5c3. The sum of the other cells in Row 5 is 39, so r5c3 must be 6 to satisfy the row sum of 45. This is also confirmed by the cage r5c3 + r5c4 = 9, where r5c4 is 3.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 0, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 69,
+			"analysis_summary": "## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a constraint system with 81 variables.\nTotal equ...",
+			"chosen_cell": "r1c8",
+			"value": 5,
+			"reasoning": "The cage r1c7 + r1c8 has a sum of 11. Since r1c7 is 6, r1c8 must be 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 5, 0],
+				[0, 0, 0, 0, 0, 6, 1, 0, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 70,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r2c8",
+			"value": 3,
+			"reasoning": "Column 8 has only one empty cell, r2c8. The sum of the other cells in Column 8 is 42 (5 + 4 + 7 + 8 + 6 + 1 + 2 + 9), so r2c8 must be 3 to sum to 45. This is also confirmed by Cage K7 (r2c6 + r2c7 + r2c8 = 10 => 6 + 1 + r2c8 = 10 => r2c8 = 3).",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[0, 0, 0, 0, 0, 2, 6, 5, 0],
+				[0, 0, 0, 0, 0, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 71,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r1c1",
+			"value": 3,
+			"reasoning": "Column 1 has only two empty cells, r1c1 and r2c1, which must contain the remaining digits 2 and 3. Since r1c6 is 2, r1c1 cannot be 2, which forces r1c1 to be 3.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 0, 0, 2, 6, 5, 0],
+				[0, 0, 0, 0, 0, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 72,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r2c1",
+			"value": 2,
+			"reasoning": "Column 1 has only one empty cell, r2c1. The sum of the known cells in Column 1 is 43 (3 + 5 + 8 + 4 + 1 + 7 + 9 + 6), which mathematically forces r2c1 to be 2. This is also confirmed by the cage r1c1 + r2c1 + r3c1 = 10, where r1c1 = 3 and r3c1 = 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 0, 0, 2, 6, 5, 0],
+				[2, 0, 0, 0, 0, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 73,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r1c4",
+			"value": 1,
+			"reasoning": "Column 4 has known values r3c4=9, r4c4=6, r5c4=3, r6c4=7, r7c4=2, r8c4=5, r9c4=8, which sum to 40. This leaves r1c4 + r2c4 = 5. The only remaining digits in Column 4 that can sum to 5 are 1 and 4. Since Row 2 already contains 1 (at r2c7), r2c4 cannot be 1, forcing r2c4 = 4 and r1c4 = 1.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 1, 0, 2, 6, 5, 0],
+				[2, 0, 0, 0, 0, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 74,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r2c4",
+			"value": 4,
+			"reasoning": "Column 4 contains only one empty cell, r2c4. The sum of the other eight cells in Column 4 is 1 + 9 + 6 + 3 + 7 + 2 + 5 + 8 = 41. Since each column must sum to 45, r2c4 is mathematically forced to be 4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 1, 0, 2, 6, 5, 0],
+				[2, 0, 0, 4, 0, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 75,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r2c3",
+			"value": 7,
+			"reasoning": "Cage K3 consists of r1c4, r2c3, and r2c4 with a sum of 12. Since r1c4 = 1 and r2c4 = 4 are already filled, r2c3 must be 12 - 1 - 4 = 7. This cell is currently empty and is mathematically forced.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 1, 0, 2, 6, 5, 0],
+				[2, 0, 7, 4, 0, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 76,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n## 1. Equation System View\nTreat the puzzle as a con...",
+			"chosen_cell": "r1c5",
+			"value": 8,
+			"reasoning": "Column 5 has only two empty cells, r1c5 and r2c5. The missing digits in Column 5 are 5 and 8. Since r1c8 is 5, r1c5 cannot be 5. Thus, r1c5 is mathematically forced to be 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 1, 8, 2, 6, 5, 0],
+				[2, 0, 7, 4, 0, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 77,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r2c5",
+			"value": 5,
+			"reasoning": "Column 5 contains the digits 8, 3, 1, 2, 4, 9, 6, and 7. The sum of these digits is 40. Since the sum of any column in Sudoku must be 45, the only remaining empty cell in Column 5, which is r2c5, must be 45 - 40 = 5.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 1, 8, 2, 6, 5, 0],
+				[2, 0, 7, 4, 5, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 78,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r2c2",
+			"value": 8,
+			"reasoning": "Row 2 is missing digits 8 and 9. Column 2 already contains 9 at r6c2, which eliminates 9 as a candidate for r2c2. Therefore, r2c2 is mathematically forced to be 8.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 1, 8, 2, 6, 5, 0],
+				[2, 8, 7, 4, 5, 6, 1, 3, 0],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 79,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r2c9",
+			"value": 9,
+			"reasoning": "Row 2 has only one empty cell, r2c9. The sum of the known cells in Row 2 is 36 (2 + 8 + 7 + 4 + 5 + 6 + 1 + 3), which mathematically forces r2c9 to be 9 to reach the row sum of 45.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 0, 0, 1, 8, 2, 6, 5, 0],
+				[2, 8, 7, 4, 5, 6, 1, 3, 9],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 80,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r1c2",
+			"value": 4,
+			"reasoning": "Column 2 has only one empty cell, r1c2. The sum of the other cells in Column 2 is 8 + 6 + 2 + 7 + 9 + 5 + 3 + 1 = 41. Since the sum of any column in Sudoku must be 45, r1c2 is mathematically forced to be 45 - 41 = 4.",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 4, 0, 1, 8, 2, 6, 5, 0],
+				[2, 8, 7, 4, 5, 6, 1, 3, 9],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 81,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\nTreat the puzzle as ...",
+			"chosen_cell": "r1c3",
+			"value": 9,
+			"reasoning": "Column 3 has only one empty cell, r1c3. The sum of the known cells in Column 3 (r2c3=7, r3c3=1, r4c3=3, r5c3=6, r6c3=5, r7c3=4, r8c3=8, r9c3=2) is 36. Since the sum of any column must be 45, r1c3 is mathematically forced to be 45 - 36 = 9. This is also consistent with Cage K2 (r1c2 + r1c3 + r2c2 = 21, where r1c2=4 and r2c2=8, forcing r1c3=9).",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 4, 9, 1, 8, 2, 6, 5, 0],
+				[2, 8, 7, 4, 5, 6, 1, 3, 9],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		},
+		{
+			"step": 82,
+			"analysis_summary": "# Analysis Template for Killer Sudoku 9x9\n\n## 0. Puzzle Information\n\n- Grid size: 9x9\n- Digits allowed: 1–9\n- Box shape: 3x3\n- Row sum: 45\n- Column sum: 45\n- Box sum: 45\n- Cage rule: digits in each cage cannot repeat and must sum to the cage clue.\n\n---\n\n## 1. Equation System View\n\nTreat the puzzle a...",
+			"chosen_cell": "r1c9",
+			"value": 7,
+			"reasoning": "Row 1 has only one empty cell, r1c9. The sum of the known cells in Row 1 is 3 + 4 + 9 + 1 + 8 + 2 + 6 + 5 = 38. Since the total sum of a row must be 45, r1c9 is mathematically forced to be 45 - 38 = 7. This is also confirmed by Column 9 (sum of known cells is 38, forcing 7) and the cage r1c9 + r2c9 = 16 (where r2c9 = 9, forcing r1c9 = 7).",
+			"is_certain": true,
+			"error_type": "None",
+			"board_state": [
+				[3, 4, 9, 1, 8, 2, 6, 5, 7],
+				[2, 8, 7, 4, 5, 6, 1, 3, 9],
+				[5, 6, 1, 9, 3, 7, 2, 4, 8],
+				[8, 2, 3, 6, 1, 9, 4, 7, 5],
+				[4, 7, 6, 3, 2, 5, 9, 8, 1],
+				[1, 9, 5, 7, 4, 8, 3, 6, 2],
+				[7, 5, 4, 2, 9, 3, 8, 1, 6],
+				[9, 3, 8, 5, 6, 1, 7, 2, 4],
+				[6, 1, 2, 8, 7, 4, 5, 9, 3]
+			]
+		}
+	]
+}
