@@ -61,6 +61,43 @@ def text_size(draw: ImageDraw.ImageDraw, text: str, fnt) -> tuple[int, int]:
     return bbox[2] - bbox[0], bbox[3] - bbox[1]
 
 
+def draw_dashed_line(
+    draw: ImageDraw.ImageDraw,
+    start: tuple[int, int],
+    end: tuple[int, int],
+    *,
+    fill: str,
+    width: int,
+    dash: int,
+    gap: int,
+) -> None:
+    x1, y1 = start
+    x2, y2 = end
+    if x1 == x2:
+        step = 1 if y2 >= y1 else -1
+        length = abs(y2 - y1)
+        pos = 0
+        while pos < length:
+            seg_start = y1 + step * pos
+            seg_end = y1 + step * min(pos + dash, length)
+            draw.line([(x1, seg_start), (x2, seg_end)], fill=fill, width=width)
+            pos += dash + gap
+        return
+
+    if y1 == y2:
+        step = 1 if x2 >= x1 else -1
+        length = abs(x2 - x1)
+        pos = 0
+        while pos < length:
+            seg_start = x1 + step * pos
+            seg_end = x1 + step * min(pos + dash, length)
+            draw.line([(seg_start, y1), (seg_end, y2)], fill=fill, width=width)
+            pos += dash + gap
+        return
+
+    draw.line([start, end], fill=fill, width=width)
+
+
 def infer_block_shape(size: int) -> tuple[int, int]:
     if size == 4:
         return 2, 2
@@ -102,6 +139,7 @@ def draw_board(
     cages: list[dict[str, Any]] | None = None,
     output_path: Path,
     cell_size: int = 86,
+    color_cages: bool = False,
 ) -> Path:
     size = board_size(board)
     block_r, block_c = infer_block_shape(size)
@@ -127,13 +165,32 @@ def draw_board(
     x0 = margin
     y0 = title_h
     highlights = highlight_cells or set()
+    cage_palette = [
+        "#FFF7D6",
+        "#EAF7EA",
+        "#EAF1FF",
+        "#FBEAFA",
+        "#FCEFE3",
+        "#E8F7F5",
+    ]
+    cage_fills: dict[tuple[int, int], str] = {}
+    if color_cages and cages:
+        for cage_index, cage in enumerate(cages):
+            cage_fill = cage_palette[cage_index % len(cage_palette)]
+            for cell in cage.get("cells", []):
+                if not isinstance(cell, (list, tuple)) or len(cell) != 2:
+                    continue
+                r, c = int(cell[0]), int(cell[1])
+                if 0 <= r < size and 0 <= c < size:
+                    cage_fills[(r, c)] = cage_fill
+
     for r in range(size):
         for c in range(size):
             x1 = x0 + c * cell_size
             y1 = y0 + r * cell_size
             x2 = x1 + cell_size
             y2 = y1 + cell_size
-            fill = "#FADDDD" if (r, c) in highlights else "#FFFFFF"
+            fill = "#FADDDD" if (r, c) in highlights else cage_fills.get((r, c), "#FFFFFF")
             draw.rectangle([x1, y1, x2, y2], fill=fill)
             value = board[r][c] if r < len(board) and c < len(board[r]) else None
             if value not in (None, 0):
@@ -144,42 +201,6 @@ def draw_board(
                     text,
                     fill="#111111",
                     font=digit_font,
-                )
-
-    if cages:
-        cage_color = "#7A3E9D"
-        cage_width = max(3, cell_size // 22)
-        label_pad = max(5, cell_size // 14)
-        for cage in cages:
-            cells = [tuple(cell) for cell in cage.get("cells", [])]
-            cell_set = set(cells)
-            if not cell_set:
-                continue
-
-            for r, c in cell_set:
-                x1 = x0 + c * cell_size
-                y1 = y0 + r * cell_size
-                x2 = x1 + cell_size
-                y2 = y1 + cell_size
-
-                if (r - 1, c) not in cell_set:
-                    draw.line([x1, y1, x2, y1], fill=cage_color, width=cage_width)
-                if (r + 1, c) not in cell_set:
-                    draw.line([x1, y2, x2, y2], fill=cage_color, width=cage_width)
-                if (r, c - 1) not in cell_set:
-                    draw.line([x1, y1, x1, y2], fill=cage_color, width=cage_width)
-                if (r, c + 1) not in cell_set:
-                    draw.line([x2, y1, x2, y2], fill=cage_color, width=cage_width)
-
-            label_cell = min(cell_set)
-            lr, lc = label_cell
-            label = str(cage.get("sum", ""))
-            if label:
-                draw.text(
-                    (x0 + lc * cell_size + label_pad, y0 + lr * cell_size + label_pad),
-                    label,
-                    fill=cage_color,
-                    font=cage_font,
                 )
 
     thin = "#B8B8B8"
@@ -196,6 +217,57 @@ def draw_board(
         line_w = 4 if i % block_r == 0 else 1
         draw.line([x0, y, x0 + grid_px, y], fill=line_color, width=line_w)
 
+    if cages:
+        cage_color = "#5E2A7E"
+        cage_width = max(2, cell_size // 28)
+        inset = max(5, cell_size // 15)
+        dash = max(7, cell_size // 8)
+        gap = max(5, cell_size // 13)
+        label_pad = max(4, cell_size // 18)
+        label_bg_pad = max(3, cell_size // 28)
+
+        for cage in cages:
+            cells: list[tuple[int, int]] = []
+            for cell in cage.get("cells", []):
+                if not isinstance(cell, (list, tuple)) or len(cell) != 2:
+                    continue
+                r, c = int(cell[0]), int(cell[1])
+                if 0 <= r < size and 0 <= c < size:
+                    cells.append((r, c))
+
+            cell_set = set(cells)
+            if not cell_set:
+                continue
+
+            for r, c in cell_set:
+                left = x0 + c * cell_size + inset
+                top = y0 + r * cell_size + inset
+                right = x0 + (c + 1) * cell_size - inset
+                bottom = y0 + (r + 1) * cell_size - inset
+
+                if (r - 1, c) not in cell_set:
+                    draw_dashed_line(draw, (left, top), (right, top), fill=cage_color, width=cage_width, dash=dash, gap=gap)
+                if (r + 1, c) not in cell_set:
+                    draw_dashed_line(draw, (left, bottom), (right, bottom), fill=cage_color, width=cage_width, dash=dash, gap=gap)
+                if (r, c - 1) not in cell_set:
+                    draw_dashed_line(draw, (left, top), (left, bottom), fill=cage_color, width=cage_width, dash=dash, gap=gap)
+                if (r, c + 1) not in cell_set:
+                    draw_dashed_line(draw, (right, top), (right, bottom), fill=cage_color, width=cage_width, dash=dash, gap=gap)
+
+            lr, lc = min(cell_set)
+            label = str(cage.get("sum", ""))
+            if label:
+                lx = x0 + lc * cell_size + inset + label_pad
+                ly = y0 + lr * cell_size + inset + label_pad
+                tw, th = text_size(draw, label, cage_font)
+                draw.rectangle(
+                    [lx - label_bg_pad, ly - label_bg_pad, lx + tw + label_bg_pad, ly + th + label_bg_pad],
+                    fill="#FFFFFF",
+                    outline=cage_color,
+                    width=1,
+                )
+                draw.text((lx, ly - 1), label, fill=cage_color, font=cage_font)
+
     if highlight_label:
         draw.rectangle([margin, y0 + grid_px + 22, margin + 24, y0 + grid_px + 46], fill="#FADDDD")
         draw.text((margin + 34, y0 + grid_px + 20), highlight_label, fill="#333333", font=note_font)
@@ -205,7 +277,12 @@ def draw_board(
     return output_path.resolve()
 
 
-def render_result(result_path: Path, output_dir: Path | None = None, cell_size: int = 86) -> list[Path]:
+def render_result(
+    result_path: Path,
+    output_dir: Path | None = None,
+    cell_size: int = 86,
+    color_cages: bool = False,
+) -> list[Path]:
     repo_root = find_repo_root(result_path)
     result = load_json(result_path)
     puzzle_id = result.get("puzzle_id") or result.get("id")
@@ -239,6 +316,7 @@ def render_result(result_path: Path, output_dir: Path | None = None, cell_size: 
             cages=cages,
             output_path=output_dir / f"{stem}_prediction.png",
             cell_size=cell_size,
+            color_cages=color_cages,
         ),
         draw_board(
             solution,
@@ -247,6 +325,7 @@ def render_result(result_path: Path, output_dir: Path | None = None, cell_size: 
             cages=cages,
             output_path=output_dir / f"{stem}_solution.png",
             cell_size=cell_size,
+            color_cages=color_cages,
         ),
         draw_board(
             prediction,
@@ -257,6 +336,7 @@ def render_result(result_path: Path, output_dir: Path | None = None, cell_size: 
             cages=cages,
             output_path=output_dir / f"{stem}_comparison.png",
             cell_size=cell_size,
+            color_cages=color_cages,
         ),
     ]
     return saved
@@ -281,6 +361,7 @@ def render_log_step(
     step_number: int,
     output_dir: Path | None = None,
     cell_size: int = 86,
+    color_cages: bool = False,
 ) -> list[Path]:
     repo_root = find_repo_root(log_path)
     data = load_json(log_path)
@@ -304,7 +385,7 @@ def render_log_step(
     cell = entry.get("chosen_cell")
     value = entry.get("value")
     parsed_cell = parse_cell(cell)
-    highlights = {parsed_cell} if parsed_cell is not None else set()
+    highlights = set() if color_cages else ({parsed_cell} if parsed_cell is not None else set())
     size = board_size(board, data.get("grid_size") or dataset.get("grid_size"))
 
     output_dir = output_dir or repo_root / "cs106" / "evaluation" / "sudoku_renders"
@@ -316,10 +397,11 @@ def render_log_step(
             title="Multi-Step Successful Placement",
             subtitle=subtitle,
             highlight_cells=highlights,
-            highlight_label=f"Chosen move: {cell} = {value}",
+            highlight_label=None if color_cages else f"Chosen move: {cell} = {value}",
             cages=cages,
             output_path=output_dir / f"{stem}_board.png",
             cell_size=cell_size,
+            color_cages=color_cages,
         )
     ]
 
@@ -337,12 +419,19 @@ def main() -> None:
     parser.add_argument("--out", type=Path, default=None, help="Output directory. Default: cs106/evaluation/sudoku_renders")
     parser.add_argument("--cell-size", type=int, default=86, help="Cell size in pixels.")
     parser.add_argument("--step", type=int, default=None, help="Render a specific multi-step log entry instead of final prediction/solution.")
+    parser.add_argument("--color-cages", action="store_true", help="Fill Killer Sudoku cages with light colors.")
     args = parser.parse_args()
 
     if args.step is not None:
-        saved = render_log_step(args.result_json.resolve(), step_number=args.step, output_dir=args.out, cell_size=args.cell_size)
+        saved = render_log_step(
+            args.result_json.resolve(),
+            step_number=args.step,
+            output_dir=args.out,
+            cell_size=args.cell_size,
+            color_cages=args.color_cages,
+        )
     else:
-        saved = render_result(args.result_json.resolve(), args.out, args.cell_size)
+        saved = render_result(args.result_json.resolve(), args.out, args.cell_size, args.color_cages)
     print("Saved:")
     for path in saved:
         print(f"- {path}")
