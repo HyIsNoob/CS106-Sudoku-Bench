@@ -14,3 +14,5 @@ _Analyze the most restricted cells, rows, columns, or regions. List remaining ca
 
 - **Single Candidates (Naked/Hidden Singles)**: [List any cell that is reduced to exactly ONE possible digit, e.g., "r4c6 MUST be 6 because..."]
 - **Contradiction Checks**: [Mention any hypothetical placements that immediately break the rules]
+
+
