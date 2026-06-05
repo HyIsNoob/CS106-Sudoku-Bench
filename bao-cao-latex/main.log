@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.5.18)  27 MAY 2026 11:21
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.5.18)  5 JUN 2026 09:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1067,11 +1067,6 @@ Underfull \hbox (badness 3514) in paragraph at lines 356--356
 []|\TU/TimesNewRoman(0)/m/n/10.95 Đánh giá creative reasoning của
  []
 
-
-Underfull \hbox (badness 1215) in paragraph at lines 356--356
-[]|\TU/TimesNewRoman(0)/m/n/10.95 JSON nội bộ gồm grid, solution,
- []
-
 [7] [8]
 Chương 4.
 [9
@@ -1099,12 +1094,12 @@ File: ../cs106/evaluation/eval_outputs/per_puzzle_outcome_heatmap.png Graphic f
 ile (type bmp)
 <../cs106/evaluation/eval_outputs/per_puzzle_outcome_heatmap.png>
  [17]
-Underfull \hbox (badness 10000) in paragraph at lines 702--702
+Underfull \hbox (badness 10000) in paragraph at lines 694--694
 []|\TU/TimesNewRoman(0)/m/n/10.95 Single-prompt và một số
  []
 
 
-Underfull \hbox (badness 2556) in paragraph at lines 702--702
+Underfull \hbox (badness 2556) in paragraph at lines 694--694
 []|\TU/TimesNewRoman(0)/m/n/10.95 Các phiên giải đúng hoàn
  []
 
@@ -1120,13 +1115,13 @@ Chương 6.
 [20
 
 ] [21]
-Underfull \hbox (badness 6236) in paragraph at lines 798--801
+Underfull \hbox (badness 6236) in paragraph at lines 790--793
 []\TU/TimesNewRoman(0)/m/n/12 Jeffrey Seely, Yuki Imajuku, Tianyu Zhao, Edoardo
  Cetin, and Llion Jones.
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 798--801
+Underfull \hbox (badness 1590) in paragraph at lines 790--793
 \TU/TimesNewRoman(0)/m/it/12 Sudoku-Bench: Evaluating Creative Reasoning with S
 udoku Variants\TU/TimesNewRoman(0)/m/n/12 . Sakana AI,
  []
@@ -1139,15 +1134,15 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 65460A062B5BEA1D18DF35018093A4FD;7813.
+(rerunfilecheck)             Checksum: 6807C97D8368C5EF17CCD5AB9B3B6382;7692.
  ) 
 Here is how much of TeX's memory you used:
  27577 strings out of 402807
  544063 string characters out of 5445135
- 1150952 words of memory out of 5000000
+ 1150831 words of memory out of 5000000
  56059 multiletter control sequences out of 15000+600000
  635151 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 102i,10n,107p,617b,1819s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,10n,107p,657b,1819s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (25 pages).

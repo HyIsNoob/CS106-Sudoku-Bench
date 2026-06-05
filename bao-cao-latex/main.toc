@@ -9,9 +9,9 @@
 \contentsline {section}{\numberline {2.1}Sudoku dưới góc nhìn ràng buộc}{4}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Sudoku variants}{4}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Killer Sudoku}{5}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Break-in và suy luận sáng tạo}{5}{section.2.4}%
+\contentsline {section}{\numberline {2.4}Break-in và suy luận}{5}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Giới hạn của LLM trong suy luận ràng buộc}{5}{section.2.5}%
-\contentsline {chapter}{\numberline {3}BÀI BÁO THAM CHIẾU SUDOKU-BENCH}{6}{chapter.3}%
+\contentsline {chapter}{\numberline {3}BÀI BÁO SUDOKU-BENCH}{6}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Mục tiêu của bài báo}{6}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Thiết kế benchmark trong bài báo}{6}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Phạm vi tái hiện của nhóm}{7}{section.3.3}%

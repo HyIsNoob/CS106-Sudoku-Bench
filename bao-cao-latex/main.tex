@@ -179,13 +179,13 @@
 \addcontentsline{toc}{chapter}{TÓM TẮT}
 
 \manualindent%
-Đồ án này nghiên cứu khả năng suy luận logic của các mô hình ngôn ngữ lớn (Large Language Models -- LLMs) thông qua việc tái hiện một phần bài báo \textit{Sudoku-Bench: Evaluating Creative Reasoning with Sudoku Variants}. Thay vì kiểm tra mô hình bằng các tác vụ ngôn ngữ quen thuộc, Sudoku-Bench dùng các biến thể Sudoku có luật chặt chẽ, nghiệm kiểm chứng được và yêu cầu suy luận nhiều bước. Đây là môi trường phù hợp để đánh giá liệu LLM có thật sự duy trì được trạng thái logic nhất quán hay chỉ sinh ra lời giải nghe có vẻ hợp lý.
+Đồ án này nghiên cứu khả năng suy luận logic của các mô hình ngôn ngữ lớn (LLMs) thông qua việc tái hiện một phần bài báo \textit{Sudoku-Bench: Evaluating Creative Reasoning with Sudoku Variants}. Thay vì kiểm tra mô hình bằng các tác vụ ngôn ngữ quen thuộc, Sudoku-Bench dùng các biến thể Sudoku có luật chặt chẽ, nghiệm kiểm chứng được và yêu cầu suy luận nhiều bước. Đây là môi trường phù hợp để đánh giá liệu LLM có thật sự duy trì được trạng thái logic nhất quán hay chỉ sinh ra lời giải nghe có vẻ hợp lý.
 
 \manualindent%
-Trong phạm vi đồ án, nhóm tập trung vào biến thể Killer Sudoku. Nhóm xây dựng pipeline đánh giá tự động gồm: đọc dữ liệu JSON, tạo prompt từ luật và trạng thái lưới, gọi API Gemini, parse phản hồi, validate với nghiệm chuẩn, lưu output và tổng hợp kết quả bằng notebook evaluation. Thực nghiệm được tiến hành trên 5 bài Killer Sudoku 6x6 easy và 2 bài Killer Sudoku 9x9 hard, với bốn mô hình Gemini: Gemini 2.5 Flash, Gemini 2.5 Pro, Gemini 3.1 Flash Lite và Gemini 3.5 Flash. Nhóm đánh giá cả hai chế độ single-prompt và multi-step.
+Trong phạm vi đồ án, nhóm tập trung vào biến thể Killer Sudoku. Nhóm xây dựng pipeline đánh giá tự động gồm: đọc dữ liệu JSON, tạo prompt từ luật và trạng thái lưới, gọi API Gemini, parse phản hồi, validate với nghiệm chuẩn, lưu output và tổng hợp kết quả. Thực nghiệm được tiến hành trên 5 bài Killer Sudoku 6x6 easy và 2 bài Killer Sudoku 9x9 hard, với bốn mô hình Gemini: Gemini 2.5 Flash, Gemini 2.5 Pro, Gemini 3.1 Flash Lite và Gemini 3.5 Flash. Nhóm đánh giá cả hai chế độ single-prompt và multi-step.
 
 \manualindent%
-Kết quả cho thấy 6x6 easy là mức mà các mô hình mạnh có thể xử lý tốt: Gemini 2.5 Pro và Gemini 3.5 Flash đạt 100\% ở single-prompt 6x6, còn Gemini 3.5 Flash đạt 100\% ở multi-step 6x6. Khi mở rộng sang 9x9 hard, single-prompt giảm mạnh: chỉ Gemini 3.5 Flash giải được 1/2 bài. Ngược lại, multi-step giúp Gemini 2.5 Pro và Gemini 3.5 Flash giải đúng cả 2/2 bài 9x9, trong khi các mô hình yếu hơn bị kẹt ở lỗi \textit{No Certain Move}. Kết quả này phù hợp với tinh thần của Sudoku-Bench: các bài lớn và giàu ràng buộc giúp bộc lộ rõ hơn giới hạn của LLM trong suy luận dài hạn.
+Kết quả cho thấy 6x6 easy là mức mà các mô hình mạnh có thể xử lý tốt: Gemini 2.5 Pro đạt kết quả gần tuyệt đối (4/5) ở single-prompt 6x6 và multi-step 6x6, trong khi đó Gemini 3.5 Flash đạt 100\% ở mọi mặt trận 6x6. Khi mở rộng sang 9x9 hard, single-prompt giảm mạnh: chỉ duy nhất Gemini 3.5 Flash giải được 1/2 bài. Ngược lại, multi-step giúp Gemini 2.5 Pro và Gemini 3.5 Flash giải đúng cả 2/2 bài 9x9, trong khi các mô hình yếu hơn bị kẹt ở lỗi \textit{No Certain Move}. Kết quả này phù hợp với tinh thần của Sudoku-Bench: các bài lớn và giàu ràng buộc giúp bộc lộ rõ hơn giới hạn của LLM trong suy luận dài hạn.
 
 \manualindent%
 \textbf{Từ khóa:} Sudoku-Bench, Killer Sudoku, Large Language Models, logical reasoning, multi-step reasoning, evaluation benchmark.
@@ -201,7 +201,7 @@ Kết quả cho thấy 6x6 easy là mức mà các mô hình mạnh có thể x�
 Các mô hình ngôn ngữ lớn hiện nay thể hiện năng lực ấn tượng trong nhiều tác vụ như trả lời câu hỏi, sinh văn bản, hỗ trợ lập trình và giải thích kiến thức. Tuy nhiên, thành công trên các tác vụ ngôn ngữ không đồng nghĩa với việc mô hình có khả năng suy luận logic một cách bền vững. Một câu trả lời có thể nghe hợp lý nhưng vẫn sai về mặt hình thức, đặc biệt trong các bài toán có ràng buộc nghiêm ngặt.
 
 \manualindent%
-Trong các bài toán thỏa mãn ràng buộc, mỗi quyết định trung gian phải nhất quán với toàn bộ trạng thái hiện tại. Một bước sai có thể làm cho các bước sau trở nên vô nghĩa, dù phần giải thích vẫn có vẻ thuyết phục. Đây là điểm khác biệt quan trọng giữa \textit{sinh lập luận} và \textit{duy trì một lời giải đúng}. Vì vậy, cần có các benchmark mà kết quả cuối có thể được kiểm chứng khách quan.
+Trong các bài toán thỏa mãn ràng buộc, mỗi quyết định trung gian phải nhất quán với toàn bộ trạng thái hiện tại. Một bước sai có thể làm cho các bước sau trở nên vô nghĩa, dù phần giải thích vẫn có vẻ thuyết phục. Đây là điểm khác biệt quan trọng giữa \textit{lập luận} và \textit{duy trì một lời giải đúng}. Vì vậy, cần có các benchmark mà kết quả cuối có thể được kiểm chứng khách quan.
 
 \manualindent%
 Sudoku và các biến thể Sudoku là môi trường phù hợp cho mục tiêu này. Một lời giải Sudoku không chỉ cần đầy đủ mà còn phải đồng thời thỏa mãn luật hàng, cột, vùng và các ràng buộc bổ sung. Đặc biệt, các Sudoku variants thường có lưới ban đầu rất ít dữ kiện, buộc người giải phải tìm ra các điểm đột phá logic ban đầu, hay còn gọi là \textit{break-in}. Bài báo Sudoku-Bench khai thác đặc điểm này để đánh giá năng lực suy luận sáng tạo của LLM \cite{sudoku-bench}.
@@ -211,16 +211,16 @@ Sudoku và các biến thể Sudoku là môi trường phù hợp cho mục tiê
 Đồ án có bốn mục tiêu chính:
 
 \begin{enumerate}[label=\arabic*.]
-  \item Trình bày lý thuyết liên quan đến Sudoku variants, Killer Sudoku, suy luận logic nhiều bước và thiết kế benchmark trong bài báo Sudoku-Bench.
+  \item Trình bày lý thuyết liên quan đến Sudoku variants, đặc biệt là Killer Sudoku, suy luận logic nhiều bước và thiết kế benchmark trong bài báo Sudoku-Bench.
   \item Tái hiện một phần quy trình đánh giá của bài báo bằng một pipeline thực nghiệm có thể đọc đề, gọi LLM, parse phản hồi và validate tự động.
-  \item Benchmark nhiều mô hình Gemini trên hai chế độ single-prompt và multi-step, với dữ liệu 6x6 và 9x9.
+  \item Benchmark nhiều mô hình Gemini trên hai chế độ single-prompt và multi-step, với dữ liệu map 6x6 và 9x9.
   \item Phân tích kết quả, phân loại lỗi, so sánh với tinh thần của bài báo gốc và nêu giới hạn của thực nghiệm trong phạm vi đồ án.
 \end{enumerate}
 
 \section{Phạm vi và đóng góp}
 
 \manualindent%
-Trọng tâm của đồ án là thuyết trình và tái hiện một phần bài báo tham chiếu, không bắt buộc phải xây dựng một thuật toán CSP thuần túy. Vì vậy, nhóm không cài đặt solver Sudoku truyền thống để giải hộ mô hình. Các khái niệm về ràng buộc chỉ được dùng như nền tảng lý thuyết để giải thích vì sao Sudoku variants là một benchmark phù hợp cho LLM. Trong thực nghiệm, mô hình nhận luật và trạng thái bài toán bằng ngôn ngữ, sau đó phải tự đưa ra lời giải hoặc bước đi. Hệ thống của nhóm chỉ đóng vai trò tạo prompt, ghi log và kiểm chứng kết quả.
+Trọng tâm của đồ án là tái hiện một phần bài báo tham chiếu, không bắt buộc phải xây dựng một thuật toán CSP thông thường. Vì vậy, nhóm không cài đặt solver Sudoku truyền thống để giải hộ mô hình. Các khái niệm về ràng buộc chỉ được dùng như nền tảng lý thuyết để giải thích vì sao Sudoku variants là một benchmark phù hợp cho LLM. Trong thực nghiệm, mô hình nhận luật và trạng thái bài toán bằng ngôn ngữ, sau đó phải tự đưa ra lời giải hoặc bước đi. Hệ thống của nhóm chỉ đóng vai trò tạo prompt, ghi log và kiểm chứng kết quả.
 
 Phạm vi thực nghiệm gồm:
 
@@ -232,7 +232,7 @@ Phạm vi thực nghiệm gồm:
   \item Đánh giá: solve rate, final status, error type, average correct placements, số bước và thời gian chạy single-prompt.
 \end{itemize}
 
-Đóng góp của nhóm nằm ở việc tái hiện rút gọn một benchmark nghiên cứu, xây dựng pipeline đánh giá có validator và log, đồng thời phân tích thực nghiệm theo nhiều kích thước lưới và nhiều mức năng lực mô hình.
+Đóng góp của nhóm nằm ở việc tái hiện rút gọn một benchmark nghiên cứu, xây dựng pipeline đánh giá có kiểm chứng và log, đồng thời phân tích thực nghiệm theo nhiều kích thước lưới và nhiều mức năng lực mô hình.
 
 \section{Cấu trúc báo cáo}
 
@@ -284,10 +284,10 @@ Killer Sudoku kết hợp luật Sudoku chuẩn với các cage. Mỗi cage gồ
 \manualindent%
 Ràng buộc cage tạo ra các phương trình số học cục bộ, nhưng lời giải cuối vẫn phụ thuộc vào tính nhất quán toàn cục. Đây là điểm khiến Killer Sudoku phù hợp để đánh giá LLM: mô hình phải vừa tính tổ hợp số, vừa duy trì trạng thái của nhiều hàng, cột, vùng và cage.
 
-\section{Break-in và suy luận sáng tạo}
+\section{Break-in và suy luận}
 
 \manualindent%
-Nhiều Sudoku variants không thể bắt đầu bằng một bước hiển nhiên. Người giải cần tìm một \textit{break-in}: một điểm suy luận ban đầu giúp thu hẹp không gian nghiệm và mở khóa các bước tiếp theo. Break-in thường xuất hiện từ tương tác tinh tế giữa nhiều ràng buộc, chứ không chỉ từ một luật đơn lẻ.
+Nhiều Sudoku variants không thể bắt đầu bằng một bước hiển nhiên. Để giải thì cần tìm một \textit{break-in}: một điểm suy luận ban đầu giúp thu hẹp không gian nghiệm và mở khóa các bước tiếp theo. Break-in thường xuất hiện từ nhiều ràng buộc, chứ không chỉ từ một luật đơn lẻ.
 
 \manualindent%
 Theo Sudoku-Bench, chính yêu cầu tìm break-in làm cho Sudoku variants trở thành benchmark tốt cho creative reasoning. Mô hình không thể chỉ dựa vào mẫu Sudoku chuẩn; nó phải hiểu luật mới và phát hiện cách các luật kết hợp với nhau.
@@ -303,7 +303,7 @@ Trong bối cảnh Sudoku, lỗi nhỏ này rất nghiêm trọng. Nếu mô hì
 % =========================
 % Chapter 3
 % =========================
-\chapter{BÀI BÁO THAM CHIẾU SUDOKU-BENCH}
+\chapter{BÀI BÁO SUDOKU-BENCH}
 
 \section{Mục tiêu của bài báo}
 
@@ -347,8 +347,8 @@ Nhóm không tái hiện toàn bộ 100 puzzle và toàn bộ tập model của 
     \midrule
     Mục tiêu & Đánh giá creative reasoning của LLM trên Sudoku variants & Tái hiện rút gọn việc đánh giá suy luận ràng buộc của LLM trên Killer Sudoku \\
     Dữ liệu & 100 puzzle tuyển chọn, nhiều variant và mức khó & 5 puzzle 6x6 easy, 2 puzzle 9x9 hard \\
-    Biến thể & Nhiều luật như arrow, thermometer, knight move, killer, meta-constraints & Tập trung Killer Sudoku để kiểm soát phạm vi \\
-    Biểu diễn & Text representation chuẩn hóa, có công cụ tương tác SudokuPad & JSON nội bộ gồm grid, solution, cages và prompt text \\
+    Biến thể & Nhiều luật như arrow, thermometer, knight move, killer, meta-constraints & Tập trung Killer Sudoku \\
+    Biểu diễn & Text representation chuẩn hóa, có công cụ tương tác SudokuPad & JSON gồm grid, solution, cages và prompt text \\
     Chế độ & Single-shot và multi-step & Single-prompt và multi-step \\
     Model & Nhiều LLM thương mại/mã nguồn mở & 4 model Gemini \\
     Đánh giá & Solve rate, lỗi, phân tích quá trình & Solve rate, status, error type, correct placements, thời gian single-prompt \\
@@ -405,7 +405,7 @@ Dataset của nhóm gồm 7 puzzle Killer Sudoku. Các puzzle được lưu tron
 \end{table}
 
 \manualindent%
-Nhóm không dùng 4x4 làm tập chính vì kích thước này quá nhỏ và dễ bị giải trọn vẹn bằng single-prompt, khó tạo khác biệt rõ giữa các mô hình. Ngược lại, 9x9 có chi phí cao nên chỉ dùng 2 puzzle hard để kiểm tra khả năng mở rộng.
+Nhóm không dùng 4x4 để thực nghiệm vì kích thước này quá nhỏ và dễ bị giải một cách hoàn toàn bằng single-prompt, khó tạo khác biệt rõ giữa các mô hình. Ngược lại, 9x9 có chi phí cao nên chỉ dùng 2 puzzle hard để kiểm tra khả năng mở rộng.
 
 \section{Mô hình được đánh giá}
 
@@ -416,28 +416,28 @@ Nhóm không dùng 4x4 làm tập chính vì kích thước này quá nhỏ và 
     \toprule
     Mô hình & Vai trò trong thực nghiệm \\
     \midrule
-    Gemini 2.5 Flash & Model nhanh, chi phí thấp hơn, dùng làm baseline thực dụng \\
+    Gemini 2.5 Flash & Model nhanh, chi phí thấp \\
     Gemini 2.5 Pro & Model mạnh hơn trong dòng 2.5, kỳ vọng suy luận tốt hơn \\
-    Gemini 3.1 Flash Lite & Model nhẹ hơn, dùng như baseline yếu \\
-    Gemini 3.5 Flash & Model mới/mạnh hơn trong tập thử nghiệm, dùng để kiểm tra cải thiện hiệu năng \\
+    Gemini 3.1 Flash Lite & Model nhẹ hơn, baseline yếu \\
+    Gemini 3.5 Flash & Model mới và mạnh nhất, tốt nhất về mọi mặt \\
     \bottomrule
   \end{tabularx}
 \end{table}
 
 \manualindent%
-Các lượt gọi được cấu hình với nhiệt độ thấp để giảm tính ngẫu nhiên. Output được yêu cầu ở dạng JSON để parser có thể xử lý tự động.
+Các lượt gọi được cấu hình với temperature thấp để giảm tính ngẫu nhiên. Output được yêu cầu ở dạng JSON để parser có thể xử lý tự động.
 
 \section{Single-prompt evaluation}
 
 \manualindent%
-Ở chế độ single-prompt, mô hình nhận toàn bộ luật, board ban đầu, danh sách cage và cheat sheet trong một prompt duy nhất. Mô hình phải trả về một grid hoàn chỉnh. Parser đọc grid này và validator so sánh trực tiếp với nghiệm chuẩn. Chế độ này có ưu điểm là ít lượt gọi API và thời gian chạy thấp hơn, nhưng khi mô hình fail, hệ thống khó biết lỗi xuất hiện ở bước suy luận nào.
+Ở chế độ single-prompt, mô hình nhận toàn bộ luật, board ban đầu, danh sách cage và cheat sheet trong một prompt duy nhất. Mô hình phải trả về một grid hoàn chỉnh. Parser đọc grid này và validator so sánh trực tiếp với nghiệm chuẩn. Chế độ này có ưu điểm là ít lượt gọi API và thời gian chạy thấp hơn, nhưng khi mô hình fail, hệ thống không thể biết lỗi xuất hiện ở bước suy luận nào.
 
 \section{Multi-step evaluation}
 
 Ở chế độ multi-step, mô hình không trả lời toàn bộ grid ngay lập tức. Mỗi vòng gồm hai giai đoạn:
 
 \begin{enumerate}[label=\arabic*.]
-  \item \textbf{Analysis}: mô hình phân tích trạng thái hiện tại, các ràng buộc và ứng viên.
+  \item \textbf{Analysis}: mô hình phân tích trạng thái hiện tại, các ràng buộc và các ứng viên.
   \item \textbf{Fill}: mô hình chọn đúng một ô để điền, trả về ô, giá trị, reasoning và trạng thái chắc chắn.
 \end{enumerate}
 
@@ -457,15 +457,7 @@ Một phản hồi fill hợp lệ có dạng:
 }
 \end{lstlisting}
 
-Validator kiểm tra:
-
-\begin{itemize}
-  \item Ô được chọn có nằm trong board và còn trống không;
-  \item Giá trị có nằm trong miền hợp lệ không;
-  \item Giá trị có khớp với nghiệm chuẩn không;
-  \item Trạng thái hiện tại có còn nhất quán với nghiệm chuẩn không;
-  \item Grid cuối có giải đúng hoàn toàn không.
-\end{itemize}
+Validator kiểm tra xem bước vừa đi của mô hình có đúng với nghiệm chuẩn không? Vì Killer Sudoku chỉ có duy nhất một nghiệm chuẩn, không thể có các đáp án khác nên việc so sánh trực tiếp với nghiệm chuẩn là hợp lí.
 
 \section{Cheat sheet Killer Sudoku}
 
@@ -481,7 +473,7 @@ Cheat sheet cung cấp các tổ hợp cage hợp lệ theo kích thước cage 
 \end{figure}
 
 \manualindent%
-Kết quả cuối được lưu thành JSON log hoặc result JSON, sau đó notebook evaluation tổng hợp thành các file CSV và biểu đồ.
+Kết quả cuối được lưu thành JSON log, sau đó tổng hợp thành các file CSV và biểu đồ.
 
 \section{Các thành phần cài đặt quan trọng}
 
@@ -543,7 +535,7 @@ return Success
 \subsection{Validator}
 
 \manualindent%
-Validator là thành phần cốt lõi của pipeline vì nó tách phần đánh giá khỏi phần sinh câu trả lời của LLM. Validator không gợi ý bước đi, không loại ứng viên và không sửa lỗi cho mô hình. Nó chỉ kiểm tra phản hồi sau khi mô hình đã đưa ra quyết định.
+Validator tách phần đánh giá khỏi phần sinh câu trả lời của LLM. Validator không gợi ý bước đi, không loại ứng viên và không sửa lỗi cho mô hình. Nó chỉ kiểm tra phản hồi sau khi mô hình đã đưa ra quyết định.
 
 \begin{lstlisting}[style=promptstyle]
 function validate_current_state(solution, current_board):
