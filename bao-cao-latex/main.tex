@@ -64,14 +64,29 @@
 
 \newcommand{\universitylogo}{%
   \IfFileExists{uit.png}{%
-    \includegraphics[height=2.7cm]{uit.png}%
+    \includegraphics[height=3.15cm]{uit.png}%
   }{%
     \begin{tikzpicture}
-      \draw[line width=0.6pt, color=uitblue] (0,0) rectangle (3.2,2.6);
-      \node[align=center, color=uitblue, font=\bfseries\small] at (1.6,1.3)
+      \draw[line width=0.6pt, color=uitblue] (0,0) rectangle (3.6,2.9);
+      \node[align=center, color=uitblue, font=\bfseries\small] at (1.8,1.45)
       {LOGO\\UIT};
     \end{tikzpicture}%
   }%
+}
+
+\newcommand{\coverornament}{%
+  \begin{tikzpicture}[x=0.58cm,y=0.58cm]
+    \draw[line width=0.35pt,color=darkgray] (-4.4,0) -- (-2.7,0);
+    \draw[line width=0.35pt,color=darkgray] (2.7,0) -- (4.4,0);
+    \draw[line width=0.55pt,color=uitblue]
+      (-2.3,-0.05) -- (-1.25,0.55) -- (-0.25,-0.18) -- (0.85,0.48) -- (2.05,-0.02);
+    \draw[line width=0.35pt,color=darkgray]
+      (-0.25,-0.18) -- (-0.75,-0.62)
+      (-0.25,-0.18) -- (0.42,-0.65)
+      (0.85,0.48) -- (1.35,0.82);
+    \foreach \x/\y in {-2.3/-0.05,-1.25/0.55,-0.25/-0.18,0.85/0.48,2.05/-0.02,-0.75/-0.62,0.42/-0.65,1.35/0.82}
+      \fill[draw=uitblue,fill=white,line width=0.45pt] (\x,\y) circle (0.11);
+  \end{tikzpicture}%
 }
 
 \newcommand{\placeholderfigure}[1]{%
@@ -118,40 +133,52 @@
   \setlength{\parskip}{0pt}
   \coverborder
   \centering
-  \vspace*{0.35cm}
+  \vspace*{0.08cm}
 
-  {\bfseries\Large TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN}\\
-  {\bfseries\large ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}\\
-  {\bfseries\large KHOA KHOA HỌC MÁY TÍNH}
+  {\bfseries\Large TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN\par}
+  \vspace{0.08cm}
+  {\bfseries\Large ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\par}
+  \vspace{0.08cm}
+  {\bfseries\Large KHOA KHOA HỌC MÁY TÍNH\par}
 
-  \vspace{0.45cm}
-  \IfFileExists{uit.png}{\includegraphics[height=2.1cm]{uit.png}}{\universitylogo}
+  \vspace{0.42cm}
+  \universitylogo
 
-  \vspace{0.6cm}
+  \vspace{0.48cm}
 
-  {\bfseries\Large BÁO CÁO ĐỒ ÁN CUỐI KỲ}\\[0.25cm]
-  {\bfseries\large MÔN HỌC: CS106 - TRÍ TUỆ NHÂN TẠO}
+  {\bfseries\fontsize{18}{22}\selectfont BÁO CÁO ĐỒ ÁN CUỐI KỲ\par}
+  \vspace{0.18cm}
+  {\bfseries\fontsize{14}{18}\selectfont MÔN HỌC: CS106 - TRÍ TUỆ NHÂN TẠO\par}
 
-  \vspace{0.85cm}
+  \vspace{0.62cm}
 
-  \begin{minipage}{0.9\textwidth}
+  \begin{minipage}{0.94\textwidth}
     \centering
-    {\bfseries\large\color{uitblue} \projecttitle}
+    {\bfseries\fontsize{18}{23}\selectfont\color{uitblue} \projecttitle}
   \end{minipage}
 
-  \vspace{0.85cm}
+  \vspace{0.64cm}
 
+  \begingroup
   \small
-  \begin{tabular}{>{\bfseries}p{4.6cm}p{8.2cm}}
+  \renewcommand{\arraystretch}{1.18}
+  \makebox[\textwidth][c]{%
+  \begin{tabular}{@{}>{\bfseries}p{4.35cm}p{8.35cm}@{}}
     Giảng viên hướng dẫn: & Lương Ngọc Hoàng \\
     Nhóm thực hiện: & Nhóm 4 \\
-    Bài báo tham chiếu: & Sudoku-Bench: Evaluating Creative Reasoning with Sudoku Variants \\
+    Bài báo tham chiếu: & \textit{Sudoku-Bench: Evaluating Creative Reasoning with Sudoku Variants} \\
     Thời gian thực hiện: & 05/2026 \\
-  \end{tabular}
+  \end{tabular}%
+  }
+  \endgroup
 
-  \vspace{0.55cm}
+  \vspace{0.28cm}
 
-  \begin{tabular}{clc}
+  \begingroup
+  \small
+  \renewcommand{\arraystretch}{1.16}
+  \makebox[\textwidth][c]{%
+  \begin{tabular}{@{}>{\centering\arraybackslash}p{1.2cm}p{7.2cm}>{\centering\arraybackslash}p{3.0cm}@{}}
     \toprule
     STT & Họ và tên & MSSV \\
     \midrule
@@ -160,10 +187,15 @@
     3 & Phạm Minh Bảo Khang & 23520705 \\
     4 & Nguyễn Khang Hy & 23520662 \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}%
+  }
+  \endgroup
 
-  \vspace{0.6cm}
-  {\bfseries TP. Hồ Chí Minh, tháng 05 năm 2026}
+  \vspace{0.36cm}
+  \coverornament
+
+  \vfill
+  \makebox[\textwidth][c]{\bfseries TP. Hồ Chí Minh, tháng 05 năm 2026}
   \endgroup
 \end{titlepage}
 
