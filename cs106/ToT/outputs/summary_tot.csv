@@ -1,0 +1,5 @@
+mode,grid_size,total_runs,solved,solve_rate_pct,avg_time_seconds,avg_steps
+multi-prompt,6,5,2,40.0,772.6940521240234,17.0
+multi-prompt,9,2,0,0.0,62.40368103981018,1.0
+single-prompt,6,5,5,100.0,96.07176275253296,3.8
+single-prompt,9,2,2,100.0,188.46742641925812,11.0

@@ -1,0 +1,15 @@
+mode,puzzle_id,difficulty,grid_size,model,status,is_solved,time_seconds,steps
+multi-prompt,1,easy,6,gemini-3.1-flash-lite,Failed,False,97.82134747505188,2
+multi-prompt,2,easy,6,gemini-3.1-flash-lite,Success,True,1064.101147890091,43
+multi-prompt,3,easy,6,gemini-3.1-flash-lite,Failed,False,21.711227655410767,0
+multi-prompt,4,easy,6,gemini-3.1-flash-lite,Success,True,1614.085372209549,36
+multi-prompt,5,easy,6,gemini-3.1-flash-lite,Failed,False,1065.7511653900146,4
+multi-prompt,6,hard,9,gemini-3.1-flash-lite,Failed,False,85.01964902877808,2
+multi-prompt,7,hard,9,gemini-3.1-flash-lite,Failed,False,39.787713050842285,0
+single-prompt,1,easy,6,gemini-3.1-flash-lite,Success,True,248.87628936767578,5
+single-prompt,2,easy,6,gemini-3.1-flash-lite,Success,True,57.5823712348938,5
+single-prompt,3,easy,6,gemini-3.1-flash-lite,Success,True,62.93065571784973,3
+single-prompt,4,easy,6,gemini-3.1-flash-lite,Success,True,65.20633125305176,4
+single-prompt,5,easy,6,gemini-3.1-flash-lite,Success,True,45.763166189193726,2
+single-prompt,6,hard,9,gemini-3.1-flash-lite,Success,True,162.8599832057953,16
+single-prompt,7,hard,9,gemini-3.1-flash-lite,Success,True,214.07486963272095,6
